@@ -1,10 +1,7 @@
-﻿using System;
+﻿using ServicioTerreno.Model;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace ServicioTerreno
 {
@@ -12,36 +9,76 @@ namespace ServicioTerreno
     [ServiceContract]
     public interface IService1
     {
-
+        //Registrar
         [OperationContract]
-        string GetData(int value);
-
+        Boolean RegistrarPredio(Predio predio);
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        Boolean RegistrarManzana(Manzana manzana);
+        [OperationContract]
+        Boolean RegistrarLote(Lote lote);
+        [OperationContract]
+        Boolean RegistrarContrato(Contrato contrato);
+        [OperationContract]
+        Boolean RegistrarPago(Pago pago);
+        [OperationContract]
+        Boolean RegistrarPersona(Persona persona);
 
-        // TODO: agregue aquí sus operaciones de servicio
-    }
+        //Modificar
+        [OperationContract]
+        Boolean ModificarPredio(Predio predio);
+        [OperationContract]
+        Boolean ModificarManzana(Manzana manzana);
+        [OperationContract]
+        Boolean ModificarLote(Lote lote);
+        [OperationContract]
+        Boolean ModificarContratoLote(int IdContrato);
+        [OperationContract]
+        Boolean ModificarContrato(Contrato contrato);
+        [OperationContract]
+        Boolean ModificarPago(Pago pago);
+        [OperationContract]
+        Boolean ModificarPersona(Persona persona);
+
+        //Eliminar
+        [OperationContract]
+        Boolean EliminarPredio(int idPredio);
+        [OperationContract]
+        Boolean EliminarManzana(int idManzana);
+        [OperationContract]
+        Boolean EliminarLote(int idLote);
+        [OperationContract]
+        Boolean EliminarContrato(int idContrato);
+        [OperationContract]
+        Boolean EliminarPago(int idPago);
+        [OperationContract]
+        Boolean EliminarPersona(int idPersona);
+
+        //Consultar
+        [OperationContract]
+        List<Predio> ListarPredio();
+        [OperationContract]
+        List<Manzana> ListarManzana(int IdPredio);
+        [OperationContract]
+        List<Lote> ListarLoteManzana(int IdManzana);
+        [OperationContract]
+        List<Lote> ListarLoteContrato(int IdContrato);
+        [OperationContract]
+        List<Contrato> ListarContrato();
+        [OperationContract]
+        Contrato BuscarContrato(int IdContrato);
+        [OperationContract]
+        List<Pago> ListarPago();
+        [OperationContract]
+        List<Pago> ListarPagoContrato(int IdContrato);
+        [OperationContract]
+        List<Persona> ListarPersona();
+        [OperationContract]
+        List<TipoPago> ListarTipoPago();
 
 
-    // Utilice un contrato de datos, como se ilustra en el ejemplo siguiente, para agregar tipos compuestos a las operaciones de servicio.
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
 
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        //Login 
+        [OperationContract]
+        Usuario Login(string usuario, string contraseña);
     }
 }

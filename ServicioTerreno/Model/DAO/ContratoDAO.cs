@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace ServicioTerreno.Model.DAO
 {
     public class ContratoDAO
     {
-        public Boolean RegistrarContrato(Contrato contrato)
+        public static Boolean RegistrarContrato(Contrato contrato)
         {
             try
             {
@@ -21,7 +20,7 @@ namespace ServicioTerreno.Model.DAO
                 return false;
             }
         }
-        public Boolean ModificarContrato(Contrato contrato)
+        public static Boolean ModificarContrato(Contrato contrato)
         {
             try
             {
@@ -64,19 +63,61 @@ namespace ServicioTerreno.Model.DAO
             try
             {
                 DataClassesTerrenosDataContext DBConexion = GetConexion();
-                return DBConexion.Contrato.Where(p => p.IdContrato == idContrato).First();
+                IQueryable<Contrato> consulta = DBConexion.Contrato.Where(p => p.IdContrato == idContrato);
+                if(consulta.Count() > 0)
+                {
+                    Contrato contrato = consulta.First();
+                    return new Contrato()
+                    {
+                        IdContrato = contrato.IdContrato,
+                        TipoPago = contrato.TipoPago,
+                        Costo = contrato.Costo,
+                        IdCliente = contrato.IdCliente,
+                        Testigo1 = contrato.Testigo1,
+                        Testigo2 = contrato.Testigo2,
+                        FechaContrato = contrato.FechaContrato,
+                        TipoFecha = contrato.TipoFecha
+                    };
+                }
+                else
+                {
+                    return null;
+                }               
             }
             catch (Exception)
             {
                 return null;
             }
         }
-        public static List<Contrato> ListarContrato()
+        public static List<Contrato> ConsultarContrato()
         {
             try
             {
                 DataClassesTerrenosDataContext DBConexion = GetConexion();
-                return DBConexion.Contrato.ToList();
+                List<Contrato> contratos = new List<Contrato>();
+                IQueryable<Contrato> consulta = DBConexion.Contrato;
+                if(consulta != null)
+                {
+                    foreach (Contrato contrato in consulta)
+                    {
+                        contratos.Add(new Contrato()
+                        {
+                            IdContrato = contrato.IdContrato,
+                            TipoPago = contrato.TipoPago,
+                            Costo = contrato.Costo,
+                            IdCliente = contrato.IdCliente,
+                            Testigo1 = contrato.Testigo1,
+                            Testigo2 = contrato.Testigo2,
+                            FechaContrato = contrato.FechaContrato,
+                            TipoFecha = contrato.TipoFecha
+                        });
+                    }
+                    return contratos;
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception)
             {

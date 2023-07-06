@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace ServicioTerreno.Model.DAO
 {
     public class ManzanaDAO
     {
-        public Boolean RegistrarManzana(Manzana manzana)
+        public static Boolean RegistrarManzana(Manzana manzana)
         {
             try
             {
@@ -21,7 +20,7 @@ namespace ServicioTerreno.Model.DAO
                 return false;
             }
         }
-        public Boolean ModificarManzana(Manzana manzana)
+        public static Boolean ModificarManzana(Manzana manzana)
         {
             try
             {
@@ -40,7 +39,7 @@ namespace ServicioTerreno.Model.DAO
                 return false;
             }
         }
-        public Boolean EliminarManzana(int idManzana)
+        public static Boolean EliminarManzana(int idManzana)
         {
             try
             {
@@ -53,6 +52,36 @@ namespace ServicioTerreno.Model.DAO
             catch (Exception)
             {
                 return false;
+            }
+        }
+        public static List<Manzana> ConsultarManzana(int IdPredio)
+        {
+            try
+            {
+                DataClassesTerrenosDataContext DBConexion = GetConexion();
+                List<Manzana> manzanas = new List<Manzana>();
+                IQueryable<Manzana> consulta = DBConexion.Manzana.Where(p => p.IdPredio == IdPredio);
+                if(consulta != null)
+                {
+                    foreach (Manzana pago in consulta)
+                    {
+                        manzanas.Add(new Manzana()
+                        {
+                            IdManzana = pago.IdManzana,
+                            NoManzana = pago.NoManzana,
+                            IdPredio = pago.IdPredio
+                        });
+                    }
+                    return manzanas;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
 

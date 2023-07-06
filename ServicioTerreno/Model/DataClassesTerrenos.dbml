@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Terrenos" Class="DataClassesTerrenosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Table Name="dbo.Contrato" Member="Contrato">
     <Type Name="Contrato">
-      <Column Name="IdContrato" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdContrato" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TipoPago" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="Costo" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="IdCliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -18,7 +18,7 @@
   </Table>
   <Table Name="dbo.Lote" Member="Lote">
     <Type Name="Lote">
-      <Column Name="IdLote" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdLote" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="NoLote" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Superficie" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="IdManzana" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -29,7 +29,7 @@
   </Table>
   <Table Name="dbo.Manzana" Member="Manzana">
     <Type Name="Manzana">
-      <Column Name="IdManzana" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdManzana" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="NoManzana" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="IdPredio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Manzana_Lote" Member="Lote" ThisKey="IdManzana" OtherKey="IdManzana" Type="Lote" />
@@ -38,7 +38,7 @@
   </Table>
   <Table Name="dbo.Pago" Member="Pago">
     <Type Name="Pago">
-      <Column Name="IdPago" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdPago" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="FechaPago" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="CantidadPago" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="IdContrato" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -49,7 +49,7 @@
   </Table>
   <Table Name="dbo.Persona" Member="Persona">
     <Type Name="Persona">
-      <Column Name="IdPersona" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdPersona" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Nombre" Type="System.String" DbType="VarChar(55) NOT NULL" CanBeNull="false" />
       <Column Name="ApellidoPaterno" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
       <Column Name="ApellidoMaterno" Type="System.String" DbType="VarChar(70)" CanBeNull="true" />
@@ -63,7 +63,7 @@
   </Table>
   <Table Name="dbo.Predio" Member="Predio">
     <Type Name="Predio">
-      <Column Name="IdPredio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdPredio" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Ubicacion" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Association Name="Predio_Manzana" Member="Manzana" ThisKey="IdPredio" OtherKey="IdPredio" Type="Manzana" />
@@ -71,14 +71,14 @@
   </Table>
   <Table Name="dbo.TipoPago" Member="TipoPago">
     <Type Name="TipoPago">
-      <Column Name="IdTipoPago" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdTipoPago" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Descripcion" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Association Name="TipoPago_Pago" Member="Pago" ThisKey="IdTipoPago" OtherKey="IdTipoPago" Type="Pago" />
     </Type>
   </Table>
   <Table Name="dbo.Usuario" Member="Usuario">
     <Type Name="Usuario">
-      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Usuario" Member="Usuario1" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="Contraseña" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="IdPersona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />

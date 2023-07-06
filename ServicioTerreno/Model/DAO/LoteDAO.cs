@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace ServicioTerreno.Model.DAO
 {
@@ -71,7 +70,68 @@ namespace ServicioTerreno.Model.DAO
                 return false;
             }
         }
-
+        public static List<Lote> ConsultarLoteManzana(int IdManzana)
+        {
+            try
+            {
+                DataClassesTerrenosDataContext DBConexion = GetConexion();
+                List<Lote> lotes = new List<Lote>();
+                IQueryable<Lote> Consultar = DBConexion.Lote.Where(p => p.Manzana.IdManzana == IdManzana);
+                if (Consultar != null)
+                {
+                    foreach (Lote lote in Consultar)
+                    {
+                        lotes.Add(new Lote()
+                        {
+                            IdLote = lote.IdLote,
+                            NoLote = lote.NoLote,
+                            Superficie = lote.Superficie,
+                            IdContrato = lote.IdContrato,
+                        });
+                    }
+                    return lotes;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public static List<Lote> ConsultarLoteContrato(int IdContrato)
+        {
+            try
+            {
+                DataClassesTerrenosDataContext DBConexion = GetConexion();
+                List<Lote> lotes = new List<Lote>();
+                IQueryable<Lote> Consultar = DBConexion.Lote.Where(p => p.IdContrato == IdContrato);
+                if (Consultar != null)
+                {
+                    foreach (Lote lote in Consultar)
+                    {
+                        lotes.Add(new Lote()
+                        {
+                            IdLote = lote.IdLote,
+                            NoLote = lote.NoLote,
+                            Superficie = lote.Superficie,
+                            IdContrato = lote.IdContrato,
+                        });
+                    }
+                    return lotes;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public static DataClassesTerrenosDataContext GetConexion()
         {

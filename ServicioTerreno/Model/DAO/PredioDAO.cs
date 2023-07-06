@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace ServicioTerreno.Model.DAO
 {
@@ -39,8 +38,52 @@ namespace ServicioTerreno.Model.DAO
                 return false;
             }
         }
-
-
+        public static Boolean EliminarPredio(int idPredio)
+        {
+            try
+            {
+                DataClassesTerrenosDataContext DBConexion = GetConexion();
+                Predio predioEliminar = DBConexion.Predio.Where(p => p.IdPredio == idPredio).First();
+                DBConexion.Predio.DeleteOnSubmit(predioEliminar);
+                DBConexion.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        public static List<Predio> ConsultarPredio()
+        {
+            try
+            {
+                DataClassesTerrenosDataContext DBConexion = GetConexion();
+                List<Predio> predios = new List<Predio>();
+                IQueryable<Predio> predio = DBConexion.Predio;
+                
+                if (predio != null)
+                {
+                    foreach (Predio prediosConsulta in predio)
+                    {
+                        predios.Add(new Predio()
+                        {
+                            IdPredio = prediosConsulta.IdPredio,
+                            Nombre = prediosConsulta.Nombre,
+                            Ubicacion = prediosConsulta.Ubicacion
+                        });
+                    }
+                    return predios;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public static DataClassesTerrenosDataContext GetConexion()
         {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace ServicioTerreno.Model.DAO
 {
@@ -60,19 +59,59 @@ namespace ServicioTerreno.Model.DAO
             try
             {
                 DataClassesTerrenosDataContext DBConexion = GetConexion();
-                return DBConexion.Pago.ToList();
+                List<Pago> pagos = new List<Pago>();
+                IQueryable<Pago> consulta = DBConexion.Pago;
+                if(consulta != null)
+                {
+                    foreach (Pago pago in consulta)
+                    {
+                        pagos.Add(new Pago()
+                        {
+                            IdPago = pago.IdPago,
+                            FechaPago = pago.FechaPago,
+                            CantidadPago = pago.CantidadPago,
+                            IdContrato = pago.IdContrato,
+                            IdTipoPago = pago.IdTipoPago
+                        });
+                    }
+                    return pagos;
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception)
             {
                 return null;
             }
         }
-        public static Pago BuscarPago(int idPago)
+        public static List<Pago> BuscarPagoContrato(int IdContrato)
         {
             try
             {
                 DataClassesTerrenosDataContext DBConexion = GetConexion();
-                return DBConexion.Pago.Where(p => p.IdPago == idPago).First();
+                List<Pago> pagos = new List<Pago>();
+                IQueryable<Pago> consulta = DBConexion.Pago.Where(p => p.IdContrato == IdContrato);
+                if (consulta != null)
+                {
+                    foreach (Pago pago in consulta)
+                    {
+                        pagos.Add(new Pago()
+                        {
+                            IdPago = pago.IdPago,
+                            FechaPago = pago.FechaPago,
+                            CantidadPago = pago.CantidadPago,
+                            IdContrato = pago.IdContrato,
+                            IdTipoPago = pago.IdTipoPago
+                        });
+                    }
+                    return pagos;
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception)
             {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace ServicioTerreno.Model.DAO
 {
@@ -77,15 +76,35 @@ namespace ServicioTerreno.Model.DAO
             try
             {
                 DataClassesTerrenosDataContext DBConexion = GetConexion();
-                List<Persona> personas = DBConexion.Persona.ToList();
-                return personas;
+                List<Persona> personas = new List<Persona>();
+                IQueryable<Persona> Consulta = DBConexion.Persona;
+                if(Consulta != null)
+                {
+                    foreach (Persona persona in Consulta)
+                    {
+                        personas.Add(new Persona()
+                        {
+                            IdPersona = persona.IdPersona,
+                            Nombre = persona.Nombre,
+                            ApellidoPaterno = persona.ApellidoPaterno,
+                            ApellidoMaterno = persona.ApellidoMaterno,
+                            Direccion = persona.Direccion,
+                            Telefono = persona.Telefono,
+                            Correo = persona.Correo
+                        });
+                    }
+                    return personas;
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception)
             {
                 return null;
             }
         }
-
 
         public static DataClassesTerrenosDataContext GetConexion()
         {
