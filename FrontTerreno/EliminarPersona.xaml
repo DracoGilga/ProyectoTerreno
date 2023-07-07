@@ -1,0 +1,28 @@
+﻿<Window x:Class="FrontTerreno.EliminarPersona"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FrontTerreno"
+        mc:Ignorable="d"
+        Title="Eliminar Persona" Height="479" Width="708">
+    <Grid>
+        <Label Content="Buscar Persona:" HorizontalAlignment="Left" Margin="41,28,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+
+        <Label Content="Nombre:" HorizontalAlignment="Left" Margin="41,119,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Label Content="Apellido paterno:" HorizontalAlignment="Left" Margin="251,119,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Label Content="Apellido materno:" HorizontalAlignment="Left" Margin="465,119,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Label Content="Direccion:" HorizontalAlignment="Left" Margin="41,210,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Label Content="Telefono:" HorizontalAlignment="Left" Margin="390,210,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Label Content="Correo:" HorizontalAlignment="Left" Margin="390,285,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <ComboBox x:Name="Cb_BuscarPersona" HorizontalAlignment="Left" Margin="41,65,0,0" VerticalAlignment="Top" Width="384" FontSize="20"/>
+        <TextBox x:Name="Tb_nombre" HorizontalAlignment="Left" Margin="41,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontSize="20"/>
+        <TextBox x:Name="Tb_apellidoP" HorizontalAlignment="Center" Margin="0,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="20"/>
+        <TextBox x:Name="Tb_ApellidoM" HorizontalAlignment="Left" Margin="465,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontSize="20"/>
+        <TextBox x:Name="Tb_direccion" HorizontalAlignment="Left" Margin="41,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" FontSize="20" Height="104"/>
+        <TextBox x:Name="Tb_telefono" HorizontalAlignment="Left" Margin="390,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontSize="20"/>
+        <TextBox x:Name="Tb_correo" HorizontalAlignment="Left" Margin="390,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontSize="20"/>
+        <Button Content="Eliminar" HorizontalAlignment="Left" Margin="285,387,0,0" VerticalAlignment="Top" FontSize="20" Width="118" Height="36" Click="Btn_Eliminar"/>
+
+    </Grid>
+</Window>

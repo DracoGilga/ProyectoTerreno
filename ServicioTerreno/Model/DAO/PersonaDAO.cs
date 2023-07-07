@@ -57,7 +57,6 @@ namespace ServicioTerreno.Model.DAO
                 return false;
             }
         }
-        
         public static Persona ObtenerPersona(int idPersona)
         {
             try

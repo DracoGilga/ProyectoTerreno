@@ -119,8 +119,6 @@ namespace ServicioTerreno.Model.DAO
             }
         }
 
-
-
         public static DataClassesTerrenosDataContext GetConexion()
         {
             return new DataClassesTerrenosDataContext(global::System.Configuration.
