@@ -10,11 +10,11 @@
         ResizeMode="NoResize"
         >
     <Grid>
-        <Button Content="Crear Contrato" HorizontalAlignment="Center" Height="40" Margin="0,22,0,0" VerticalAlignment="Top" Width="172" FontSize="20" FontWeight="Bold"/>
-        <Button Content="Modificar Contrato" HorizontalAlignment="Center" Height="40" Margin="0,83,0,0" VerticalAlignment="Top" Width="172" FontSize="20" FontWeight="Bold"/>
-        <Button Content="buscar Contrato" HorizontalAlignment="Center" Height="40" Margin="0,143,0,0" VerticalAlignment="Top" Width="172" FontSize="20" FontWeight="Bold"/>
-        <Button Content="Lista de Contratos" HorizontalAlignment="Center" Height="29" Margin="0,199,0,0" VerticalAlignment="Top" Width="172" FontSize="20" FontWeight="Bold"/>
-        <Button Content="Eliminar Contrato" HorizontalAlignment="Center" Height="40" Margin="0,244,0,0" VerticalAlignment="Top" Width="172" Background="Red" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <Button Content="Crear Contrato" HorizontalAlignment="Center" Height="40" Margin="0,22,0,0" VerticalAlignment="Top" Width="172" FontSize="20" FontWeight="Bold" Click="Btn_crearContrato"/>
+        <Button Content="Modificar Contrato" HorizontalAlignment="Center" Height="40" Margin="0,83,0,0" VerticalAlignment="Top" Width="172" FontSize="20" FontWeight="Bold" Click="Btn_modificarContrato"/>
+        <Button Content="buscar Contrato" HorizontalAlignment="Center" Height="40" Margin="0,143,0,0" VerticalAlignment="Top" Width="172" FontSize="20" FontWeight="Bold" Click="Btn_buscarContrato"/>
+        <Button Content="Lista de Contratos" HorizontalAlignment="Center" Height="29" Margin="0,199,0,0" VerticalAlignment="Top" Width="172" FontSize="20" FontWeight="Bold" Click="Btn_listaContrato"/>
+        <Button Content="Eliminar Contrato" HorizontalAlignment="Center" Height="40" Margin="0,244,0,0" VerticalAlignment="Top" Width="172" Background="Red" Foreground="White" FontSize="20" FontWeight="Bold" Click="Btn_eliminarContrato"/>
 
     </Grid>
 </Window>

@@ -26,7 +26,7 @@ namespace ServicioTerreno.Model.DAO
             {
                 DataClassesTerrenosDataContext DBConexion = GetConexion();
                 Contrato contratoModificar = DBConexion.Contrato.Where(p => p.IdContrato == contrato.IdContrato).First();
-                contratoModificar.IdTipoPago = contrato.IdTipoPago;
+                contratoModificar.TipoPago = contrato.TipoPago;
                 contratoModificar.Costo = contrato.Costo;
                 contratoModificar.IdCliente = contrato.IdCliente;
                 contratoModificar.Testigo1 = contrato.Testigo1;
@@ -70,7 +70,7 @@ namespace ServicioTerreno.Model.DAO
                     return new Contrato()
                     {
                         IdContrato = contrato.IdContrato,
-                        IdTipoPago = contrato.IdTipoPago,
+                        TipoPago = contrato.TipoPago,
                         Costo = contrato.Costo,
                         IdCliente = contrato.IdCliente,
                         Testigo1 = contrato.Testigo1,
@@ -103,7 +103,7 @@ namespace ServicioTerreno.Model.DAO
                         contratos.Add(new Contrato()
                         {
                             IdContrato = contrato.IdContrato,
-                            IdTipoPago = contrato.IdTipoPago,
+                            TipoPago = contrato.TipoPago,
                             Costo = contrato.Costo,
                             IdCliente = contrato.IdCliente,
                             Testigo1 = contrato.Testigo1,

@@ -30,30 +30,30 @@ namespace ServicioTerreno.Model
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnCreated();
-    partial void InsertUsuario(Usuario instance);
-    partial void UpdateUsuario(Usuario instance);
-    partial void DeleteUsuario(Usuario instance);
-    partial void InsertTipoPago(TipoPago instance);
-    partial void UpdateTipoPago(TipoPago instance);
-    partial void DeleteTipoPago(TipoPago instance);
-    partial void InsertPredio(Predio instance);
-    partial void UpdatePredio(Predio instance);
-    partial void DeletePredio(Predio instance);
-    partial void InsertPersona(Persona instance);
-    partial void UpdatePersona(Persona instance);
-    partial void DeletePersona(Persona instance);
-    partial void InsertPago(Pago instance);
-    partial void UpdatePago(Pago instance);
-    partial void DeletePago(Pago instance);
-    partial void InsertManzana(Manzana instance);
-    partial void UpdateManzana(Manzana instance);
-    partial void DeleteManzana(Manzana instance);
-    partial void InsertLote(Lote instance);
-    partial void UpdateLote(Lote instance);
-    partial void DeleteLote(Lote instance);
     partial void InsertContrato(Contrato instance);
     partial void UpdateContrato(Contrato instance);
     partial void DeleteContrato(Contrato instance);
+    partial void InsertLote(Lote instance);
+    partial void UpdateLote(Lote instance);
+    partial void DeleteLote(Lote instance);
+    partial void InsertManzana(Manzana instance);
+    partial void UpdateManzana(Manzana instance);
+    partial void DeleteManzana(Manzana instance);
+    partial void InsertPago(Pago instance);
+    partial void UpdatePago(Pago instance);
+    partial void DeletePago(Pago instance);
+    partial void InsertPersona(Persona instance);
+    partial void UpdatePersona(Persona instance);
+    partial void DeletePersona(Persona instance);
+    partial void InsertPredio(Predio instance);
+    partial void UpdatePredio(Predio instance);
+    partial void DeletePredio(Predio instance);
+    partial void InsertTipoPago(TipoPago instance);
+    partial void UpdateTipoPago(TipoPago instance);
+    partial void DeleteTipoPago(TipoPago instance);
+    partial void InsertUsuario(Usuario instance);
+    partial void UpdateUsuario(Usuario instance);
+    partial void DeleteUsuario(Usuario instance);
     #endregion
 		
 		public DataClassesTerrenosDataContext(string connection) : 
@@ -80,51 +80,11 @@ namespace ServicioTerreno.Model
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Usuario> Usuario
+		public System.Data.Linq.Table<Contrato> Contrato
 		{
 			get
 			{
-				return this.GetTable<Usuario>();
-			}
-		}
-		
-		public System.Data.Linq.Table<TipoPago> TipoPago
-		{
-			get
-			{
-				return this.GetTable<TipoPago>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Predio> Predio
-		{
-			get
-			{
-				return this.GetTable<Predio>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Persona> Persona
-		{
-			get
-			{
-				return this.GetTable<Persona>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Pago> Pago
-		{
-			get
-			{
-				return this.GetTable<Pago>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Manzana> Manzana
-		{
-			get
-			{
-				return this.GetTable<Manzana>();
+				return this.GetTable<Contrato>();
 			}
 		}
 		
@@ -136,136 +96,335 @@ namespace ServicioTerreno.Model
 			}
 		}
 		
-		public System.Data.Linq.Table<Contrato> Contrato
+		public System.Data.Linq.Table<Manzana> Manzana
 		{
 			get
 			{
-				return this.GetTable<Contrato>();
+				return this.GetTable<Manzana>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Pago> Pago
+		{
+			get
+			{
+				return this.GetTable<Pago>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Persona> Persona
+		{
+			get
+			{
+				return this.GetTable<Persona>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Predio> Predio
+		{
+			get
+			{
+				return this.GetTable<Predio>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TipoPago> TipoPago
+		{
+			get
+			{
+				return this.GetTable<TipoPago>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Usuario> Usuario
+		{
+			get
+			{
+				return this.GetTable<Usuario>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Usuario")]
-	public partial class Usuario : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Contrato")]
+	public partial class Contrato : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _IdUsuario;
+		private int _IdContrato;
 		
-		private string _Usuario1;
+		private string _TipoPago;
 		
-		private string _Contraseña;
+		private double _Costo;
 		
-		private int _IdPersona;
+		private int _IdCliente;
+		
+		private string _Testigo1;
+		
+		private string _Testigo2;
+		
+		private System.Nullable<int> _IdVendedor;
+		
+		private System.Nullable<System.DateTime> _FechaContrato;
+		
+		private int _TipoFecha;
+		
+		private EntitySet<Lote> _Lote;
+		
+		private EntitySet<Pago> _Pago;
 		
 		private EntityRef<Persona> _Persona;
+		
+		private EntityRef<Persona> _Persona1;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdUsuarioChanging(int value);
-    partial void OnIdUsuarioChanged();
-    partial void OnUsuario1Changing(string value);
-    partial void OnUsuario1Changed();
-    partial void OnContraseñaChanging(string value);
-    partial void OnContraseñaChanged();
-    partial void OnIdPersonaChanging(int value);
-    partial void OnIdPersonaChanged();
+    partial void OnIdContratoChanging(int value);
+    partial void OnIdContratoChanged();
+    partial void OnTipoPagoChanging(string value);
+    partial void OnTipoPagoChanged();
+    partial void OnCostoChanging(double value);
+    partial void OnCostoChanged();
+    partial void OnIdClienteChanging(int value);
+    partial void OnIdClienteChanged();
+    partial void OnTestigo1Changing(string value);
+    partial void OnTestigo1Changed();
+    partial void OnTestigo2Changing(string value);
+    partial void OnTestigo2Changed();
+    partial void OnIdVendedorChanging(System.Nullable<int> value);
+    partial void OnIdVendedorChanged();
+    partial void OnFechaContratoChanging(System.Nullable<System.DateTime> value);
+    partial void OnFechaContratoChanged();
+    partial void OnTipoFechaChanging(int value);
+    partial void OnTipoFechaChanged();
     #endregion
 		
-		public Usuario()
+		public Contrato()
 		{
+			this._Lote = new EntitySet<Lote>(new Action<Lote>(this.attach_Lote), new Action<Lote>(this.detach_Lote));
+			this._Pago = new EntitySet<Pago>(new Action<Pago>(this.attach_Pago), new Action<Pago>(this.detach_Pago));
 			this._Persona = default(EntityRef<Persona>);
+			this._Persona1 = default(EntityRef<Persona>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdUsuario
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdContrato", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IdContrato
 		{
 			get
 			{
-				return this._IdUsuario;
+				return this._IdContrato;
 			}
 			set
 			{
-				if ((this._IdUsuario != value))
+				if ((this._IdContrato != value))
 				{
-					this.OnIdUsuarioChanging(value);
+					this.OnIdContratoChanging(value);
 					this.SendPropertyChanging();
-					this._IdUsuario = value;
-					this.SendPropertyChanged("IdUsuario");
-					this.OnIdUsuarioChanged();
+					this._IdContrato = value;
+					this.SendPropertyChanged("IdContrato");
+					this.OnIdContratoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Usuario", Storage="_Usuario1", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string Usuario1
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoPago", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string TipoPago
 		{
 			get
 			{
-				return this._Usuario1;
+				return this._TipoPago;
 			}
 			set
 			{
-				if ((this._Usuario1 != value))
+				if ((this._TipoPago != value))
 				{
-					this.OnUsuario1Changing(value);
+					this.OnTipoPagoChanging(value);
 					this.SendPropertyChanging();
-					this._Usuario1 = value;
-					this.SendPropertyChanged("Usuario1");
-					this.OnUsuario1Changed();
+					this._TipoPago = value;
+					this.SendPropertyChanged("TipoPago");
+					this.OnTipoPagoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contraseña", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string Contraseña
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Costo", DbType="Float NOT NULL")]
+		public double Costo
 		{
 			get
 			{
-				return this._Contraseña;
+				return this._Costo;
 			}
 			set
 			{
-				if ((this._Contraseña != value))
+				if ((this._Costo != value))
 				{
-					this.OnContraseñaChanging(value);
+					this.OnCostoChanging(value);
 					this.SendPropertyChanging();
-					this._Contraseña = value;
-					this.SendPropertyChanged("Contraseña");
-					this.OnContraseñaChanged();
+					this._Costo = value;
+					this.SendPropertyChanged("Costo");
+					this.OnCostoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPersona", DbType="Int NOT NULL")]
-		public int IdPersona
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCliente", DbType="Int NOT NULL")]
+		public int IdCliente
 		{
 			get
 			{
-				return this._IdPersona;
+				return this._IdCliente;
 			}
 			set
 			{
-				if ((this._IdPersona != value))
+				if ((this._IdCliente != value))
 				{
 					if (this._Persona.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnIdPersonaChanging(value);
+					this.OnIdClienteChanging(value);
 					this.SendPropertyChanging();
-					this._IdPersona = value;
-					this.SendPropertyChanged("IdPersona");
-					this.OnIdPersonaChanged();
+					this._IdCliente = value;
+					this.SendPropertyChanged("IdCliente");
+					this.OnIdClienteChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Usuario", Storage="_Persona", ThisKey="IdPersona", OtherKey="IdPersona", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Testigo1", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Testigo1
+		{
+			get
+			{
+				return this._Testigo1;
+			}
+			set
+			{
+				if ((this._Testigo1 != value))
+				{
+					this.OnTestigo1Changing(value);
+					this.SendPropertyChanging();
+					this._Testigo1 = value;
+					this.SendPropertyChanged("Testigo1");
+					this.OnTestigo1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Testigo2", DbType="VarChar(255)")]
+		public string Testigo2
+		{
+			get
+			{
+				return this._Testigo2;
+			}
+			set
+			{
+				if ((this._Testigo2 != value))
+				{
+					this.OnTestigo2Changing(value);
+					this.SendPropertyChanging();
+					this._Testigo2 = value;
+					this.SendPropertyChanged("Testigo2");
+					this.OnTestigo2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdVendedor", DbType="Int")]
+		public System.Nullable<int> IdVendedor
+		{
+			get
+			{
+				return this._IdVendedor;
+			}
+			set
+			{
+				if ((this._IdVendedor != value))
+				{
+					if (this._Persona1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdVendedorChanging(value);
+					this.SendPropertyChanging();
+					this._IdVendedor = value;
+					this.SendPropertyChanged("IdVendedor");
+					this.OnIdVendedorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaContrato", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FechaContrato
+		{
+			get
+			{
+				return this._FechaContrato;
+			}
+			set
+			{
+				if ((this._FechaContrato != value))
+				{
+					this.OnFechaContratoChanging(value);
+					this.SendPropertyChanging();
+					this._FechaContrato = value;
+					this.SendPropertyChanged("FechaContrato");
+					this.OnFechaContratoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoFecha", DbType="Int NOT NULL")]
+		public int TipoFecha
+		{
+			get
+			{
+				return this._TipoFecha;
+			}
+			set
+			{
+				if ((this._TipoFecha != value))
+				{
+					this.OnTipoFechaChanging(value);
+					this.SendPropertyChanging();
+					this._TipoFecha = value;
+					this.SendPropertyChanged("TipoFecha");
+					this.OnTipoFechaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contrato_Lote", Storage="_Lote", ThisKey="IdContrato", OtherKey="IdContrato")]
+		public EntitySet<Lote> Lote
+		{
+			get
+			{
+				return this._Lote;
+			}
+			set
+			{
+				this._Lote.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contrato_Pago", Storage="_Pago", ThisKey="IdContrato", OtherKey="IdContrato")]
+		public EntitySet<Pago> Pago
+		{
+			get
+			{
+				return this._Pago;
+			}
+			set
+			{
+				this._Pago.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Contrato", Storage="_Persona", ThisKey="IdCliente", OtherKey="IdPersona", IsForeignKey=true)]
 		public Persona Persona
 		{
 			get
@@ -282,138 +441,54 @@ namespace ServicioTerreno.Model
 					if ((previousValue != null))
 					{
 						this._Persona.Entity = null;
-						previousValue.Usuario.Remove(this);
+						previousValue.Contrato.Remove(this);
 					}
 					this._Persona.Entity = value;
 					if ((value != null))
 					{
-						value.Usuario.Add(this);
-						this._IdPersona = value.IdPersona;
+						value.Contrato.Add(this);
+						this._IdCliente = value.IdPersona;
 					}
 					else
 					{
-						this._IdPersona = default(int);
+						this._IdCliente = default(int);
 					}
 					this.SendPropertyChanged("Persona");
 				}
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TipoPago")]
-	public partial class TipoPago : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdTipoPago;
-		
-		private string _Descripcion;
-		
-		private EntitySet<Pago> _Pago;
-		
-		private EntitySet<Contrato> _Contrato;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdTipoPagoChanging(int value);
-    partial void OnIdTipoPagoChanged();
-    partial void OnDescripcionChanging(string value);
-    partial void OnDescripcionChanged();
-    #endregion
-		
-		public TipoPago()
-		{
-			this._Pago = new EntitySet<Pago>(new Action<Pago>(this.attach_Pago), new Action<Pago>(this.detach_Pago));
-			this._Contrato = new EntitySet<Contrato>(new Action<Contrato>(this.attach_Contrato), new Action<Contrato>(this.detach_Contrato));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoPago", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdTipoPago
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Contrato1", Storage="_Persona1", ThisKey="IdVendedor", OtherKey="IdPersona", IsForeignKey=true)]
+		public Persona Persona1
 		{
 			get
 			{
-				return this._IdTipoPago;
+				return this._Persona1.Entity;
 			}
 			set
 			{
-				if ((this._IdTipoPago != value))
+				Persona previousValue = this._Persona1.Entity;
+				if (((previousValue != value) 
+							|| (this._Persona1.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnIdTipoPagoChanging(value);
 					this.SendPropertyChanging();
-					this._IdTipoPago = value;
-					this.SendPropertyChanged("IdTipoPago");
-					this.OnIdTipoPagoChanged();
+					if ((previousValue != null))
+					{
+						this._Persona1.Entity = null;
+						previousValue.Contrato1.Remove(this);
+					}
+					this._Persona1.Entity = value;
+					if ((value != null))
+					{
+						value.Contrato1.Add(this);
+						this._IdVendedor = value.IdPersona;
+					}
+					else
+					{
+						this._IdVendedor = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Persona1");
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string Descripcion
-		{
-			get
-			{
-				return this._Descripcion;
-			}
-			set
-			{
-				if ((this._Descripcion != value))
-				{
-					this.OnDescripcionChanging(value);
-					this.SendPropertyChanging();
-					this._Descripcion = value;
-					this.SendPropertyChanged("Descripcion");
-					this.OnDescripcionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TipoPago_Pago", Storage="_Pago", ThisKey="IdTipoPago", OtherKey="IdTipoPago")]
-		public EntitySet<Pago> Pago
-		{
-			get
-			{
-				return this._Pago;
-			}
-			set
-			{
-				this._Pago.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TipoPago_Contrato", Storage="_Contrato", ThisKey="IdTipoPago", OtherKey="IdTipoPago")]
-		public EntitySet<Contrato> Contrato
-		{
-			get
-			{
-				return this._Contrato;
-			}
-			set
-			{
-				this._Contrato.Assign(value);
 			}
 		}
 		
@@ -435,566 +510,162 @@ namespace ServicioTerreno.Model
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Lote(Lote entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contrato = this;
+		}
+		
+		private void detach_Lote(Lote entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contrato = null;
 		}
 		
 		private void attach_Pago(Pago entity)
 		{
 			this.SendPropertyChanging();
-			entity.TipoPago = this;
+			entity.Contrato = this;
 		}
 		
 		private void detach_Pago(Pago entity)
 		{
 			this.SendPropertyChanging();
-			entity.TipoPago = null;
-		}
-		
-		private void attach_Contrato(Contrato entity)
-		{
-			this.SendPropertyChanging();
-			entity.TipoPago = this;
-		}
-		
-		private void detach_Contrato(Contrato entity)
-		{
-			this.SendPropertyChanging();
-			entity.TipoPago = null;
+			entity.Contrato = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Predio")]
-	public partial class Predio : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Lote")]
+	public partial class Lote : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _IdPredio;
+		private int _IdLote;
 		
-		private string _Nombre;
+		private string _NoLote;
 		
-		private string _Ubicacion;
+		private double _Superficie;
 		
-		private EntitySet<Manzana> _Manzana;
+		private int _IdManzana;
 		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdPredioChanging(int value);
-    partial void OnIdPredioChanged();
-    partial void OnNombreChanging(string value);
-    partial void OnNombreChanged();
-    partial void OnUbicacionChanging(string value);
-    partial void OnUbicacionChanged();
-    #endregion
-		
-		public Predio()
-		{
-			this._Manzana = new EntitySet<Manzana>(new Action<Manzana>(this.attach_Manzana), new Action<Manzana>(this.detach_Manzana));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPredio", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdPredio
-		{
-			get
-			{
-				return this._IdPredio;
-			}
-			set
-			{
-				if ((this._IdPredio != value))
-				{
-					this.OnIdPredioChanging(value);
-					this.SendPropertyChanging();
-					this._IdPredio = value;
-					this.SendPropertyChanged("IdPredio");
-					this.OnIdPredioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Nombre
-		{
-			get
-			{
-				return this._Nombre;
-			}
-			set
-			{
-				if ((this._Nombre != value))
-				{
-					this.OnNombreChanging(value);
-					this.SendPropertyChanging();
-					this._Nombre = value;
-					this.SendPropertyChanged("Nombre");
-					this.OnNombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ubicacion", DbType="VarChar(255)")]
-		public string Ubicacion
-		{
-			get
-			{
-				return this._Ubicacion;
-			}
-			set
-			{
-				if ((this._Ubicacion != value))
-				{
-					this.OnUbicacionChanging(value);
-					this.SendPropertyChanging();
-					this._Ubicacion = value;
-					this.SendPropertyChanged("Ubicacion");
-					this.OnUbicacionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Predio_Manzana", Storage="_Manzana", ThisKey="IdPredio", OtherKey="IdPredio")]
-		public EntitySet<Manzana> Manzana
-		{
-			get
-			{
-				return this._Manzana;
-			}
-			set
-			{
-				this._Manzana.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Manzana(Manzana entity)
-		{
-			this.SendPropertyChanging();
-			entity.Predio = this;
-		}
-		
-		private void detach_Manzana(Manzana entity)
-		{
-			this.SendPropertyChanging();
-			entity.Predio = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Persona")]
-	public partial class Persona : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdPersona;
-		
-		private string _Nombre;
-		
-		private string _ApellidoPaterno;
-		
-		private string _ApellidoMaterno;
-		
-		private string _Direccion;
-		
-		private string _Telefono;
-		
-		private string _Correo;
-		
-		private EntitySet<Usuario> _Usuario;
-		
-		private EntitySet<Contrato> _Contrato;
-		
-		private EntitySet<Contrato> _Contrato1;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdPersonaChanging(int value);
-    partial void OnIdPersonaChanged();
-    partial void OnNombreChanging(string value);
-    partial void OnNombreChanged();
-    partial void OnApellidoPaternoChanging(string value);
-    partial void OnApellidoPaternoChanged();
-    partial void OnApellidoMaternoChanging(string value);
-    partial void OnApellidoMaternoChanged();
-    partial void OnDireccionChanging(string value);
-    partial void OnDireccionChanged();
-    partial void OnTelefonoChanging(string value);
-    partial void OnTelefonoChanged();
-    partial void OnCorreoChanging(string value);
-    partial void OnCorreoChanged();
-    #endregion
-		
-		public Persona()
-		{
-			this._Usuario = new EntitySet<Usuario>(new Action<Usuario>(this.attach_Usuario), new Action<Usuario>(this.detach_Usuario));
-			this._Contrato = new EntitySet<Contrato>(new Action<Contrato>(this.attach_Contrato), new Action<Contrato>(this.detach_Contrato));
-			this._Contrato1 = new EntitySet<Contrato>(new Action<Contrato>(this.attach_Contrato1), new Action<Contrato>(this.detach_Contrato1));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPersona", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdPersona
-		{
-			get
-			{
-				return this._IdPersona;
-			}
-			set
-			{
-				if ((this._IdPersona != value))
-				{
-					this.OnIdPersonaChanging(value);
-					this.SendPropertyChanging();
-					this._IdPersona = value;
-					this.SendPropertyChanged("IdPersona");
-					this.OnIdPersonaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(55) NOT NULL", CanBeNull=false)]
-		public string Nombre
-		{
-			get
-			{
-				return this._Nombre;
-			}
-			set
-			{
-				if ((this._Nombre != value))
-				{
-					this.OnNombreChanging(value);
-					this.SendPropertyChanging();
-					this._Nombre = value;
-					this.SendPropertyChanged("Nombre");
-					this.OnNombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApellidoPaterno", DbType="VarChar(70) NOT NULL", CanBeNull=false)]
-		public string ApellidoPaterno
-		{
-			get
-			{
-				return this._ApellidoPaterno;
-			}
-			set
-			{
-				if ((this._ApellidoPaterno != value))
-				{
-					this.OnApellidoPaternoChanging(value);
-					this.SendPropertyChanging();
-					this._ApellidoPaterno = value;
-					this.SendPropertyChanged("ApellidoPaterno");
-					this.OnApellidoPaternoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApellidoMaterno", DbType="VarChar(70)")]
-		public string ApellidoMaterno
-		{
-			get
-			{
-				return this._ApellidoMaterno;
-			}
-			set
-			{
-				if ((this._ApellidoMaterno != value))
-				{
-					this.OnApellidoMaternoChanging(value);
-					this.SendPropertyChanging();
-					this._ApellidoMaterno = value;
-					this.SendPropertyChanged("ApellidoMaterno");
-					this.OnApellidoMaternoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string Direccion
-		{
-			get
-			{
-				return this._Direccion;
-			}
-			set
-			{
-				if ((this._Direccion != value))
-				{
-					this.OnDireccionChanging(value);
-					this.SendPropertyChanging();
-					this._Direccion = value;
-					this.SendPropertyChanged("Direccion");
-					this.OnDireccionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string Telefono
-		{
-			get
-			{
-				return this._Telefono;
-			}
-			set
-			{
-				if ((this._Telefono != value))
-				{
-					this.OnTelefonoChanging(value);
-					this.SendPropertyChanging();
-					this._Telefono = value;
-					this.SendPropertyChanged("Telefono");
-					this.OnTelefonoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Correo", DbType="VarChar(255)")]
-		public string Correo
-		{
-			get
-			{
-				return this._Correo;
-			}
-			set
-			{
-				if ((this._Correo != value))
-				{
-					this.OnCorreoChanging(value);
-					this.SendPropertyChanging();
-					this._Correo = value;
-					this.SendPropertyChanged("Correo");
-					this.OnCorreoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Usuario", Storage="_Usuario", ThisKey="IdPersona", OtherKey="IdPersona")]
-		public EntitySet<Usuario> Usuario
-		{
-			get
-			{
-				return this._Usuario;
-			}
-			set
-			{
-				this._Usuario.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Contrato", Storage="_Contrato", ThisKey="IdPersona", OtherKey="IdCliente")]
-		public EntitySet<Contrato> Contrato
-		{
-			get
-			{
-				return this._Contrato;
-			}
-			set
-			{
-				this._Contrato.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Contrato1", Storage="_Contrato1", ThisKey="IdPersona", OtherKey="IdVendedor")]
-		public EntitySet<Contrato> Contrato1
-		{
-			get
-			{
-				return this._Contrato1;
-			}
-			set
-			{
-				this._Contrato1.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Usuario(Usuario entity)
-		{
-			this.SendPropertyChanging();
-			entity.Persona = this;
-		}
-		
-		private void detach_Usuario(Usuario entity)
-		{
-			this.SendPropertyChanging();
-			entity.Persona = null;
-		}
-		
-		private void attach_Contrato(Contrato entity)
-		{
-			this.SendPropertyChanging();
-			entity.Persona = this;
-		}
-		
-		private void detach_Contrato(Contrato entity)
-		{
-			this.SendPropertyChanging();
-			entity.Persona = null;
-		}
-		
-		private void attach_Contrato1(Contrato entity)
-		{
-			this.SendPropertyChanging();
-			entity.Persona1 = this;
-		}
-		
-		private void detach_Contrato1(Contrato entity)
-		{
-			this.SendPropertyChanging();
-			entity.Persona1 = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Pago")]
-	public partial class Pago : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdPago;
-		
-		private System.DateTime _FechaPago;
-		
-		private double _CantidadPago;
-		
-		private int _IdContrato;
-		
-		private int _IdTipoPago;
-		
-		private EntityRef<TipoPago> _TipoPago;
+		private System.Nullable<int> _IdContrato;
 		
 		private EntityRef<Contrato> _Contrato;
 		
+		private EntityRef<Manzana> _Manzana;
+		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdPagoChanging(int value);
-    partial void OnIdPagoChanged();
-    partial void OnFechaPagoChanging(System.DateTime value);
-    partial void OnFechaPagoChanged();
-    partial void OnCantidadPagoChanging(double value);
-    partial void OnCantidadPagoChanged();
-    partial void OnIdContratoChanging(int value);
+    partial void OnIdLoteChanging(int value);
+    partial void OnIdLoteChanged();
+    partial void OnNoLoteChanging(string value);
+    partial void OnNoLoteChanged();
+    partial void OnSuperficieChanging(double value);
+    partial void OnSuperficieChanged();
+    partial void OnIdManzanaChanging(int value);
+    partial void OnIdManzanaChanged();
+    partial void OnIdContratoChanging(System.Nullable<int> value);
     partial void OnIdContratoChanged();
-    partial void OnIdTipoPagoChanging(int value);
-    partial void OnIdTipoPagoChanged();
     #endregion
 		
-		public Pago()
+		public Lote()
 		{
-			this._TipoPago = default(EntityRef<TipoPago>);
 			this._Contrato = default(EntityRef<Contrato>);
+			this._Manzana = default(EntityRef<Manzana>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPago", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdPago
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdLote", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IdLote
 		{
 			get
 			{
-				return this._IdPago;
+				return this._IdLote;
 			}
 			set
 			{
-				if ((this._IdPago != value))
+				if ((this._IdLote != value))
 				{
-					this.OnIdPagoChanging(value);
+					this.OnIdLoteChanging(value);
 					this.SendPropertyChanging();
-					this._IdPago = value;
-					this.SendPropertyChanged("IdPago");
-					this.OnIdPagoChanged();
+					this._IdLote = value;
+					this.SendPropertyChanged("IdLote");
+					this.OnIdLoteChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaPago", DbType="DateTime NOT NULL")]
-		public System.DateTime FechaPago
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoLote", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string NoLote
 		{
 			get
 			{
-				return this._FechaPago;
+				return this._NoLote;
 			}
 			set
 			{
-				if ((this._FechaPago != value))
+				if ((this._NoLote != value))
 				{
-					this.OnFechaPagoChanging(value);
+					this.OnNoLoteChanging(value);
 					this.SendPropertyChanging();
-					this._FechaPago = value;
-					this.SendPropertyChanged("FechaPago");
-					this.OnFechaPagoChanged();
+					this._NoLote = value;
+					this.SendPropertyChanged("NoLote");
+					this.OnNoLoteChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadPago", DbType="Float NOT NULL")]
-		public double CantidadPago
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Superficie", DbType="Float NOT NULL")]
+		public double Superficie
 		{
 			get
 			{
-				return this._CantidadPago;
+				return this._Superficie;
 			}
 			set
 			{
-				if ((this._CantidadPago != value))
+				if ((this._Superficie != value))
 				{
-					this.OnCantidadPagoChanging(value);
+					this.OnSuperficieChanging(value);
 					this.SendPropertyChanging();
-					this._CantidadPago = value;
-					this.SendPropertyChanged("CantidadPago");
-					this.OnCantidadPagoChanged();
+					this._Superficie = value;
+					this.SendPropertyChanged("Superficie");
+					this.OnSuperficieChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdContrato", DbType="Int NOT NULL")]
-		public int IdContrato
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdManzana", DbType="Int NOT NULL")]
+		public int IdManzana
+		{
+			get
+			{
+				return this._IdManzana;
+			}
+			set
+			{
+				if ((this._IdManzana != value))
+				{
+					if (this._Manzana.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdManzanaChanging(value);
+					this.SendPropertyChanging();
+					this._IdManzana = value;
+					this.SendPropertyChanged("IdManzana");
+					this.OnIdManzanaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdContrato", DbType="Int")]
+		public System.Nullable<int> IdContrato
 		{
 			get
 			{
@@ -1017,65 +688,7 @@ namespace ServicioTerreno.Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoPago", DbType="Int NOT NULL")]
-		public int IdTipoPago
-		{
-			get
-			{
-				return this._IdTipoPago;
-			}
-			set
-			{
-				if ((this._IdTipoPago != value))
-				{
-					if (this._TipoPago.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdTipoPagoChanging(value);
-					this.SendPropertyChanging();
-					this._IdTipoPago = value;
-					this.SendPropertyChanged("IdTipoPago");
-					this.OnIdTipoPagoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TipoPago_Pago", Storage="_TipoPago", ThisKey="IdTipoPago", OtherKey="IdTipoPago", IsForeignKey=true)]
-		public TipoPago TipoPago
-		{
-			get
-			{
-				return this._TipoPago.Entity;
-			}
-			set
-			{
-				TipoPago previousValue = this._TipoPago.Entity;
-				if (((previousValue != value) 
-							|| (this._TipoPago.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TipoPago.Entity = null;
-						previousValue.Pago.Remove(this);
-					}
-					this._TipoPago.Entity = value;
-					if ((value != null))
-					{
-						value.Pago.Add(this);
-						this._IdTipoPago = value.IdTipoPago;
-					}
-					else
-					{
-						this._IdTipoPago = default(int);
-					}
-					this.SendPropertyChanged("TipoPago");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contrato_Pago", Storage="_Contrato", ThisKey="IdContrato", OtherKey="IdContrato", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contrato_Lote", Storage="_Contrato", ThisKey="IdContrato", OtherKey="IdContrato", IsForeignKey=true)]
 		public Contrato Contrato
 		{
 			get
@@ -1092,19 +705,53 @@ namespace ServicioTerreno.Model
 					if ((previousValue != null))
 					{
 						this._Contrato.Entity = null;
-						previousValue.Pago.Remove(this);
+						previousValue.Lote.Remove(this);
 					}
 					this._Contrato.Entity = value;
 					if ((value != null))
 					{
-						value.Pago.Add(this);
+						value.Lote.Add(this);
 						this._IdContrato = value.IdContrato;
 					}
 					else
 					{
-						this._IdContrato = default(int);
+						this._IdContrato = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Contrato");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Manzana_Lote", Storage="_Manzana", ThisKey="IdManzana", OtherKey="IdManzana", IsForeignKey=true)]
+		public Manzana Manzana
+		{
+			get
+			{
+				return this._Manzana.Entity;
+			}
+			set
+			{
+				Manzana previousValue = this._Manzana.Entity;
+				if (((previousValue != value) 
+							|| (this._Manzana.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Manzana.Entity = null;
+						previousValue.Lote.Remove(this);
+					}
+					this._Manzana.Entity = value;
+					if ((value != null))
+					{
+						value.Lote.Add(this);
+						this._IdManzana = value.IdManzana;
+					}
+					else
+					{
+						this._IdManzana = default(int);
+					}
+					this.SendPropertyChanged("Manzana");
 				}
 			}
 		}
@@ -1309,135 +956,111 @@ namespace ServicioTerreno.Model
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Lote")]
-	public partial class Lote : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Pago")]
+	public partial class Pago : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _IdLote;
+		private int _IdPago;
 		
-		private string _NoLote;
+		private System.DateTime _FechaPago;
 		
-		private double _Superficie;
+		private double _CantidadPago;
 		
-		private int _IdManzana;
+		private int _IdContrato;
 		
-		private System.Nullable<int> _IdContrato;
-		
-		private EntityRef<Manzana> _Manzana;
+		private int _IdTipoPago;
 		
 		private EntityRef<Contrato> _Contrato;
+		
+		private EntityRef<TipoPago> _TipoPago;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdLoteChanging(int value);
-    partial void OnIdLoteChanged();
-    partial void OnNoLoteChanging(string value);
-    partial void OnNoLoteChanged();
-    partial void OnSuperficieChanging(double value);
-    partial void OnSuperficieChanged();
-    partial void OnIdManzanaChanging(int value);
-    partial void OnIdManzanaChanged();
-    partial void OnIdContratoChanging(System.Nullable<int> value);
+    partial void OnIdPagoChanging(int value);
+    partial void OnIdPagoChanged();
+    partial void OnFechaPagoChanging(System.DateTime value);
+    partial void OnFechaPagoChanged();
+    partial void OnCantidadPagoChanging(double value);
+    partial void OnCantidadPagoChanged();
+    partial void OnIdContratoChanging(int value);
     partial void OnIdContratoChanged();
+    partial void OnIdTipoPagoChanging(int value);
+    partial void OnIdTipoPagoChanged();
     #endregion
 		
-		public Lote()
+		public Pago()
 		{
-			this._Manzana = default(EntityRef<Manzana>);
 			this._Contrato = default(EntityRef<Contrato>);
+			this._TipoPago = default(EntityRef<TipoPago>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdLote", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdLote
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPago", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IdPago
 		{
 			get
 			{
-				return this._IdLote;
+				return this._IdPago;
 			}
 			set
 			{
-				if ((this._IdLote != value))
+				if ((this._IdPago != value))
 				{
-					this.OnIdLoteChanging(value);
+					this.OnIdPagoChanging(value);
 					this.SendPropertyChanging();
-					this._IdLote = value;
-					this.SendPropertyChanged("IdLote");
-					this.OnIdLoteChanged();
+					this._IdPago = value;
+					this.SendPropertyChanged("IdPago");
+					this.OnIdPagoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoLote", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string NoLote
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaPago", DbType="DateTime NOT NULL")]
+		public System.DateTime FechaPago
 		{
 			get
 			{
-				return this._NoLote;
+				return this._FechaPago;
 			}
 			set
 			{
-				if ((this._NoLote != value))
+				if ((this._FechaPago != value))
 				{
-					this.OnNoLoteChanging(value);
+					this.OnFechaPagoChanging(value);
 					this.SendPropertyChanging();
-					this._NoLote = value;
-					this.SendPropertyChanged("NoLote");
-					this.OnNoLoteChanged();
+					this._FechaPago = value;
+					this.SendPropertyChanged("FechaPago");
+					this.OnFechaPagoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Superficie", DbType="Float NOT NULL")]
-		public double Superficie
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CantidadPago", DbType="Float NOT NULL")]
+		public double CantidadPago
 		{
 			get
 			{
-				return this._Superficie;
+				return this._CantidadPago;
 			}
 			set
 			{
-				if ((this._Superficie != value))
+				if ((this._CantidadPago != value))
 				{
-					this.OnSuperficieChanging(value);
+					this.OnCantidadPagoChanging(value);
 					this.SendPropertyChanging();
-					this._Superficie = value;
-					this.SendPropertyChanged("Superficie");
-					this.OnSuperficieChanged();
+					this._CantidadPago = value;
+					this.SendPropertyChanged("CantidadPago");
+					this.OnCantidadPagoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdManzana", DbType="Int NOT NULL")]
-		public int IdManzana
-		{
-			get
-			{
-				return this._IdManzana;
-			}
-			set
-			{
-				if ((this._IdManzana != value))
-				{
-					if (this._Manzana.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdManzanaChanging(value);
-					this.SendPropertyChanging();
-					this._IdManzana = value;
-					this.SendPropertyChanged("IdManzana");
-					this.OnIdManzanaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdContrato", DbType="Int")]
-		public System.Nullable<int> IdContrato
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdContrato", DbType="Int NOT NULL")]
+		public int IdContrato
 		{
 			get
 			{
@@ -1451,183 +1074,6 @@ namespace ServicioTerreno.Model
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnIdContratoChanging(value);
-					this.SendPropertyChanging();
-					this._IdContrato = value;
-					this.SendPropertyChanged("IdContrato");
-					this.OnIdContratoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Manzana_Lote", Storage="_Manzana", ThisKey="IdManzana", OtherKey="IdManzana", IsForeignKey=true)]
-		public Manzana Manzana
-		{
-			get
-			{
-				return this._Manzana.Entity;
-			}
-			set
-			{
-				Manzana previousValue = this._Manzana.Entity;
-				if (((previousValue != value) 
-							|| (this._Manzana.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Manzana.Entity = null;
-						previousValue.Lote.Remove(this);
-					}
-					this._Manzana.Entity = value;
-					if ((value != null))
-					{
-						value.Lote.Add(this);
-						this._IdManzana = value.IdManzana;
-					}
-					else
-					{
-						this._IdManzana = default(int);
-					}
-					this.SendPropertyChanged("Manzana");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contrato_Lote", Storage="_Contrato", ThisKey="IdContrato", OtherKey="IdContrato", IsForeignKey=true)]
-		public Contrato Contrato
-		{
-			get
-			{
-				return this._Contrato.Entity;
-			}
-			set
-			{
-				Contrato previousValue = this._Contrato.Entity;
-				if (((previousValue != value) 
-							|| (this._Contrato.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Contrato.Entity = null;
-						previousValue.Lote.Remove(this);
-					}
-					this._Contrato.Entity = value;
-					if ((value != null))
-					{
-						value.Lote.Add(this);
-						this._IdContrato = value.IdContrato;
-					}
-					else
-					{
-						this._IdContrato = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Contrato");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Contrato")]
-	public partial class Contrato : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _IdContrato;
-		
-		private int _IdTipoPago;
-		
-		private double _Costo;
-		
-		private int _IdCliente;
-		
-		private string _Testigo1;
-		
-		private string _Testigo2;
-		
-		private System.Nullable<int> _IdVendedor;
-		
-		private System.Nullable<System.DateTime> _FechaContrato;
-		
-		private int _TipoFecha;
-		
-		private EntitySet<Pago> _Pago;
-		
-		private EntitySet<Lote> _Lote;
-		
-		private EntityRef<Persona> _Persona;
-		
-		private EntityRef<TipoPago> _TipoPago;
-		
-		private EntityRef<Persona> _Persona1;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdContratoChanging(int value);
-    partial void OnIdContratoChanged();
-    partial void OnIdTipoPagoChanging(int value);
-    partial void OnIdTipoPagoChanged();
-    partial void OnCostoChanging(double value);
-    partial void OnCostoChanged();
-    partial void OnIdClienteChanging(int value);
-    partial void OnIdClienteChanged();
-    partial void OnTestigo1Changing(string value);
-    partial void OnTestigo1Changed();
-    partial void OnTestigo2Changing(string value);
-    partial void OnTestigo2Changed();
-    partial void OnIdVendedorChanging(System.Nullable<int> value);
-    partial void OnIdVendedorChanged();
-    partial void OnFechaContratoChanging(System.Nullable<System.DateTime> value);
-    partial void OnFechaContratoChanged();
-    partial void OnTipoFechaChanging(int value);
-    partial void OnTipoFechaChanged();
-    #endregion
-		
-		public Contrato()
-		{
-			this._Pago = new EntitySet<Pago>(new Action<Pago>(this.attach_Pago), new Action<Pago>(this.detach_Pago));
-			this._Lote = new EntitySet<Lote>(new Action<Lote>(this.attach_Lote), new Action<Lote>(this.detach_Lote));
-			this._Persona = default(EntityRef<Persona>);
-			this._TipoPago = default(EntityRef<TipoPago>);
-			this._Persona1 = default(EntityRef<Persona>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdContrato", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int IdContrato
-		{
-			get
-			{
-				return this._IdContrato;
-			}
-			set
-			{
-				if ((this._IdContrato != value))
-				{
 					this.OnIdContratoChanging(value);
 					this.SendPropertyChanging();
 					this._IdContrato = value;
@@ -1661,215 +1107,41 @@ namespace ServicioTerreno.Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Costo", DbType="Float NOT NULL")]
-		public double Costo
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contrato_Pago", Storage="_Contrato", ThisKey="IdContrato", OtherKey="IdContrato", IsForeignKey=true)]
+		public Contrato Contrato
 		{
 			get
 			{
-				return this._Costo;
+				return this._Contrato.Entity;
 			}
 			set
 			{
-				if ((this._Costo != value))
-				{
-					this.OnCostoChanging(value);
-					this.SendPropertyChanging();
-					this._Costo = value;
-					this.SendPropertyChanged("Costo");
-					this.OnCostoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdCliente", DbType="Int NOT NULL")]
-		public int IdCliente
-		{
-			get
-			{
-				return this._IdCliente;
-			}
-			set
-			{
-				if ((this._IdCliente != value))
-				{
-					if (this._Persona.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdClienteChanging(value);
-					this.SendPropertyChanging();
-					this._IdCliente = value;
-					this.SendPropertyChanged("IdCliente");
-					this.OnIdClienteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Testigo1", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string Testigo1
-		{
-			get
-			{
-				return this._Testigo1;
-			}
-			set
-			{
-				if ((this._Testigo1 != value))
-				{
-					this.OnTestigo1Changing(value);
-					this.SendPropertyChanging();
-					this._Testigo1 = value;
-					this.SendPropertyChanged("Testigo1");
-					this.OnTestigo1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Testigo2", DbType="VarChar(255)")]
-		public string Testigo2
-		{
-			get
-			{
-				return this._Testigo2;
-			}
-			set
-			{
-				if ((this._Testigo2 != value))
-				{
-					this.OnTestigo2Changing(value);
-					this.SendPropertyChanging();
-					this._Testigo2 = value;
-					this.SendPropertyChanged("Testigo2");
-					this.OnTestigo2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdVendedor", DbType="Int")]
-		public System.Nullable<int> IdVendedor
-		{
-			get
-			{
-				return this._IdVendedor;
-			}
-			set
-			{
-				if ((this._IdVendedor != value))
-				{
-					if (this._Persona1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdVendedorChanging(value);
-					this.SendPropertyChanging();
-					this._IdVendedor = value;
-					this.SendPropertyChanged("IdVendedor");
-					this.OnIdVendedorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FechaContrato", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FechaContrato
-		{
-			get
-			{
-				return this._FechaContrato;
-			}
-			set
-			{
-				if ((this._FechaContrato != value))
-				{
-					this.OnFechaContratoChanging(value);
-					this.SendPropertyChanging();
-					this._FechaContrato = value;
-					this.SendPropertyChanged("FechaContrato");
-					this.OnFechaContratoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoFecha", DbType="Int NOT NULL")]
-		public int TipoFecha
-		{
-			get
-			{
-				return this._TipoFecha;
-			}
-			set
-			{
-				if ((this._TipoFecha != value))
-				{
-					this.OnTipoFechaChanging(value);
-					this.SendPropertyChanging();
-					this._TipoFecha = value;
-					this.SendPropertyChanged("TipoFecha");
-					this.OnTipoFechaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contrato_Pago", Storage="_Pago", ThisKey="IdContrato", OtherKey="IdContrato")]
-		public EntitySet<Pago> Pago
-		{
-			get
-			{
-				return this._Pago;
-			}
-			set
-			{
-				this._Pago.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contrato_Lote", Storage="_Lote", ThisKey="IdContrato", OtherKey="IdContrato")]
-		public EntitySet<Lote> Lote
-		{
-			get
-			{
-				return this._Lote;
-			}
-			set
-			{
-				this._Lote.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Contrato", Storage="_Persona", ThisKey="IdCliente", OtherKey="IdPersona", IsForeignKey=true)]
-		public Persona Persona
-		{
-			get
-			{
-				return this._Persona.Entity;
-			}
-			set
-			{
-				Persona previousValue = this._Persona.Entity;
+				Contrato previousValue = this._Contrato.Entity;
 				if (((previousValue != value) 
-							|| (this._Persona.HasLoadedOrAssignedValue == false)))
+							|| (this._Contrato.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._Persona.Entity = null;
-						previousValue.Contrato.Remove(this);
+						this._Contrato.Entity = null;
+						previousValue.Pago.Remove(this);
 					}
-					this._Persona.Entity = value;
+					this._Contrato.Entity = value;
 					if ((value != null))
 					{
-						value.Contrato.Add(this);
-						this._IdCliente = value.IdPersona;
+						value.Pago.Add(this);
+						this._IdContrato = value.IdContrato;
 					}
 					else
 					{
-						this._IdCliente = default(int);
+						this._IdContrato = default(int);
 					}
-					this.SendPropertyChanged("Persona");
+					this.SendPropertyChanged("Contrato");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TipoPago_Contrato", Storage="_TipoPago", ThisKey="IdTipoPago", OtherKey="IdTipoPago", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TipoPago_Pago", Storage="_TipoPago", ThisKey="IdTipoPago", OtherKey="IdTipoPago", IsForeignKey=true)]
 		public TipoPago TipoPago
 		{
 			get
@@ -1886,12 +1158,12 @@ namespace ServicioTerreno.Model
 					if ((previousValue != null))
 					{
 						this._TipoPago.Entity = null;
-						previousValue.Contrato.Remove(this);
+						previousValue.Pago.Remove(this);
 					}
 					this._TipoPago.Entity = value;
 					if ((value != null))
 					{
-						value.Contrato.Add(this);
+						value.Pago.Add(this);
 						this._IdTipoPago = value.IdTipoPago;
 					}
 					else
@@ -1903,37 +1175,533 @@ namespace ServicioTerreno.Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Contrato1", Storage="_Persona1", ThisKey="IdVendedor", OtherKey="IdPersona", IsForeignKey=true)]
-		public Persona Persona1
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Persona")]
+	public partial class Persona : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdPersona;
+		
+		private string _Nombre;
+		
+		private string _ApellidoPaterno;
+		
+		private string _ApellidoMaterno;
+		
+		private string _Direccion;
+		
+		private string _Telefono;
+		
+		private string _Correo;
+		
+		private EntitySet<Contrato> _Contrato;
+		
+		private EntitySet<Contrato> _Contrato1;
+		
+		private EntitySet<Usuario> _Usuario;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdPersonaChanging(int value);
+    partial void OnIdPersonaChanged();
+    partial void OnNombreChanging(string value);
+    partial void OnNombreChanged();
+    partial void OnApellidoPaternoChanging(string value);
+    partial void OnApellidoPaternoChanged();
+    partial void OnApellidoMaternoChanging(string value);
+    partial void OnApellidoMaternoChanged();
+    partial void OnDireccionChanging(string value);
+    partial void OnDireccionChanged();
+    partial void OnTelefonoChanging(string value);
+    partial void OnTelefonoChanged();
+    partial void OnCorreoChanging(string value);
+    partial void OnCorreoChanged();
+    #endregion
+		
+		public Persona()
+		{
+			this._Contrato = new EntitySet<Contrato>(new Action<Contrato>(this.attach_Contrato), new Action<Contrato>(this.detach_Contrato));
+			this._Contrato1 = new EntitySet<Contrato>(new Action<Contrato>(this.attach_Contrato1), new Action<Contrato>(this.detach_Contrato1));
+			this._Usuario = new EntitySet<Usuario>(new Action<Usuario>(this.attach_Usuario), new Action<Usuario>(this.detach_Usuario));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPersona", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IdPersona
 		{
 			get
 			{
-				return this._Persona1.Entity;
+				return this._IdPersona;
 			}
 			set
 			{
-				Persona previousValue = this._Persona1.Entity;
-				if (((previousValue != value) 
-							|| (this._Persona1.HasLoadedOrAssignedValue == false)))
+				if ((this._IdPersona != value))
 				{
+					this.OnIdPersonaChanging(value);
 					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Persona1.Entity = null;
-						previousValue.Contrato1.Remove(this);
-					}
-					this._Persona1.Entity = value;
-					if ((value != null))
-					{
-						value.Contrato1.Add(this);
-						this._IdVendedor = value.IdPersona;
-					}
-					else
-					{
-						this._IdVendedor = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Persona1");
+					this._IdPersona = value;
+					this.SendPropertyChanged("IdPersona");
+					this.OnIdPersonaChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(55) NOT NULL", CanBeNull=false)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this.OnNombreChanging(value);
+					this.SendPropertyChanging();
+					this._Nombre = value;
+					this.SendPropertyChanged("Nombre");
+					this.OnNombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApellidoPaterno", DbType="VarChar(70) NOT NULL", CanBeNull=false)]
+		public string ApellidoPaterno
+		{
+			get
+			{
+				return this._ApellidoPaterno;
+			}
+			set
+			{
+				if ((this._ApellidoPaterno != value))
+				{
+					this.OnApellidoPaternoChanging(value);
+					this.SendPropertyChanging();
+					this._ApellidoPaterno = value;
+					this.SendPropertyChanged("ApellidoPaterno");
+					this.OnApellidoPaternoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApellidoMaterno", DbType="VarChar(70)")]
+		public string ApellidoMaterno
+		{
+			get
+			{
+				return this._ApellidoMaterno;
+			}
+			set
+			{
+				if ((this._ApellidoMaterno != value))
+				{
+					this.OnApellidoMaternoChanging(value);
+					this.SendPropertyChanging();
+					this._ApellidoMaterno = value;
+					this.SendPropertyChanged("ApellidoMaterno");
+					this.OnApellidoMaternoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Direccion", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Direccion
+		{
+			get
+			{
+				return this._Direccion;
+			}
+			set
+			{
+				if ((this._Direccion != value))
+				{
+					this.OnDireccionChanging(value);
+					this.SendPropertyChanging();
+					this._Direccion = value;
+					this.SendPropertyChanged("Direccion");
+					this.OnDireccionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telefono", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Telefono
+		{
+			get
+			{
+				return this._Telefono;
+			}
+			set
+			{
+				if ((this._Telefono != value))
+				{
+					this.OnTelefonoChanging(value);
+					this.SendPropertyChanging();
+					this._Telefono = value;
+					this.SendPropertyChanged("Telefono");
+					this.OnTelefonoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Correo", DbType="VarChar(255)")]
+		public string Correo
+		{
+			get
+			{
+				return this._Correo;
+			}
+			set
+			{
+				if ((this._Correo != value))
+				{
+					this.OnCorreoChanging(value);
+					this.SendPropertyChanging();
+					this._Correo = value;
+					this.SendPropertyChanged("Correo");
+					this.OnCorreoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Contrato", Storage="_Contrato", ThisKey="IdPersona", OtherKey="IdCliente")]
+		public EntitySet<Contrato> Contrato
+		{
+			get
+			{
+				return this._Contrato;
+			}
+			set
+			{
+				this._Contrato.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Contrato1", Storage="_Contrato1", ThisKey="IdPersona", OtherKey="IdVendedor")]
+		public EntitySet<Contrato> Contrato1
+		{
+			get
+			{
+				return this._Contrato1;
+			}
+			set
+			{
+				this._Contrato1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Usuario", Storage="_Usuario", ThisKey="IdPersona", OtherKey="IdPersona")]
+		public EntitySet<Usuario> Usuario
+		{
+			get
+			{
+				return this._Usuario;
+			}
+			set
+			{
+				this._Usuario.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Contrato(Contrato entity)
+		{
+			this.SendPropertyChanging();
+			entity.Persona = this;
+		}
+		
+		private void detach_Contrato(Contrato entity)
+		{
+			this.SendPropertyChanging();
+			entity.Persona = null;
+		}
+		
+		private void attach_Contrato1(Contrato entity)
+		{
+			this.SendPropertyChanging();
+			entity.Persona1 = this;
+		}
+		
+		private void detach_Contrato1(Contrato entity)
+		{
+			this.SendPropertyChanging();
+			entity.Persona1 = null;
+		}
+		
+		private void attach_Usuario(Usuario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Persona = this;
+		}
+		
+		private void detach_Usuario(Usuario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Persona = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Predio")]
+	public partial class Predio : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdPredio;
+		
+		private string _Nombre;
+		
+		private string _Ubicacion;
+		
+		private EntitySet<Manzana> _Manzana;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdPredioChanging(int value);
+    partial void OnIdPredioChanged();
+    partial void OnNombreChanging(string value);
+    partial void OnNombreChanged();
+    partial void OnUbicacionChanging(string value);
+    partial void OnUbicacionChanged();
+    #endregion
+		
+		public Predio()
+		{
+			this._Manzana = new EntitySet<Manzana>(new Action<Manzana>(this.attach_Manzana), new Action<Manzana>(this.detach_Manzana));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPredio", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IdPredio
+		{
+			get
+			{
+				return this._IdPredio;
+			}
+			set
+			{
+				if ((this._IdPredio != value))
+				{
+					this.OnIdPredioChanging(value);
+					this.SendPropertyChanging();
+					this._IdPredio = value;
+					this.SendPropertyChanged("IdPredio");
+					this.OnIdPredioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Nombre
+		{
+			get
+			{
+				return this._Nombre;
+			}
+			set
+			{
+				if ((this._Nombre != value))
+				{
+					this.OnNombreChanging(value);
+					this.SendPropertyChanging();
+					this._Nombre = value;
+					this.SendPropertyChanged("Nombre");
+					this.OnNombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ubicacion", DbType="VarChar(255)")]
+		public string Ubicacion
+		{
+			get
+			{
+				return this._Ubicacion;
+			}
+			set
+			{
+				if ((this._Ubicacion != value))
+				{
+					this.OnUbicacionChanging(value);
+					this.SendPropertyChanging();
+					this._Ubicacion = value;
+					this.SendPropertyChanged("Ubicacion");
+					this.OnUbicacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Predio_Manzana", Storage="_Manzana", ThisKey="IdPredio", OtherKey="IdPredio")]
+		public EntitySet<Manzana> Manzana
+		{
+			get
+			{
+				return this._Manzana;
+			}
+			set
+			{
+				this._Manzana.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Manzana(Manzana entity)
+		{
+			this.SendPropertyChanging();
+			entity.Predio = this;
+		}
+		
+		private void detach_Manzana(Manzana entity)
+		{
+			this.SendPropertyChanging();
+			entity.Predio = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TipoPago")]
+	public partial class TipoPago : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdTipoPago;
+		
+		private string _Descripcion;
+		
+		private EntitySet<Pago> _Pago;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdTipoPagoChanging(int value);
+    partial void OnIdTipoPagoChanged();
+    partial void OnDescripcionChanging(string value);
+    partial void OnDescripcionChanged();
+    #endregion
+		
+		public TipoPago()
+		{
+			this._Pago = new EntitySet<Pago>(new Action<Pago>(this.attach_Pago), new Action<Pago>(this.detach_Pago));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoPago", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IdTipoPago
+		{
+			get
+			{
+				return this._IdTipoPago;
+			}
+			set
+			{
+				if ((this._IdTipoPago != value))
+				{
+					this.OnIdTipoPagoChanging(value);
+					this.SendPropertyChanging();
+					this._IdTipoPago = value;
+					this.SendPropertyChanged("IdTipoPago");
+					this.OnIdTipoPagoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descripcion", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Descripcion
+		{
+			get
+			{
+				return this._Descripcion;
+			}
+			set
+			{
+				if ((this._Descripcion != value))
+				{
+					this.OnDescripcionChanging(value);
+					this.SendPropertyChanging();
+					this._Descripcion = value;
+					this.SendPropertyChanged("Descripcion");
+					this.OnDescripcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TipoPago_Pago", Storage="_Pago", ThisKey="IdTipoPago", OtherKey="IdTipoPago")]
+		public EntitySet<Pago> Pago
+		{
+			get
+			{
+				return this._Pago;
+			}
+			set
+			{
+				this._Pago.Assign(value);
 			}
 		}
 		
@@ -1960,25 +1728,188 @@ namespace ServicioTerreno.Model
 		private void attach_Pago(Pago entity)
 		{
 			this.SendPropertyChanging();
-			entity.Contrato = this;
+			entity.TipoPago = this;
 		}
 		
 		private void detach_Pago(Pago entity)
 		{
 			this.SendPropertyChanging();
-			entity.Contrato = null;
+			entity.TipoPago = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Usuario")]
+	public partial class Usuario : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdUsuario;
+		
+		private string _Usuario1;
+		
+		private string _Contraseña;
+		
+		private int _IdPersona;
+		
+		private EntityRef<Persona> _Persona;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdUsuarioChanging(int value);
+    partial void OnIdUsuarioChanged();
+    partial void OnUsuario1Changing(string value);
+    partial void OnUsuario1Changed();
+    partial void OnContraseñaChanging(string value);
+    partial void OnContraseñaChanged();
+    partial void OnIdPersonaChanging(int value);
+    partial void OnIdPersonaChanged();
+    #endregion
+		
+		public Usuario()
+		{
+			this._Persona = default(EntityRef<Persona>);
+			OnCreated();
 		}
 		
-		private void attach_Lote(Lote entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUsuario", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IdUsuario
 		{
-			this.SendPropertyChanging();
-			entity.Contrato = this;
+			get
+			{
+				return this._IdUsuario;
+			}
+			set
+			{
+				if ((this._IdUsuario != value))
+				{
+					this.OnIdUsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._IdUsuario = value;
+					this.SendPropertyChanged("IdUsuario");
+					this.OnIdUsuarioChanged();
+				}
+			}
 		}
 		
-		private void detach_Lote(Lote entity)
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Usuario", Storage="_Usuario1", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Usuario1
 		{
-			this.SendPropertyChanging();
-			entity.Contrato = null;
+			get
+			{
+				return this._Usuario1;
+			}
+			set
+			{
+				if ((this._Usuario1 != value))
+				{
+					this.OnUsuario1Changing(value);
+					this.SendPropertyChanging();
+					this._Usuario1 = value;
+					this.SendPropertyChanged("Usuario1");
+					this.OnUsuario1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contraseña", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Contraseña
+		{
+			get
+			{
+				return this._Contraseña;
+			}
+			set
+			{
+				if ((this._Contraseña != value))
+				{
+					this.OnContraseñaChanging(value);
+					this.SendPropertyChanging();
+					this._Contraseña = value;
+					this.SendPropertyChanged("Contraseña");
+					this.OnContraseñaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdPersona", DbType="Int NOT NULL")]
+		public int IdPersona
+		{
+			get
+			{
+				return this._IdPersona;
+			}
+			set
+			{
+				if ((this._IdPersona != value))
+				{
+					if (this._Persona.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdPersonaChanging(value);
+					this.SendPropertyChanging();
+					this._IdPersona = value;
+					this.SendPropertyChanged("IdPersona");
+					this.OnIdPersonaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Persona_Usuario", Storage="_Persona", ThisKey="IdPersona", OtherKey="IdPersona", IsForeignKey=true)]
+		public Persona Persona
+		{
+			get
+			{
+				return this._Persona.Entity;
+			}
+			set
+			{
+				Persona previousValue = this._Persona.Entity;
+				if (((previousValue != value) 
+							|| (this._Persona.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Persona.Entity = null;
+						previousValue.Usuario.Remove(this);
+					}
+					this._Persona.Entity = value;
+					if ((value != null))
+					{
+						value.Usuario.Add(this);
+						this._IdPersona = value.IdPersona;
+					}
+					else
+					{
+						this._IdPersona = default(int);
+					}
+					this.SendPropertyChanged("Persona");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
