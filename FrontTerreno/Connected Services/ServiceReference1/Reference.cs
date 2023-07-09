@@ -893,6 +893,103 @@ namespace ServiceReference1
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Terreno", Namespace="http://schemas.datacontract.org/2004/07/ServicioTerreno.Model")]
+    public partial class Terreno : object
+    {
+        
+        private System.Nullable<int> IdContratoField;
+        
+        private string NoLoteField;
+        
+        private int NoManzanaField;
+        
+        private string NombreField;
+        
+        private double SuperficieField;
+        
+        private string UbicacionField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> IdContrato
+        {
+            get
+            {
+                return this.IdContratoField;
+            }
+            set
+            {
+                this.IdContratoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NoLote
+        {
+            get
+            {
+                return this.NoLoteField;
+            }
+            set
+            {
+                this.NoLoteField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NoManzana
+        {
+            get
+            {
+                return this.NoManzanaField;
+            }
+            set
+            {
+                this.NoManzanaField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nombre
+        {
+            get
+            {
+                return this.NombreField;
+            }
+            set
+            {
+                this.NombreField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Superficie
+        {
+            get
+            {
+                return this.SuperficieField;
+            }
+            set
+            {
+                this.SuperficieField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ubicacion
+        {
+            get
+            {
+                return this.UbicacionField;
+            }
+            set
+            {
+                this.UbicacionField = value;
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1
@@ -987,6 +1084,9 @@ namespace ServiceReference1
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
         System.Threading.Tasks.Task<ServiceReference1.Usuario> LoginAsync(string usuario, string contraseña);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaTerrenos", ReplyAction="http://tempuri.org/IService1/ListaTerrenosResponse")]
+        System.Threading.Tasks.Task<ServiceReference1.Terreno[]> ListaTerrenosAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
@@ -1187,6 +1287,11 @@ namespace ServiceReference1
         public System.Threading.Tasks.Task<ServiceReference1.Usuario> LoginAsync(string usuario, string contraseña)
         {
             return base.Channel.LoginAsync(usuario, contraseña);
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference1.Terreno[]> ListaTerrenosAsync()
+        {
+            return base.Channel.ListaTerrenosAsync();
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

@@ -202,5 +202,22 @@ namespace FrontTerreno.Modelo
             else
                 return null;
         }
+        public async Task<List<Terreno>> ListaTerrenos()
+        {
+            Service1Client servicio = new Service1Client();
+            if (servicio != null)
+            {
+                Terreno[] consulta = await servicio.ListaTerrenosAsync();
+                if (consulta != null)
+                {
+                    List<Terreno> lista = new List<Terreno>(consulta);
+                    return lista;
+                }
+                else
+                    return null;
+            }
+            else
+                return null;
+        }
     }
 }

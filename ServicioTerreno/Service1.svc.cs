@@ -87,6 +87,10 @@ namespace ServicioTerreno
         {
             return Model.DAO.TipoPagoDAO.ConsultarTipoPago();
         }
+        public List<Terreno> ListaTerrenos()
+        {
+            return Model.DAO.TerrenoDAO.ListaTerrenos();
+        }
 
         public Usuario Login(string usuario, string contraseña)
         {
@@ -155,5 +159,7 @@ namespace ServicioTerreno
         {
             return Model.DAO.PredioDAO.RegistrarPredio(predio);
         }
+
+        
     }
 }

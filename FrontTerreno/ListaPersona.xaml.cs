@@ -30,8 +30,7 @@ namespace FrontTerreno
         private async void listaPersona()
         {
             PersonaViewModel personaViewModel = new PersonaViewModel();
-            List<Persona> lista = new List<Persona>();
-            lista = await personaViewModel.ListaPersonas();
+            List<Persona> lista = await personaViewModel.ListaPersonas();
             tablaPersona.ItemsSource = lista;
         }
     }

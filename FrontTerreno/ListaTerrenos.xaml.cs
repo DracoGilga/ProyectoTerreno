@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FrontTerreno.Modelo;
+using ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,16 @@ namespace FrontTerreno
     /// </summary>
     public partial class ListaTerrenos : Window
     {
+        TerrenoViewModel terrenoViewModel = new TerrenoViewModel();
         public ListaTerrenos()
         {
             InitializeComponent();
+            MostrarTerrenos();
+        }
+        private async void MostrarTerrenos()
+        {
+            List<Terreno> terrenos = await terrenoViewModel.ListaTerrenos();
+            tablaTerrenos.ItemsSource = terrenos;
         }
     }
 }

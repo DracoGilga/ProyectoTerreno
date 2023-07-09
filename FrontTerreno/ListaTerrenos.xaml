@@ -17,7 +17,18 @@
                 <DataGridTemplateColumn Header="Disponibilidad">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox x:Name="cbx_disponibilidad" IsEnabled="False" IsChecked="{Binding Disponibilidad, Mode=TwoWay}"/>
+                            <CheckBox x:Name="cbx_disponibilidad" IsEnabled="False">
+                                <CheckBox.Style>
+                                    <Style TargetType="CheckBox">
+                                        <Setter Property="IsChecked" Value="False" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IdContrato}" Value="{x:Null}">
+                                                <Setter Property="IsChecked" Value="True" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </CheckBox.Style>
+                            </CheckBox>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

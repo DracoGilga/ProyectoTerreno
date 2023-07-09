@@ -74,11 +74,12 @@ namespace ServicioTerreno
         List<Persona> ListarPersona();
         [OperationContract]
         List<TipoPago> ListarTipoPago();
-
+        [OperationContract]
+        List<Terreno> ListaTerrenos();
 
 
         //Login 
         [OperationContract]
-        Usuario Login(string usuario, string contraseña);
+        Usuario Login(string usuario, string contraseña);   
     }
 }
