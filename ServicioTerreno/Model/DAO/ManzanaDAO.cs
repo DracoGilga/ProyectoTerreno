@@ -6,11 +6,16 @@ namespace ServicioTerreno.Model.DAO
 {
     public class ManzanaDAO
     {
-        public static Boolean RegistrarManzana(Manzana manzana)
+        public static Boolean RegistrarManzana(Manzana manzanaNueva)
         {
             try
             {
                 DataClassesTerrenosDataContext DBConexion = GetConexion();
+                var manzana = new Manzana()
+                {
+                    NoManzana = manzanaNueva.NoManzana,
+                    IdPredio = manzanaNueva.IdPredio
+                };
                 DBConexion.Manzana.InsertOnSubmit(manzana);
                 DBConexion.SubmitChanges();
                 return true;

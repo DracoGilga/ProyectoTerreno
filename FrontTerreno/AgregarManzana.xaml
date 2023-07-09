@@ -6,12 +6,21 @@
         xmlns:local="clr-namespace:FrontTerreno"
         mc:Ignorable="d"
         Title="AgregarPredio" Height="220" Width="367">
+    <Window.Resources>
+        <DataTemplate x:Key="PredioItemTemplate">
+            <StackPanel Orientation="Horizontal" Margin="0,2">
+                <TextBlock Text="{Binding Nombre}" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding Ubicacion}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Label Content="NoManzana:" HorizontalAlignment="Left" Margin="34,86,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Manzana" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Button Content="Guardar" HorizontalAlignment="Center" Margin="0,136,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="102" Height="35" Click="Btn_guardar"/>
         <Label Content="Predio:" HorizontalAlignment="Left" Margin="34,45,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <ComboBox x:Name="Cb_predio" HorizontalAlignment="Left" Margin="155,48,0,0" VerticalAlignment="Top" Width="178" FontSize="20" Height="30"/>
+        <ComboBox x:Name="Cb_predio" HorizontalAlignment="Left" Margin="155,48,0,0" VerticalAlignment="Top" Width="178" FontSize="20" Height="30"
+                  ItemTemplate="{StaticResource PredioItemTemplate}"/>
         <TextBox x:Name="Tb_nombre" HorizontalAlignment="Left" Margin="155,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" FontSize="20" Height="29"/>
 
     </Grid>

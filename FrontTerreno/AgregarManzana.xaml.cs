@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FrontTerreno.Modelo;
+using ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +21,48 @@ namespace FrontTerreno
     /// </summary>
     public partial class AgregarManzana : Window
     {
+        TerrenoViewModel terrenoViewModel = new TerrenoViewModel();
         public AgregarManzana()
         {
             InitializeComponent();
+            BuscarPredios();
         }
 
-        private void Btn_guardar(object sender, RoutedEventArgs e)
+        private async void Btn_guardar(object sender, RoutedEventArgs e)
         {
+            if(Cb_predio.SelectedIndex != -1)
+            {
+                if (!string.IsNullOrWhiteSpace(Tb_nombre.Text))
+                {
+                    Manzana manzana = new Manzana();
+                    manzana.IdPredio = ((Predio)Cb_predio.SelectedItem).IdPredio;
+                    manzana.Predio = new Predio()
+                    {
+                        IdPredio = ((Predio)Cb_predio.SelectedItem).IdPredio,
+                    };
+                    manzana.NoManzana = Convert.ToInt32(Tb_nombre.Text);
+                    bool respuesta = await terrenoViewModel.GuardarManzana(manzana);
 
+                    if (respuesta)
+                    {
+                        MessageBox.Show("Manzana guardada correctamente");
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Error al guardar manzana");
+                }
+                else
+                    MessageBox.Show("Favor de llenar todos los campos");
+            }
+            else
+                MessageBox.Show("Favor de seleccionar un predio");
+        }
+        private async void BuscarPredios()
+        {
+            Cb_predio.ItemTemplate = (DataTemplate)Resources["PredioItemTemplate"];
+
+            List<Predio> predios = await terrenoViewModel.ListaPredios();
+            Cb_predio.ItemsSource = predios;
         }
     }
 }
