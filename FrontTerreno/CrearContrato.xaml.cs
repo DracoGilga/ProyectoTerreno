@@ -34,5 +34,15 @@ namespace FrontTerreno
 
             MessageBox.Show($"Fecha seleccionada: {formatoFecha}");
         }
+
+        private void Btn_Aniadir(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Eliminar(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

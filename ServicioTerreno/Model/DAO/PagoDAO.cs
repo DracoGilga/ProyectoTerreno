@@ -30,6 +30,7 @@ namespace ServicioTerreno.Model.DAO
                 pagoModificar.CantidadPago = pago.CantidadPago;
                 pagoModificar.IdContrato = pago.IdContrato;
                 pagoModificar.IdTipoPago = pago.IdTipoPago;
+                pagoModificar.SerialPago = pago.SerialPago;
 
                 DBConexion.SubmitChanges();
                 return true;
@@ -71,7 +72,8 @@ namespace ServicioTerreno.Model.DAO
                             FechaPago = pago.FechaPago,
                             CantidadPago = pago.CantidadPago,
                             IdContrato = pago.IdContrato,
-                            IdTipoPago = pago.IdTipoPago
+                            IdTipoPago = pago.IdTipoPago,
+                            SerialPago = pago.SerialPago
                         });
                     }
                     return pagos;
@@ -103,7 +105,8 @@ namespace ServicioTerreno.Model.DAO
                             FechaPago = pago.FechaPago,
                             CantidadPago = pago.CantidadPago,
                             IdContrato = pago.IdContrato,
-                            IdTipoPago = pago.IdTipoPago
+                            IdTipoPago = pago.IdTipoPago,
+                            SerialPago = pago.SerialPago
                         });
                     }
                     return pagos;

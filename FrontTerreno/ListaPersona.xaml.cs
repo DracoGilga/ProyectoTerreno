@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FrontTerreno.Modelo;
+using ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,15 @@ namespace FrontTerreno
         public ListaPersona()
         {
             InitializeComponent();
+            listaPersona();
+        }
+
+        private async void listaPersona()
+        {
+            PersonaViewModel personaViewModel = new PersonaViewModel();
+            List<Persona> lista = new List<Persona>();
+            lista = await personaViewModel.ListaPersonas();
+            tablaPersona.ItemsSource = lista;
         }
     }
 }

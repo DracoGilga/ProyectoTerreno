@@ -1,0 +1,27 @@
+﻿<Window x:Class="FrontTerreno.ListaTerrenos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FrontTerreno"
+        mc:Ignorable="d"
+        Title="ListaTerrenos" Height="388" Width="746">
+    <Grid>
+        <DataGrid x:Name="tablaTerrenos" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Center" Height="324" VerticalAlignment="Center" Width="698">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nombre del Predio" Binding="{Binding Nombre}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Ubicacion" Binding="{Binding Ubicacion}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="NoManzana" Binding="{Binding NoManzana}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="NoLote" Binding="{Binding NoLote}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Superficie" Binding="{Binding Superficie}" Width="*" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Disponibilidad">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="cbx_disponibilidad" IsEnabled="False" IsChecked="{Binding Disponibilidad, Mode=TwoWay}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

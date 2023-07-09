@@ -2,108 +2,108 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.25" name="DataClassesTerrenos">
   <DataContextMoniker Name="/DataClassesTerrenosDataContext" />
   <nestedChildShapes>
-    <classShape Id="4030fcda-30a0-4a30-bd77-d59df59ab154" absoluteBounds="3.5, 5.125, 2, 2.5401025390625005">
-      <DataClassMoniker Name="/DataClassesTerrenosDataContext/Contrato" />
-      <nestedChildShapes>
-        <elementListCompartment Id="4b5b8372-7e11-4489-8b20-9e3055d8fcd1" absoluteBounds="3.515, 5.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="10d79ea8-30b4-4184-b43c-3405995b7880" absoluteBounds="6.25, 5.5, 2, 1.7708968098958326">
-      <DataClassMoniker Name="/DataClassesTerrenosDataContext/Lote" />
-      <nestedChildShapes>
-        <elementListCompartment Id="7f34e572-f021-4827-be52-e97000dadaae" absoluteBounds="6.265, 5.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="6c606b43-b3ae-4be0-9c88-26de9d131087" absoluteBounds="3.5, 8.625, 2, 1.3862939453125005">
-      <DataClassMoniker Name="/DataClassesTerrenosDataContext/Manzana" />
-      <nestedChildShapes>
-        <elementListCompartment Id="95388536-95ff-4f58-a20f-8cf3f3037e51" absoluteBounds="3.515, 9.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="f6f656b7-3c8a-4e32-bb1f-987d9b4c70a4" absoluteBounds="6.25, 2.5, 2, 1.7708968098958326">
-      <DataClassMoniker Name="/DataClassesTerrenosDataContext/Pago" />
-      <nestedChildShapes>
-        <elementListCompartment Id="50adec5d-8f46-4b4f-a562-ce1dcfcb6500" absoluteBounds="6.265, 2.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="6c382d5a-cc90-4ddf-b30f-add72ba64a8b" absoluteBounds="0.75, 4.125, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/DataClassesTerrenosDataContext/Persona" />
-      <nestedChildShapes>
-        <elementListCompartment Id="829d68cb-7a0d-409b-a821-07dd9075c03d" absoluteBounds="0.765, 4.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="9893884d-1285-495b-b11d-24291f33b0e0" absoluteBounds="0.75, 8.625, 2, 1.3862939453125005">
-      <DataClassMoniker Name="/DataClassesTerrenosDataContext/Predio" />
-      <nestedChildShapes>
-        <elementListCompartment Id="dae2b122-1620-4b81-9ec7-d164a7566ffc" absoluteBounds="0.765, 9.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="45e18de4-17a2-4171-88c5-046ac35c3724" absoluteBounds="3.5, 0.75, 2, 1.1939925130208335">
-      <DataClassMoniker Name="/DataClassesTerrenosDataContext/TipoPago" />
-      <nestedChildShapes>
-        <elementListCompartment Id="5888bd45-714c-4eb9-8025-4208ed2c8d1a" absoluteBounds="3.515, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="69bdc0e4-c948-4d7a-8405-a21847ba1203" absoluteBounds="3.5, 2.75, 2, 1.5785953776041661">
+    <classShape Id="3e398530-d2eb-42f2-b941-ea7555bec50a" absoluteBounds="3.5, 2.75, 2, 1.5785953776041661">
       <DataClassMoniker Name="/DataClassesTerrenosDataContext/Usuario" />
       <nestedChildShapes>
-        <elementListCompartment Id="bd6f215e-3bf8-4eab-9afa-5ecf82ad5c2e" absoluteBounds="3.515, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="560ddf6b-fa5d-4eb7-aaa2-8f14574bfc26" absoluteBounds="3.515, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.5 : 6.38544840494792); (6.25 : 6.38544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataClassesTerrenosDataContext/Contrato/Contrato_Lote" />
+    <classShape Id="32dce9a1-401d-4130-866b-b561a3e3873c" absoluteBounds="3.5, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DataClassesTerrenosDataContext/TipoPago" />
+      <nestedChildShapes>
+        <elementListCompartment Id="23ce1821-b06f-4b4a-b4fb-e90031952bbd" absoluteBounds="3.515, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1ba42b9c-3dc2-42d1-a614-a8600fe27b68" absoluteBounds="0.75, 8.625, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/DataClassesTerrenosDataContext/Predio" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fb605857-397e-4e6d-b74b-746969a64a7a" absoluteBounds="0.765, 9.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4472fd91-9f25-4f9f-ac22-ad984092df11" absoluteBounds="0.75, 4.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DataClassesTerrenosDataContext/Persona" />
+      <nestedChildShapes>
+        <elementListCompartment Id="57d30984-5aa6-4365-a6c5-c598c80699f7" absoluteBounds="0.765, 4.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa44094a-7312-4404-8338-4c0d043223bc" absoluteBounds="6.25, 2.375, 2, 1.9631982421874996">
+      <DataClassMoniker Name="/DataClassesTerrenosDataContext/Pago" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d70e15a1-6e72-427c-8496-57fc825ba855" absoluteBounds="6.265, 2.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="88198da5-c84d-4891-984f-94700c896bee" absoluteBounds="3.5, 8.625, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/DataClassesTerrenosDataContext/Manzana" />
+      <nestedChildShapes>
+        <elementListCompartment Id="198d99f0-37ff-4ebf-8fe1-6ad20e67ff58" absoluteBounds="3.515, 9.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cdb78761-ddaf-4b59-b324-251fc38f8af6" absoluteBounds="6.25, 5.5, 2, 1.7708968098958326">
+      <DataClassMoniker Name="/DataClassesTerrenosDataContext/Lote" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f2c43305-c905-4760-a91f-2532680671a7" absoluteBounds="6.265, 5.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2fbf8ed8-49da-49ef-8875-1aedfd5c4f57" absoluteBounds="3.5, 5.125, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/DataClassesTerrenosDataContext/Contrato" />
+      <nestedChildShapes>
+        <elementListCompartment Id="65a67db2-48ce-4a42-90f1-5a50d07b5565" absoluteBounds="3.515, 5.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.75 : 4.125); (1.75 : 3.4374995); (3.5 : 3.4374995)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesTerrenosDataContext/Persona/Persona_Usuario" />
       <nodes>
-        <classShapeMoniker Id="4030fcda-30a0-4a30-bd77-d59df59ab154" />
-        <classShapeMoniker Id="10d79ea8-30b4-4184-b43c-3405995b7880" />
+        <classShapeMoniker Id="4472fd91-9f25-4f9f-ac22-ad984092df11" />
+        <classShapeMoniker Id="3e398530-d2eb-42f2-b941-ea7555bec50a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 9.31814697265625); (7.25 : 9.31814697265625); (7.25 : 7.27089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataClassesTerrenosDataContext/Manzana/Manzana_Lote" />
+    <associationConnector edgePoints="[(5.5 : 1.34699625651042); (7.25 : 1.34699625651042); (7.25 : 2.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesTerrenosDataContext/TipoPago/TipoPago_Pago" />
       <nodes>
-        <classShapeMoniker Id="6c606b43-b3ae-4be0-9c88-26de9d131087" />
-        <classShapeMoniker Id="10d79ea8-30b4-4184-b43c-3405995b7880" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 5.125); (5.875 : 4.75); (5.875 : 3.38544840494792); (6.25 : 3.38544840494792)]" fixedFrom="NotFixed" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataClassesTerrenosDataContext/Contrato/Contrato_Pago" />
-      <nodes>
-        <classShapeMoniker Id="4030fcda-30a0-4a30-bd77-d59df59ab154" />
-        <classShapeMoniker Id="f6f656b7-3c8a-4e32-bb1f-987d9b4c70a4" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.70274983723958); (3.5 : 5.70274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataClassesTerrenosDataContext/Persona/Persona_Contrato" />
-      <nodes>
-        <classShapeMoniker Id="6c382d5a-cc90-4ddf-b30f-add72ba64a8b" />
-        <classShapeMoniker Id="4030fcda-30a0-4a30-bd77-d59df59ab154" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 5.35137491861979); (3.5 : 5.35137491861979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataClassesTerrenosDataContext/Persona/Persona_Contrato1" />
-      <nodes>
-        <classShapeMoniker Id="6c382d5a-cc90-4ddf-b30f-add72ba64a8b" />
-        <classShapeMoniker Id="4030fcda-30a0-4a30-bd77-d59df59ab154" />
+        <classShapeMoniker Id="32dce9a1-401d-4130-866b-b561a3e3873c" />
+        <classShapeMoniker Id="aa44094a-7312-4404-8338-4c0d043223bc" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 9.31814697265625); (3.5 : 9.31814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesTerrenosDataContext/Predio/Predio_Manzana" />
       <nodes>
-        <classShapeMoniker Id="9893884d-1285-495b-b11d-24291f33b0e0" />
-        <classShapeMoniker Id="6c606b43-b3ae-4be0-9c88-26de9d131087" />
+        <classShapeMoniker Id="1ba42b9c-3dc2-42d1-a614-a8600fe27b68" />
+        <classShapeMoniker Id="88198da5-c84d-4891-984f-94700c896bee" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 1.34699625651042); (7.25 : 1.34699625651042); (7.25 : 2.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataClassesTerrenosDataContext/TipoPago/TipoPago_Pago" />
+    <associationConnector edgePoints="[(5.5 : 9.31814697265625); (7.25 : 9.31814697265625); (7.25 : 7.27089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesTerrenosDataContext/Manzana/Manzana_Lote" />
       <nodes>
-        <classShapeMoniker Id="45e18de4-17a2-4171-88c5-046ac35c3724" />
-        <classShapeMoniker Id="f6f656b7-3c8a-4e32-bb1f-987d9b4c70a4" />
+        <classShapeMoniker Id="88198da5-c84d-4891-984f-94700c896bee" />
+        <classShapeMoniker Id="cdb78761-ddaf-4b59-b324-251fc38f8af6" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 4.125); (1.75 : 3.4374995); (3.5 : 3.4374995)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/DataClassesTerrenosDataContext/Persona/Persona_Usuario" />
+    <associationConnector edgePoints="[(5.5 : 5.125); (5.875 : 4.75); (5.875 : 3.35659912109375); (6.25 : 3.35659912109375)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesTerrenosDataContext/Contrato/Contrato_Pago" />
       <nodes>
-        <classShapeMoniker Id="6c382d5a-cc90-4ddf-b30f-add72ba64a8b" />
-        <classShapeMoniker Id="69bdc0e4-c948-4d7a-8405-a21847ba1203" />
+        <classShapeMoniker Id="2fbf8ed8-49da-49ef-8875-1aedfd5c4f57" />
+        <classShapeMoniker Id="aa44094a-7312-4404-8338-4c0d043223bc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.38544840494792); (6.25 : 6.38544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesTerrenosDataContext/Contrato/Contrato_Lote" />
+      <nodes>
+        <classShapeMoniker Id="2fbf8ed8-49da-49ef-8875-1aedfd5c4f57" />
+        <classShapeMoniker Id="cdb78761-ddaf-4b59-b324-251fc38f8af6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.70274983723958); (3.5 : 5.70274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesTerrenosDataContext/Persona/Persona_Contrato" />
+      <nodes>
+        <classShapeMoniker Id="4472fd91-9f25-4f9f-ac22-ad984092df11" />
+        <classShapeMoniker Id="2fbf8ed8-49da-49ef-8875-1aedfd5c4f57" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.35137491861979); (3.5 : 5.35137491861979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesTerrenosDataContext/Persona/Persona_Contrato1" />
+      <nodes>
+        <classShapeMoniker Id="4472fd91-9f25-4f9f-ac22-ad984092df11" />
+        <classShapeMoniker Id="2fbf8ed8-49da-49ef-8875-1aedfd5c4f57" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

@@ -15,13 +15,18 @@ using System.Windows.Shapes;
 namespace FrontTerreno
 {
     /// <summary>
-    /// Lógica de interacción para MenuPago.xaml
+    /// Lógica de interacción para AgregarPago.xaml
     /// </summary>
-    public partial class MenuPago : Window
+    public partial class AgregarPago : Window
     {
-        public MenuPago()
+        public AgregarPago()
         {
             InitializeComponent();
+        }
+
+        private void Btn_registrar(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

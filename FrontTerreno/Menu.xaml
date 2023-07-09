@@ -11,7 +11,7 @@
         >
     <Grid>
         <Button Content="Contrato" HorizontalAlignment="Center" Height="29" Margin="0,22,0,0" VerticalAlignment="Top" Width="116" Click="Btn_contrato" FontWeight="Bold" FontSize="20"/>
-        <Button Content="Terrenos" HorizontalAlignment="Center" Height="29" Margin="0,67,0,0" VerticalAlignment="Top" Width="116" FontSize="20" FontWeight="Bold"/>
+        <Button Content="Terrenos" HorizontalAlignment="Center" Height="29" Margin="0,67,0,0" VerticalAlignment="Top" Width="116" FontSize="20" FontWeight="Bold" Click="Button_Click"/>
         <Button Content="Persona" HorizontalAlignment="Center" Height="29" Margin="0,112,0,0" VerticalAlignment="Top" Width="116" Click="Btn_persona" FontSize="20" FontWeight="Bold"/>
         <Button Content="Pagos" HorizontalAlignment="Center" Height="36" Margin="0,156,0,0" VerticalAlignment="Top" Width="116" Click="Btn_pago" FontSize="20" FontWeight="Bold"/>
 

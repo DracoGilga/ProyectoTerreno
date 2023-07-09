@@ -1,0 +1,26 @@
+﻿<Window x:Class="FrontTerreno.MenuTerrenos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FrontTerreno"
+        mc:Ignorable="d"
+        Title="MenuTerrenos" Height="406" Width="664">
+    <Grid>
+        <Button Content="Agregar Predio" HorizontalAlignment="Left" Height="40" Margin="28,52,0,0" VerticalAlignment="Top" Width="182" FontSize="20" FontWeight="Bold" Click="Btn_agregarPredio"/>
+        <Button Content="Modificar Predio" HorizontalAlignment="Left" Height="40" Margin="228,52,0,0" VerticalAlignment="Top" Width="194" FontSize="20" FontWeight="Bold" Click="Btn_modificarPredio"/>
+        <Button Content="Eliminar Predio" HorizontalAlignment="Left" Height="40" Margin="443,52,0,0" VerticalAlignment="Top" Width="181" FontSize="20" FontWeight="Bold" Click="Btn_eliminarPredio" Background="Red" Foreground="White"/>
+        <Label Content="Predio -----------------------------------------------" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Button Content="Agregar Manzana" HorizontalAlignment="Left" Height="40" Margin="28,139,0,0" VerticalAlignment="Top" Width="182" FontSize="20" FontWeight="Bold" Click="Btn_agregarManzana"/>
+        <Button Content="Modificar Manzana" HorizontalAlignment="Left" Height="40" Margin="228,139,0,0" VerticalAlignment="Top" Width="194" FontSize="20" FontWeight="Bold" Click="Btn_modificarManzana"/>
+        <Button Content="Eliminar Manzana" HorizontalAlignment="Left" Height="40" Margin="443,139,0,0" VerticalAlignment="Top" Width="181" FontSize="20" FontWeight="Bold" Click="Btn_eliminarManzana" Background="Red" Foreground="White"/>
+        <Label Content="Manzana -----------------------------------------------" HorizontalAlignment="Left" Margin="28,97,0,0" VerticalAlignment="Top" FontSize="20" Width="448"/>
+        <Button Content="Agregar Lote" HorizontalAlignment="Left" Height="40" Margin="28,226,0,0" VerticalAlignment="Top" Width="182" FontSize="20" FontWeight="Bold" Click="Btn_agregarLote"/>
+        <Button Content="Modificar Lote" HorizontalAlignment="Left" Height="40" Margin="228,226,0,0" VerticalAlignment="Top" Width="194" FontSize="20" FontWeight="Bold" Click="Btn_modificarLote"/>
+        <Button Content="Eliminar Lote" HorizontalAlignment="Left" Height="40" Margin="443,226,0,0" VerticalAlignment="Top" Width="181" FontSize="20" FontWeight="Bold" Click="Btn_eliminarLote" Background="Red" Foreground="White"/>
+        <Label Content="Lote ----------------------------------------------------" HorizontalAlignment="Left" Margin="28,184,0,0" VerticalAlignment="Top" FontSize="20" Width="448"/>
+        <Label Content="--------------------------------------------------------------------------" HorizontalAlignment="Left" Margin="28,271,0,0" VerticalAlignment="Top" FontSize="20" Width="596"/>
+        <Button Content="Lista de Terrenos" HorizontalAlignment="Left" Height="40" Margin="228,313,0,0" VerticalAlignment="Top" Width="194" FontSize="20" FontWeight="Bold" Click="Btn_listaTerrenos"/>
+
+    </Grid>
+</Window>

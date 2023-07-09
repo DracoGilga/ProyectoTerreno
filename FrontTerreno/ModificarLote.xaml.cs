@@ -15,25 +15,16 @@ using System.Windows.Shapes;
 namespace FrontTerreno
 {
     /// <summary>
-    /// Lógica de interacción para ModificarContrato.xaml
+    /// Lógica de interacción para ModificarLote.xaml
     /// </summary>
-    public partial class ModificarContrato : Window
+    public partial class ModificarLote : Window
     {
-        public ModificarContrato()
+        public ModificarLote()
         {
             InitializeComponent();
         }
+
         private void Btn_modificar(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Btn_Aniadir(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Btn_Eliminar(object sender, RoutedEventArgs e)
         {
 
         }

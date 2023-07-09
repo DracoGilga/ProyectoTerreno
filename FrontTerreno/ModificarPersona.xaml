@@ -6,6 +6,15 @@
         xmlns:local="clr-namespace:FrontTerreno"
         mc:Ignorable="d"
         Title="Modificar Persona" Height="479" Width="708">
+    <Window.Resources>
+        <DataTemplate x:Key="PersonaItemTemplate">
+            <StackPanel Orientation="Horizontal" Margin="0,2">
+                <TextBlock Text="{Binding Nombre}" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding ApellidoPaterno}" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding ApellidoMaterno}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Label Content="Buscar Persona:" HorizontalAlignment="Left" Margin="41,28,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
 
@@ -15,13 +24,14 @@
         <Label Content="Direccion:" HorizontalAlignment="Left" Margin="41,210,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
         <Label Content="Telefono:" HorizontalAlignment="Left" Margin="390,210,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
         <Label Content="Correo:" HorizontalAlignment="Left" Margin="390,285,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-        <ComboBox x:Name="Cb_BuscarPersona" HorizontalAlignment="Left" Margin="41,65,0,0" VerticalAlignment="Top" Width="384" FontSize="20"/>
+        <ComboBox x:Name="Cb_BuscarPersona" HorizontalAlignment="Left" Margin="41,65,0,0" VerticalAlignment="Top" Width="384" FontSize="20"
+                  ItemTemplate="{StaticResource PersonaItemTemplate}" SelectionChanged="clic_persona"/>
         <TextBox x:Name="Tb_nombre" HorizontalAlignment="Left" Margin="41,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontSize="20"/>
         <TextBox x:Name="Tb_apellidoP" HorizontalAlignment="Center" Margin="0,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="188" FontSize="20"/>
         <TextBox x:Name="Tb_ApellidoM" HorizontalAlignment="Left" Margin="465,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontSize="20"/>
         <TextBox x:Name="Tb_direccion" HorizontalAlignment="Left" Margin="41,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322" FontSize="20" Height="104"/>
         <TextBox x:Name="Tb_telefono" HorizontalAlignment="Left" Margin="390,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontSize="20"/>
-        <TextBox x:Name="Tb_correo" HorizontalAlignment="Left" Margin="390,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontSize="20"/>
+        <TextBox x:Name="Tb_correo" HorizontalAlignment="Left" Margin="390,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="264" FontSize="20"/>
         <Button Content="GUARDAR" HorizontalAlignment="Left" Margin="285,387,0,0" VerticalAlignment="Top" FontSize="20" Width="118" Height="36" Click="Btn_guardar"/>
 
     </Grid>

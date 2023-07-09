@@ -1,0 +1,29 @@
+﻿<Window x:Class="FrontTerreno.ListaPagos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FrontTerreno"
+        mc:Ignorable="d"
+        Title="ListaPagos" Height="623" Width="800">
+    <Grid>
+        <Label Content="Fecha Inicio:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <DatePicker HorizontalAlignment="Left" Margin="122,11,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Fecha Inicio:" HorizontalAlignment="Left" Margin="328,11,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <DatePicker HorizontalAlignment="Left" Margin="440,12,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Tipo de pago:" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <ComboBox HorizontalAlignment="Left" Margin="135,51,0,0" VerticalAlignment="Top" Width="187" FontSize="18"/>
+        <Label Content="Cliente:" HorizontalAlignment="Left" Margin="328,49,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <ComboBox HorizontalAlignment="Left" Margin="402,51,0,0" VerticalAlignment="Top" Width="238" FontSize="18"/>
+        <Button Content="Buscar" HorizontalAlignment="Left" Margin="654,34,0,0" VerticalAlignment="Top" FontSize="18" Width="76" FontWeight="Bold" Height="28"/>
+        <DataGrid x:Name="listaPagos" AutoGenerateColumns="False" CanUserAddRows="False" Margin="15,88,15,0" Height="441" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Folio" Binding="{Binding SerialPago}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Fecha de pago" Binding="{Binding FechaPago}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Tipo de pago" Binding="{Binding Descipcion}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Cantidad" Binding="{Binding CantidadPago}" Width="*" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Imprimir" HorizontalAlignment="Center" Margin="0,541,0,0" FontSize="18" Width="100" FontWeight="Bold" Height="28" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

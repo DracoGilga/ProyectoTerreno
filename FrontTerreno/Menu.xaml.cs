@@ -28,7 +28,7 @@ namespace FrontTerreno
 
         private void Btn_pago(object sender, RoutedEventArgs e)
         {
-            AbrirVentana(typeof(MenuPago));
+            AbrirVentana(typeof(MenuPagos));
         }
 
         private void AbrirVentana(Type tipoVentana)
@@ -73,6 +73,13 @@ namespace FrontTerreno
             {
                 ventana.Close();
             }
+            Login login = new Login();
+            login.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AbrirVentana(typeof(MenuTerrenos));
         }
     }
 }

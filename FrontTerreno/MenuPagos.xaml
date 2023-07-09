@@ -1,0 +1,19 @@
+﻿<Window x:Class="FrontTerreno.MenuPagos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FrontTerreno"
+        mc:Ignorable="d"
+        Title="Menu de Contratos" Height="300" Width="228"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        >
+    <Grid>
+        <Button Content="Agregar Pago" HorizontalAlignment="Center" Height="40" Margin="0,22,0,0" VerticalAlignment="Top" Width="172" FontSize="20" FontWeight="Bold" Click="Btn_AgregarPago"/>
+        <Button Content="Modificar Pago" HorizontalAlignment="Center" Height="40" Margin="0,83,0,0" VerticalAlignment="Top" Width="172" FontSize="20" FontWeight="Bold" Click="Btn_ModificarPago"/>
+        <Button Content="Lista de Pago" HorizontalAlignment="Center" Width="172" FontSize="20" FontWeight="Bold" Margin="0,141,0,0" Height="40" VerticalAlignment="Top" Click="Btn_listaPago"/>
+        <Button Content="Eliminar Pago" HorizontalAlignment="Center" Height="40" Margin="0,204,0,0" VerticalAlignment="Top" Width="172" Background="Red" Foreground="White" FontSize="20" FontWeight="Bold" Click="Btn_eliminarPago"/>
+
+    </Grid>
+</Window>
