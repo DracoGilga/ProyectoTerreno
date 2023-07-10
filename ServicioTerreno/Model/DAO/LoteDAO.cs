@@ -6,11 +6,17 @@ namespace ServicioTerreno.Model.DAO
 {
     public class LoteDAO
     {
-        public static Boolean RegistrarLote(Lote lote)
+        public static Boolean RegistrarLote(Lote loteNuevo)
         {
             try
             {
                 DataClassesTerrenosDataContext DBConexion = GetConexion();
+                var lote = new Lote()
+                {
+                    NoLote = loteNuevo.NoLote,
+                    Superficie = loteNuevo.Superficie,
+                    IdManzana = loteNuevo.IdManzana
+                };
                 DBConexion.Lote.InsertOnSubmit(lote);
                 DBConexion.SubmitChanges();
                 return true;

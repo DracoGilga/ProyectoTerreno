@@ -8,6 +8,15 @@
         Title="ListaTerrenos" Height="388" Width="746">
     <Grid>
         <DataGrid x:Name="tablaTerrenos" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Center" Height="324" VerticalAlignment="Center" Width="698">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IdContrato}" Value="{x:Null}">
+                            <Setter Property="Background" Value="#d8ee9c" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre del Predio" Binding="{Binding Nombre}" Width="*" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Ubicacion" Binding="{Binding Ubicacion}" Width="*" IsReadOnly="True"/>
