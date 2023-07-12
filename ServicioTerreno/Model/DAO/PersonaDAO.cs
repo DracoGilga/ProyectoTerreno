@@ -76,10 +76,12 @@ namespace ServicioTerreno.Model.DAO
             {
                 DataClassesTerrenosDataContext DBConexion = GetConexion();
                 List<Persona> personas = new List<Persona>();
-                IQueryable<Persona> Consulta = DBConexion.Persona;
-                if(Consulta != null)
+                IQueryable<Persona> consulta = DBConexion.Persona.OrderBy(p => p.Nombre)
+                                                              .ThenBy(p => p.ApellidoPaterno)
+                                                              .ThenBy(p => p.ApellidoMaterno);
+                if (consulta != null)
                 {
-                    foreach (Persona persona in Consulta)
+                    foreach (Persona persona in consulta)
                     {
                         personas.Add(new Persona()
                         {
