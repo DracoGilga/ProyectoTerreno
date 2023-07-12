@@ -17,7 +17,7 @@ namespace ServicioTerreno
         [OperationContract]
         Boolean RegistrarLote(Lote lote);
         [OperationContract]
-        Boolean RegistrarContrato(Contrato contrato);
+        int? RegistrarContrato(Contrato contrato);
         [OperationContract]
         Boolean RegistrarPago(Pago pago);
         [OperationContract]
@@ -31,7 +31,7 @@ namespace ServicioTerreno
         [OperationContract]
         Boolean ModificarLote(Lote lote);
         [OperationContract]
-        Boolean ModificarContratoLote(int IdContrato);
+        Boolean ModificarContratoLote(int IdContrato, int IdLote);
         [OperationContract]
         Boolean ModificarContrato(Contrato contrato);
         [OperationContract]
@@ -76,7 +76,8 @@ namespace ServicioTerreno
         List<TipoPago> ListarTipoPago();
         [OperationContract]
         List<Terreno> ListaTerrenos();
-
+        [OperationContract]
+        List<TipoFecha> ListarTipoFecha();
 
         //Login 
         [OperationContract]

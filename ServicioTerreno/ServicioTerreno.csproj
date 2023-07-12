@@ -75,6 +75,7 @@
     <Compile Include="Model\DAO\PersonaDAO.cs" />
     <Compile Include="Model\DAO\PredioDAO.cs" />
     <Compile Include="Model\DAO\TerrenoDAO.cs" />
+    <Compile Include="Model\DAO\TipoFechaDAO.cs" />
     <Compile Include="Model\DAO\TipoPagoDAO.cs" />
     <Compile Include="Model\DAO\UsuarioDAO.cs" />
     <Compile Include="Model\DataClassesTerrenos.designer.cs">

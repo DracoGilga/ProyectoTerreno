@@ -281,11 +281,13 @@ namespace ServiceReference1
         
         private double CostoField;
         
-        private System.Nullable<System.DateTime> FechaContratoField;
+        private System.DateTime FechaContratoField;
         
         private int IdClienteField;
         
         private int IdContratoField;
+        
+        private int IdTipoFechaField;
         
         private System.Nullable<int> IdVendedorField;
         
@@ -301,7 +303,7 @@ namespace ServiceReference1
         
         private string Testigo2Field;
         
-        private int TipoFechaField;
+        private ServiceReference1.TipoFecha TipoFechaField;
         
         private string TipoPagoField;
         
@@ -319,7 +321,7 @@ namespace ServiceReference1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> FechaContrato
+        public System.DateTime FechaContrato
         {
             get
             {
@@ -354,6 +356,19 @@ namespace ServiceReference1
             set
             {
                 this.IdContratoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdTipoFecha
+        {
+            get
+            {
+                return this.IdTipoFechaField;
+            }
+            set
+            {
+                this.IdTipoFechaField = value;
             }
         }
         
@@ -449,7 +464,7 @@ namespace ServiceReference1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int TipoFecha
+        public ServiceReference1.TipoFecha TipoFecha
         {
             get
             {
@@ -628,6 +643,58 @@ namespace ServiceReference1
             set
             {
                 this.UsuarioField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TipoFecha", Namespace="http://schemas.datacontract.org/2004/07/ServicioTerreno.Model")]
+    public partial class TipoFecha : object
+    {
+        
+        private ServiceReference1.Contrato[] ContratoField;
+        
+        private string DescripcionField;
+        
+        private int IdTipoFechaField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ServiceReference1.Contrato[] Contrato
+        {
+            get
+            {
+                return this.ContratoField;
+            }
+            set
+            {
+                this.ContratoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion
+        {
+            get
+            {
+                return this.DescripcionField;
+            }
+            set
+            {
+                this.DescripcionField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdTipoFecha
+        {
+            get
+            {
+                return this.IdTipoFechaField;
+            }
+            set
+            {
+                this.IdTipoFechaField = value;
             }
         }
     }
@@ -901,6 +968,8 @@ namespace ServiceReference1
         
         private System.Nullable<int> IdContratoField;
         
+        private System.Nullable<int> IdLoteField;
+        
         private string NoLoteField;
         
         private int NoManzanaField;
@@ -921,6 +990,19 @@ namespace ServiceReference1
             set
             {
                 this.IdContratoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> IdLote
+        {
+            get
+            {
+                return this.IdLoteField;
+            }
+            set
+            {
+                this.IdLoteField = value;
             }
         }
         
@@ -1005,7 +1087,7 @@ namespace ServiceReference1
         System.Threading.Tasks.Task<bool> RegistrarLoteAsync(ServiceReference1.Lote lote);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegistrarContrato", ReplyAction="http://tempuri.org/IService1/RegistrarContratoResponse")]
-        System.Threading.Tasks.Task<bool> RegistrarContratoAsync(ServiceReference1.Contrato contrato);
+        System.Threading.Tasks.Task<System.Nullable<int>> RegistrarContratoAsync(ServiceReference1.Contrato contrato);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegistrarPago", ReplyAction="http://tempuri.org/IService1/RegistrarPagoResponse")]
         System.Threading.Tasks.Task<bool> RegistrarPagoAsync(ServiceReference1.Pago pago);
@@ -1023,7 +1105,7 @@ namespace ServiceReference1
         System.Threading.Tasks.Task<bool> ModificarLoteAsync(ServiceReference1.Lote lote);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModificarContratoLote", ReplyAction="http://tempuri.org/IService1/ModificarContratoLoteResponse")]
-        System.Threading.Tasks.Task<bool> ModificarContratoLoteAsync(int IdContrato);
+        System.Threading.Tasks.Task<bool> ModificarContratoLoteAsync(int IdContrato, int IdLote);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ModificarContrato", ReplyAction="http://tempuri.org/IService1/ModificarContratoResponse")]
         System.Threading.Tasks.Task<bool> ModificarContratoAsync(ServiceReference1.Contrato contrato);
@@ -1082,11 +1164,14 @@ namespace ServiceReference1
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarTipoPago", ReplyAction="http://tempuri.org/IService1/ListarTipoPagoResponse")]
         System.Threading.Tasks.Task<ServiceReference1.TipoPago[]> ListarTipoPagoAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
-        System.Threading.Tasks.Task<ServiceReference1.Usuario> LoginAsync(string usuario, string contraseña);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaTerrenos", ReplyAction="http://tempuri.org/IService1/ListaTerrenosResponse")]
         System.Threading.Tasks.Task<ServiceReference1.Terreno[]> ListaTerrenosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarTipoFecha", ReplyAction="http://tempuri.org/IService1/ListarTipoFechaResponse")]
+        System.Threading.Tasks.Task<ServiceReference1.TipoFecha[]> ListarTipoFechaAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
+        System.Threading.Tasks.Task<ServiceReference1.Usuario> LoginAsync(string usuario, string contraseña);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
@@ -1154,7 +1239,7 @@ namespace ServiceReference1
             return base.Channel.RegistrarLoteAsync(lote);
         }
         
-        public System.Threading.Tasks.Task<bool> RegistrarContratoAsync(ServiceReference1.Contrato contrato)
+        public System.Threading.Tasks.Task<System.Nullable<int>> RegistrarContratoAsync(ServiceReference1.Contrato contrato)
         {
             return base.Channel.RegistrarContratoAsync(contrato);
         }
@@ -1184,9 +1269,9 @@ namespace ServiceReference1
             return base.Channel.ModificarLoteAsync(lote);
         }
         
-        public System.Threading.Tasks.Task<bool> ModificarContratoLoteAsync(int IdContrato)
+        public System.Threading.Tasks.Task<bool> ModificarContratoLoteAsync(int IdContrato, int IdLote)
         {
-            return base.Channel.ModificarContratoLoteAsync(IdContrato);
+            return base.Channel.ModificarContratoLoteAsync(IdContrato, IdLote);
         }
         
         public System.Threading.Tasks.Task<bool> ModificarContratoAsync(ServiceReference1.Contrato contrato)
@@ -1284,14 +1369,19 @@ namespace ServiceReference1
             return base.Channel.ListarTipoPagoAsync();
         }
         
-        public System.Threading.Tasks.Task<ServiceReference1.Usuario> LoginAsync(string usuario, string contraseña)
-        {
-            return base.Channel.LoginAsync(usuario, contraseña);
-        }
-        
         public System.Threading.Tasks.Task<ServiceReference1.Terreno[]> ListaTerrenosAsync()
         {
             return base.Channel.ListaTerrenosAsync();
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference1.TipoFecha[]> ListarTipoFechaAsync()
+        {
+            return base.Channel.ListarTipoFechaAsync();
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference1.Usuario> LoginAsync(string usuario, string contraseña)
+        {
+            return base.Channel.LoginAsync(usuario, contraseña);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

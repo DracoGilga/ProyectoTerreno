@@ -13,5 +13,6 @@ namespace ServicioTerreno.Model
         public string NoLote { get; set; }
         public double Superficie { get; set; }
         public int? IdContrato { get; set; }
+        public int? IdLote { get; set; }
     }
 }

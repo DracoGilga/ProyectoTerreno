@@ -87,6 +87,10 @@ namespace ServicioTerreno
         {
             return Model.DAO.TipoPagoDAO.ConsultarTipoPago();
         }
+        public List<TipoFecha> ListarTipoFecha()
+        {
+            return Model.DAO.TipoFechaDAO.ConsultarTipoFecha();
+        }
         public List<Terreno> ListaTerrenos()
         {
             return Model.DAO.TerrenoDAO.ListaTerrenos();
@@ -102,9 +106,9 @@ namespace ServicioTerreno
             return Model.DAO.ContratoDAO.ModificarContrato(contrato);
         }
 
-        public Boolean ModificarContratoLote(int IdContrato)
+        public Boolean ModificarContratoLote(int IdContrato, int IdLote)
         {
-            return Model.DAO.LoteDAO.ModificarContratosLote(IdContrato);
+            return Model.DAO.LoteDAO.ModificarContratosLote(IdContrato, IdLote);
         }
         public Boolean ModificarLote(Lote lote)
         {
@@ -130,7 +134,7 @@ namespace ServicioTerreno
             return Model.DAO.PredioDAO.ModificarPredio(predio);
         }
 
-        public Boolean RegistrarContrato(Contrato contrato)
+        public int? RegistrarContrato(Contrato contrato)
         {
             return Model.DAO.ContratoDAO.RegistrarContrato(contrato);
         }

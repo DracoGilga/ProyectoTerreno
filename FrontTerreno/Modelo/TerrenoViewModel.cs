@@ -105,6 +105,20 @@ namespace FrontTerreno.Modelo
             else
                 return false;
         }
+        public async Task<Boolean> ModificarContratoLote(int idContrato, int idLote)
+        {
+            Service1Client servicio = new Service1Client();
+            if (servicio != null)
+            {
+                bool resultado = await servicio.ModificarContratoLoteAsync(idContrato, idLote);
+                if (resultado)
+                    return resultado;
+                else
+                    return false;
+            }
+            else
+                return false;
+        }
 
         //eliminar
         public async Task<Boolean> EliminarPredio(int idPredio)

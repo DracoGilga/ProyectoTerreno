@@ -26,6 +26,7 @@ namespace ServicioTerreno.Model.DAO
                 return false;
             }
         }
+
         public static Boolean ModificarLote(Lote lote)
         {
             try
@@ -44,16 +45,14 @@ namespace ServicioTerreno.Model.DAO
                 return false;
             }
         }
-        public static Boolean ModificarContratosLote(int IdContrato)
+        public static Boolean ModificarContratosLote(int IdContrato, int IdLote)
         {
             try
             {
                 DataClassesTerrenosDataContext DBConexion = GetConexion();
-                List<Lote> loteModificar = DBConexion.Lote.Where(p => p.IdContrato == IdContrato).ToList();
-                foreach (Lote lote in loteModificar)
-                {
-                    lote.IdContrato = null;
-                }
+                Lote loteModificar = DBConexion.Lote.Where(p => p.IdLote == IdLote).First();
+                loteModificar.IdContrato = IdContrato;
+                DBConexion.SubmitChanges();
                 return true;
             }
             catch (Exception)

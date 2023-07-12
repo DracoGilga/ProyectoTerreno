@@ -6,20 +6,31 @@ namespace ServicioTerreno.Model.DAO
 {
     public class ContratoDAO
     {
-        public static Boolean RegistrarContrato(Contrato contrato)
+        public static int? RegistrarContrato(Contrato contratoNuevo)
         {
             try
             {
                 DataClassesTerrenosDataContext DBConexion = GetConexion();
+                var contrato = new Contrato()
+                {
+                    TipoPago = contratoNuevo.TipoPago,
+                    Costo = contratoNuevo.Costo,
+                    IdCliente = contratoNuevo.IdCliente,
+                    Testigo1 = contratoNuevo.Testigo1,
+                    Testigo2 = contratoNuevo.Testigo2,
+                    FechaContrato = contratoNuevo.FechaContrato,
+                    IdTipoFecha = contratoNuevo.IdTipoFecha
+                };
                 DBConexion.Contrato.InsertOnSubmit(contrato);
                 DBConexion.SubmitChanges();
-                return true;
+                return contrato.IdContrato; // Suponiendo que la propiedad del ID se llame "IdContrato"
             }
             catch (Exception)
             {
-                return false;
+                return null;
             }
         }
+
         public static Boolean ModificarContrato(Contrato contrato)
         {
             try
@@ -32,7 +43,7 @@ namespace ServicioTerreno.Model.DAO
                 contratoModificar.Testigo1 = contrato.Testigo1;
                 contratoModificar.Testigo2 = contrato.Testigo2;
                 contratoModificar.FechaContrato = contrato.FechaContrato;
-                contratoModificar.TipoFecha = contrato.TipoFecha;
+                contratoModificar.IdTipoFecha = contrato.IdTipoFecha;
 
                 DBConexion.SubmitChanges();
 
@@ -76,13 +87,11 @@ namespace ServicioTerreno.Model.DAO
                         Testigo1 = contrato.Testigo1,
                         Testigo2 = contrato.Testigo2,
                         FechaContrato = contrato.FechaContrato,
-                        TipoFecha = contrato.TipoFecha
+                        IdTipoFecha = contrato.IdTipoFecha
                     };
                 }
                 else
-                {
-                    return null;
-                }               
+                    return null; 
             }
             catch (Exception)
             {
@@ -109,15 +118,13 @@ namespace ServicioTerreno.Model.DAO
                             Testigo1 = contrato.Testigo1,
                             Testigo2 = contrato.Testigo2,
                             FechaContrato = contrato.FechaContrato,
-                            TipoFecha = contrato.TipoFecha
+                            IdTipoFecha = contrato.IdTipoFecha
                         });
                     }
                     return contratos;
                 }
                 else
-                {
                     return null;
-                }
             }
             catch (Exception)
             {

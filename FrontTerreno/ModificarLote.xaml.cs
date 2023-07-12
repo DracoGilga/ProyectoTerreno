@@ -79,6 +79,9 @@ namespace FrontTerreno
             {
                 Cb_manzana.DisplayMemberPath = "NoManzana";
                 BuscarManzanas(((Predio)Cb_predio.SelectedItem).IdPredio);
+                Cb_Lote.SelectedIndex = -1;
+                Tb_lote.Text = "";
+                Tb_superficie.Text = "";
             }
         }
         private void Clic_manzana(object sender, SelectionChangedEventArgs e)
