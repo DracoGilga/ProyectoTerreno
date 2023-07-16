@@ -22,7 +22,7 @@ namespace FrontTerreno
     public partial class ModificarContrato : Window
     {
         ContratoViewModel contratoViewModel = new ContratoViewModel();
-        PersonaViewModel PersonaViewModel = new PersonaViewModel();
+        PersonaViewModel personaViewModel = new PersonaViewModel();
         TiposViewModel tiposViewModel = new TiposViewModel();
         TerrenoViewModel terrenoViewModel = new TerrenoViewModel();
         List<Terreno> agregados = new List<Terreno>();
@@ -47,7 +47,7 @@ namespace FrontTerreno
         {
             Cb_cliente.ItemTemplate = (DataTemplate)Resources["ClienteItemTemplate"];
 
-            List<Persona> clientes = await PersonaViewModel.ListaPersonas();
+            List<Persona> clientes = await personaViewModel.ListaPersonas();
             Cb_cliente.ItemsSource = clientes;
             Cb_vendedor.ItemsSource = clientes;
         }
@@ -98,7 +98,6 @@ namespace FrontTerreno
                 BuscarLotes(((Manzana)Cb_manzana.SelectedItem).IdManzana);
             }
         }
-
         private void Clic_contrato(object sender, SelectionChangedEventArgs e)
         {
             if(Cb_clienteContrato.SelectedItem != null)
@@ -198,7 +197,6 @@ namespace FrontTerreno
                 Dg_terreno.ItemsSource = terrenos;
             }
         }
-
         private void Btn_Aniadir(object sender, RoutedEventArgs e)
         {
             if (Cb_lote.SelectedIndex != -1)

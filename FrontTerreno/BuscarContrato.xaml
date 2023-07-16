@@ -5,7 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FrontTerreno"
         mc:Ignorable="d"
-        Title="Buscar Contrato" Height="468" Width="800">
+        Title="CrearContrato" Height="643" Width="800">
+    <Window.Resources>
+        <DataTemplate x:Key="ClienteContratoItemTemplate">
+            <StackPanel Orientation="Horizontal" Margin="0,2">
+                <TextBlock Text="{Binding Persona.Nombre}" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding Persona.ApellidoPaterno}" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding Persona.ApellidoMaterno}"/>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="ClienteItemTemplate">
+            <StackPanel Orientation="Horizontal" Margin="0,2">
+                <TextBlock Text="{Binding Nombre}" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding ApellidoPaterno}" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding ApellidoMaterno}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <Label Content="Contrato" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Label Content="Cliente:" HorizontalAlignment="Left" Margin="22,60,0,0" VerticalAlignment="Top" FontSize="16"/>
@@ -15,23 +31,30 @@
         <Label Content="Testigo 2:" HorizontalAlignment="Left" Margin="383,120,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Fecha de Contrato:" HorizontalAlignment="Left" Margin="19,184,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label Content="Fecha de pago:" HorizontalAlignment="Left" Margin="360,184,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="-------------------------------------------" HorizontalAlignment="Left" Margin="19,215,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Predio:" HorizontalAlignment="Left" Margin="19,251,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Manzana:" HorizontalAlignment="Left" Margin="254,251,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Lote:" HorizontalAlignment="Left" Margin="432,251,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="-------------------------------------------" HorizontalAlignment="Left" Margin="22,299,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Vendedor:" HorizontalAlignment="Left" Margin="19,335,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <ComboBox x:Name="Cb_cliente" HorizontalAlignment="Left" Height="32" Margin="91,60,0,0" VerticalAlignment="Top" Width="231"/>
+        <Label Content="---------------------------------------------------------------" HorizontalAlignment="Left" Margin="19,215,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="---------------------------------------------------------------" HorizontalAlignment="Left" Margin="10,438,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Vendedor:" HorizontalAlignment="Left" Margin="9,507,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="Cb_cliente" HorizontalAlignment="Left" Height="32" Margin="91,60,0,0" VerticalAlignment="Top" Width="231" IsEnabled="False"/>
         <TextBox x:Name="Tb_tipoPago" HorizontalAlignment="Left" Height="32" Margin="442,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontSize="16" IsEnabled="False"/>
         <TextBox x:Name="Tb_costo" HorizontalAlignment="Left" Height="32" Margin="644,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="134" FontSize="16" IsEnabled="False"/>
         <TextBox x:Name="Tb_testigo1" HorizontalAlignment="Left" Height="32" Margin="101,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" FontSize="16" IsEnabled="False"/>
         <TextBox x:Name="Tb_testigo2" HorizontalAlignment="Left" Height="32" Margin="465,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="267" FontSize="16" IsEnabled="False"/>
-        <TextBox x:Name="Tb_fechaContrato" HorizontalAlignment="Left" Margin="167,184,0,0" VerticalAlignment="Top" Height="33" FontSize="16" IsEnabled="False" Width="188"/>
-        <TextBox x:Name="Tb_fechaPago" HorizontalAlignment="Left" Height="32" Margin="482,184,0,0" VerticalAlignment="Top" Width="219" IsEnabled="False"/>
-        <TextBox x:Name="Tb_predio" HorizontalAlignment="Left" Height="32" Margin="83,251,0,0" VerticalAlignment="Top" Width="159" IsEnabled="False"/>
-        <TextBox x:Name="Tb_manzana" HorizontalAlignment="Left" Height="32" Margin="337,251,0,0" VerticalAlignment="Top" Width="84" IsEnabled="False"/>
-        <TextBox x:Name="Tb_lote" HorizontalAlignment="Left" Height="32" Margin="481,251,0,0" VerticalAlignment="Top" Width="84" IsEnabled="False"/>
-        <TextBox x:Name="Tb_vendedor" HorizontalAlignment="Left" Height="32" Margin="104,334,0,0" VerticalAlignment="Top" Width="218" IsEnabled="False"/>
-        <Button Content="Imprimir" HorizontalAlignment="Center" Margin="0,377,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="94" Height="38" Click="Btn_imptimir"/>
+        <DatePicker x:Name="Dp_fechaContrato" HorizontalAlignment="Left" Margin="167,184,0,0" VerticalAlignment="Top" Height="33" FontSize="16" IsEnabled="False"/>
+        <ComboBox x:Name="Cb_fechaPago" HorizontalAlignment="Left" Height="32" Margin="482,184,0,0" VerticalAlignment="Top" Width="219" IsEnabled="False"/>
+        <ComboBox x:Name="Cb_vendedor" HorizontalAlignment="Left" Height="32" Margin="94,506,0,0" VerticalAlignment="Top" Width="218"
+                  ItemTemplate="{StaticResource ClienteItemTemplate}" IsEnabled="False"/>
+        <Button x:Name ="AñadirTabla"  Content="Imprimir" HorizontalAlignment="Left" Margin="343,549,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="94" Height="38" Click="Btn_imprimir"/>
+        <DataGrid x:Name="Dg_terreno" HorizontalAlignment="Left" Height="173" Margin="180,251,0,0" VerticalAlignment="Top" Width="420" AutoGenerateColumns="False" IsEnabled="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Predio" Binding="{Binding Nombre}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Manzana" Binding="{Binding NoManzana}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Lote" Binding="{Binding NoLote}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Superficie" Binding="{Binding Superficie}" Width="*" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Contrato:" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <ComboBox x:Name="Cb_clienteContrato" HorizontalAlignment="Left" Height="32" Margin="91,15,0,0" VerticalAlignment="Top" Width="231"
+            ItemTemplate="{StaticResource ClienteContratoItemTemplate}" SelectionChanged="Clic_contrato"/>
     </Grid>
 </Window>
+
