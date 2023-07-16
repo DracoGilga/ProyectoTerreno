@@ -52,6 +52,8 @@ namespace ServicioTerreno
         Boolean EliminarPago(int idPago);
         [OperationContract]
         Boolean EliminarPersona(int idPersona);
+        [OperationContract]
+        Boolean EliminarLoteContrato(int idLote);
 
         //Consultar
         [OperationContract]
@@ -78,6 +80,10 @@ namespace ServicioTerreno
         List<Terreno> ListaTerrenos();
         [OperationContract]
         List<TipoFecha> ListarTipoFecha();
+        [OperationContract]
+        List<ContratoPersona> ListarContratoPersona();
+        [OperationContract]
+        List<Terreno> ListarTerrenoContrato(int IdContrato);
 
         //Login 
         [OperationContract]

@@ -106,6 +106,60 @@ namespace ServicioTerreno.Model.DAO
                 return null;
             }
         }
+        public static List<ContratoPersona> ObtenerPersonasContrato()
+        {
+            try
+            {
+                DataClassesTerrenosDataContext DBConexion = GetConexion();
+                List<ContratoPersona> resoltado = new List<ContratoPersona>();
+                var consulta = from persona in DBConexion.Persona
+                               join contrato in DBConexion.Contrato on persona.IdPersona equals contrato.IdCliente
+                               orderby persona.Nombre, persona.ApellidoPaterno, persona.ApellidoMaterno
+                               select new
+                               {
+                                   Persona = persona,
+                                   Contrato = contrato
+                               };
+                if (consulta != null)
+                {
+                    foreach (var persona in consulta)
+                    {
+                        resoltado.Add(new ContratoPersona()
+                        {
+                            Persona = new Persona()
+                            {
+                                IdPersona = persona.Persona.IdPersona,
+                                Nombre = persona.Persona.Nombre,
+                                ApellidoPaterno = persona.Persona.ApellidoPaterno,
+                                ApellidoMaterno = persona.Persona.ApellidoMaterno,
+                                Direccion = persona.Persona.Direccion,
+                                Telefono = persona.Persona.Telefono,
+                                Correo = persona.Persona.Correo
+                            },
+                            Contrato = new Contrato()
+                            {
+                                IdContrato = persona.Contrato.IdContrato,
+                                TipoPago = persona.Contrato.TipoPago,
+                                Costo = persona.Contrato.Costo,
+                                IdCliente = persona.Contrato.IdCliente,
+                                Testigo1 = persona.Contrato.Testigo1,
+                                Testigo2 = persona.Contrato.Testigo2,
+                                IdVendedor = persona.Contrato.IdVendedor,
+                                FechaContrato = persona.Contrato.FechaContrato,
+                                IdTipoFecha = persona.Contrato.IdTipoFecha,
+                            }
+                        });
+                    }
+                    return resoltado;
+                }
+                else
+                    return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public static DataClassesTerrenosDataContext GetConexion()
         {

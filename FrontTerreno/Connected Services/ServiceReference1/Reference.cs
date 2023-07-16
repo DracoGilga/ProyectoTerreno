@@ -1072,6 +1072,43 @@ namespace ServiceReference1
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ContratoPersona", Namespace="http://schemas.datacontract.org/2004/07/ServicioTerreno.Model")]
+    public partial class ContratoPersona : object
+    {
+        
+        private ServiceReference1.Contrato ContratoField;
+        
+        private ServiceReference1.Persona PersonaField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ServiceReference1.Contrato Contrato
+        {
+            get
+            {
+                return this.ContratoField;
+            }
+            set
+            {
+                this.ContratoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ServiceReference1.Persona Persona
+        {
+            get
+            {
+                return this.PersonaField;
+            }
+            set
+            {
+                this.PersonaField = value;
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1
@@ -1134,6 +1171,9 @@ namespace ServiceReference1
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarPersona", ReplyAction="http://tempuri.org/IService1/EliminarPersonaResponse")]
         System.Threading.Tasks.Task<bool> EliminarPersonaAsync(int idPersona);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/EliminarLoteContrato", ReplyAction="http://tempuri.org/IService1/EliminarLoteContratoResponse")]
+        System.Threading.Tasks.Task<bool> EliminarLoteContratoAsync(int idLote);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarPredio", ReplyAction="http://tempuri.org/IService1/ListarPredioResponse")]
         System.Threading.Tasks.Task<ServiceReference1.Predio[]> ListarPredioAsync();
         
@@ -1169,6 +1209,12 @@ namespace ServiceReference1
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarTipoFecha", ReplyAction="http://tempuri.org/IService1/ListarTipoFechaResponse")]
         System.Threading.Tasks.Task<ServiceReference1.TipoFecha[]> ListarTipoFechaAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarContratoPersona", ReplyAction="http://tempuri.org/IService1/ListarContratoPersonaResponse")]
+        System.Threading.Tasks.Task<ServiceReference1.ContratoPersona[]> ListarContratoPersonaAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarTerrenoContrato", ReplyAction="http://tempuri.org/IService1/ListarTerrenoContratoResponse")]
+        System.Threading.Tasks.Task<ServiceReference1.Terreno[]> ListarTerrenoContratoAsync(int IdContrato);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
         System.Threading.Tasks.Task<ServiceReference1.Usuario> LoginAsync(string usuario, string contraseña);
@@ -1319,6 +1365,11 @@ namespace ServiceReference1
             return base.Channel.EliminarPersonaAsync(idPersona);
         }
         
+        public System.Threading.Tasks.Task<bool> EliminarLoteContratoAsync(int idLote)
+        {
+            return base.Channel.EliminarLoteContratoAsync(idLote);
+        }
+        
         public System.Threading.Tasks.Task<ServiceReference1.Predio[]> ListarPredioAsync()
         {
             return base.Channel.ListarPredioAsync();
@@ -1377,6 +1428,16 @@ namespace ServiceReference1
         public System.Threading.Tasks.Task<ServiceReference1.TipoFecha[]> ListarTipoFechaAsync()
         {
             return base.Channel.ListarTipoFechaAsync();
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference1.ContratoPersona[]> ListarContratoPersonaAsync()
+        {
+            return base.Channel.ListarContratoPersonaAsync();
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference1.Terreno[]> ListarTerrenoContratoAsync(int IdContrato)
+        {
+            return base.Channel.ListarTerrenoContratoAsync(IdContrato);
         }
         
         public System.Threading.Tasks.Task<ServiceReference1.Usuario> LoginAsync(string usuario, string contraseña)

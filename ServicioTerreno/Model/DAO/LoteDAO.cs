@@ -138,6 +138,25 @@ namespace ServicioTerreno.Model.DAO
             }
         }
 
+        public static Boolean EliminarLoteContrato(int IdLote)
+        {
+            try
+            {
+                DataClassesTerrenosDataContext DBConexion = GetConexion();
+                Lote loteEliminar = DBConexion.Lote.Where(p => p.IdLote == IdLote).First();
+                loteEliminar.IdContrato = null;
+                DBConexion.SubmitChanges();
+                if (loteEliminar != null) 
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public static DataClassesTerrenosDataContext GetConexion()
         {
             return new DataClassesTerrenosDataContext(global::System.Configuration.

@@ -29,5 +29,36 @@ namespace FrontTerreno.Modelo
             else
                 return null;
         }
+        public async Task<Boolean> ModificarContrato(Contrato contrato)
+        {
+            Service1Client servicio = new Service1Client();
+            if (servicio != null)
+            {
+                bool resultado = await servicio.ModificarContratoAsync(contrato);
+                if (resultado)
+                    return true;
+                else
+                    return false;
+            }
+            else
+                return false;
+        }
+        public async Task<List<ContratoPersona>> MostrarContratosPersona()
+        {
+            Service1Client servicio = new Service1Client();
+            if (servicio != null)
+            {
+                ContratoPersona[] consulta = await servicio.ListarContratoPersonaAsync();
+                if (consulta != null)
+                {
+                    List<ContratoPersona> lista = new List<ContratoPersona>(consulta);
+                    return lista;
+                }
+                else
+                    return null;
+            }
+            else
+                return null;
+        }
     }
 }
