@@ -42,17 +42,11 @@ namespace FrontTerreno
             string nombreCompleto = selectedCliente.Nombre;
             string fecha = DateTime.Now.ToString("MMddyy");
             int numeroAleatorio = new Random().Next(1, 1000);
-
             string[] palabrasPredio = nombrePredio.Split(' ');
             string siglaNombrePredio = string.Join("", palabrasPredio.Take(2).Select(p => p[0]));
-
             string[] palabrasNombre = nombreCompleto.Split(' ');
             string siglaNombre = string.Join("", palabrasNombre.Select(p => p[0]));
-
-            // Concatenar fecha y número aleatorio como un solo número
             string fechaNumeroAleatorio = fecha + numeroAleatorio.ToString();
-
-            // Convertir a hexadecimal
             string hexFechaNumeroAleatorio = Convert.ToInt32(fechaNumeroAleatorio).ToString("X");
 
             string folio = $"{siglaNombrePredio}{siglaNombre}{hexFechaNumeroAleatorio}";
