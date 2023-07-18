@@ -69,6 +69,8 @@ namespace ServicioTerreno
         [OperationContract]
         Contrato BuscarContrato(int IdContrato);
         [OperationContract]
+        Pago BuscarPago(string folio);
+        [OperationContract]
         List<Pago> ListarPago();
         [OperationContract]
         List<Pago> ListarPagoContrato(int IdContrato);

@@ -131,7 +131,6 @@ namespace ServicioTerreno.Model.DAO
                 return null;
             }
         }
-
         public static List<ContratoUnion> ConsultarUnionContrato()
         {
             try

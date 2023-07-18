@@ -1274,6 +1274,9 @@ namespace ServiceReference1
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/BuscarContrato", ReplyAction="http://tempuri.org/IService1/BuscarContratoResponse")]
         System.Threading.Tasks.Task<ServiceReference1.Contrato> BuscarContratoAsync(int IdContrato);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/BuscarPago", ReplyAction="http://tempuri.org/IService1/BuscarPagoResponse")]
+        System.Threading.Tasks.Task<ServiceReference1.Pago> BuscarPagoAsync(string folio);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarPago", ReplyAction="http://tempuri.org/IService1/ListarPagoResponse")]
         System.Threading.Tasks.Task<ServiceReference1.Pago[]> ListarPagoAsync();
         
@@ -1483,6 +1486,11 @@ namespace ServiceReference1
         public System.Threading.Tasks.Task<ServiceReference1.Contrato> BuscarContratoAsync(int IdContrato)
         {
             return base.Channel.BuscarContratoAsync(IdContrato);
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference1.Pago> BuscarPagoAsync(string folio)
+        {
+            return base.Channel.BuscarPagoAsync(folio);
         }
         
         public System.Threading.Tasks.Task<ServiceReference1.Pago[]> ListarPagoAsync()

@@ -12,7 +12,10 @@ namespace ServicioTerreno
         {
             return Model.DAO.ContratoDAO.BuscarContrato(IdContrato);
         }
-
+        public Pago BuscarPago(string folio)
+        {
+            return Model.DAO.PagoDAO.BuscarPago(folio);
+        }
 
         public Boolean EliminarContrato(int idContrato)
         {

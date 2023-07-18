@@ -11,7 +11,15 @@ namespace ServicioTerreno.Model.DAO
             try
             {
                 DataClassesTerrenosDataContext DBConexion = GetConexion();
-                DBConexion.Pago.InsertOnSubmit(pago);
+                var consulta = new Pago()
+                {
+                    FechaPago = pago.FechaPago,
+                    CantidadPago = pago.CantidadPago,
+                    IdContrato = pago.IdContrato,
+                    IdTipoPago = pago.IdTipoPago,
+                    SerialPago = pago.SerialPago
+                };
+                DBConexion.Pago.InsertOnSubmit(consulta);
                 DBConexion.SubmitChanges();
                 return true;
             }
@@ -110,6 +118,35 @@ namespace ServicioTerreno.Model.DAO
                         });
                     }
                     return pagos;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        internal static Pago BuscarPago(string folio)
+        {
+            try
+            {
+                DataClassesTerrenosDataContext DBConexion = GetConexion();
+                IQueryable<Pago> consulta = DBConexion.Pago.Where(p => p.SerialPago == folio);
+                if (consulta.Count() > 0)
+                {
+                    Pago contrato = consulta.First();
+                    return new Pago()
+                    {
+                        IdPago = contrato.IdPago,
+                        FechaPago = contrato.FechaPago,
+                        CantidadPago = contrato.CantidadPago,
+                        IdContrato = contrato.IdContrato,
+                        IdTipoPago = contrato.IdTipoPago,
+                        SerialPago = contrato.SerialPago
+                    };
                 }
                 else
                 {

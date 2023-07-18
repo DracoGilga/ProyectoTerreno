@@ -24,16 +24,47 @@ namespace FrontTerreno
     {
         ContratoViewModel contratoViewModel = new ContratoViewModel();
         TiposViewModel tiposViewModel = new TiposViewModel();
+        PagoViewModel pagoViewModel = new PagoViewModel();
         public AgregarPago()
         {
             InitializeComponent();
             MostrarClientes();
             TipoPagos();
+            Dp_fecha.SelectedDate = DateTime.Now;
         }
 
-        private void Btn_registrar(object sender, RoutedEventArgs e)
+        private async void Btn_registrar(object sender, RoutedEventArgs e)
         {
-
+            if (!string.IsNullOrWhiteSpace(Tb_cantidad.Text) && !string.IsNullOrWhiteSpace(Dp_fecha.Text) &&
+                Cb_cliente.SelectedIndex != -1 && Cb_tipoPago.SelectedIndex != -1)
+            {
+                Pago pago = new Pago()
+                {
+                    IdContrato = ((dynamic)Cb_cliente.SelectedItem).IdContrato,
+                    Contrato = new Contrato()
+                    {
+                        IdContrato = ((dynamic)Cb_cliente.SelectedItem).IdContrato
+                    },
+                    SerialPago = Tb_folio.Text,
+                    FechaPago = Dp_fecha.SelectedDate.Value,
+                    CantidadPago = (double)Convert.ToDecimal(Tb_cantidad.Text),
+                    IdTipoPago = ((dynamic)Cb_tipoPago.SelectedItem).IdTipoPago,
+                    TipoPago = new TipoPago()
+                    {
+                        IdTipoPago = ((dynamic)Cb_tipoPago.SelectedItem).IdTipoPago
+                    }
+                };
+                if (await pagoViewModel.GuardarPago(pago))
+                {
+                    MessageBox.Show("Pago registrado correctamente");
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Error al registrar pago");
+            }
+            else
+                MessageBox.Show("Favor de llenar todos los campos necesarios");
+            
         }
         private string GenerarFolio()
         {
