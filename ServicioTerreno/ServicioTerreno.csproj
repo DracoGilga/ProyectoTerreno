@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\ContratoPersona.cs" />
+    <Compile Include="Model\ContratoUnion.cs" />
     <Compile Include="Model\DAO\ContratoDAO.cs" />
     <Compile Include="Model\DAO\LoteDAO.cs" />
     <Compile Include="Model\DAO\ManzanaDAO.cs" />

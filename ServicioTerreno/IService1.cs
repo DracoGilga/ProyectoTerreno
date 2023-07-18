@@ -84,6 +84,8 @@ namespace ServicioTerreno
         List<ContratoPersona> ListarContratoPersona();
         [OperationContract]
         List<Terreno> ListarTerrenoContrato(int IdContrato);
+        [OperationContract]
+        List<ContratoUnion> ListaContratoUnion();
 
         //Login 
         [OperationContract]

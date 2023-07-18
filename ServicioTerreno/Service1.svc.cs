@@ -96,6 +96,10 @@ namespace ServicioTerreno
         {
             return Model.DAO.TerrenoDAO.ListaTerrenosContrato(IdContrato);
         }
+        public List<ContratoUnion> ListaContratoUnion()
+        {
+            return Model.DAO.ContratoDAO.ConsultarUnionContrato();
+        }
 
 
 
