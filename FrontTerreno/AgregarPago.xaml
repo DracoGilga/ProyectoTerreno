@@ -15,16 +15,18 @@
         <Label Content="Predio" HorizontalAlignment="Left" Margin="277,18,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Mza:" HorizontalAlignment="Left" Margin="490,18,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Lte:" HorizontalAlignment="Left" Margin="635,18,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="Tb_folio" HorizontalAlignment="Left" Margin="91,22,0,0" VerticalAlignment="Top" Width="181" FontSize="20" IsEnabled="False" Foreground="Red" Text="1234567891234567"/>
+        <TextBox x:Name="Tb_folio" HorizontalAlignment="Left" Margin="91,22,0,0" VerticalAlignment="Top" Width="181" FontSize="20" IsEnabled="False" Foreground="Red"/>
         <TextBox x:Name="Tb_predio" HorizontalAlignment="Left" Margin="357,22,0,0" VerticalAlignment="Top" Width="128" FontSize="20" IsEnabled="False" Text=""/>
         <TextBox x:Name="Tb_mazana" HorizontalAlignment="Left" Margin="547,22,0,0" VerticalAlignment="Top" Width="83" FontSize="20" IsEnabled="False"/>
-        <TextBox x:Name="Tb_lote" HorizontalAlignment="Left" Margin="692,22,0,0" VerticalAlignment="Top" Width="83" FontSize="20" IsEnabled="False"/>
-        <ComboBox x:Name="Cb_cliente" HorizontalAlignment="Left" Margin="113,65,0,0" VerticalAlignment="Top" Width="287" FontSize="20"/>
+        <TextBox x:Name="Tb_lote" Margin="692,22,25,0" VerticalAlignment="Top" FontSize="20" IsEnabled="False"/>
+        <ComboBox x:Name="Cb_cliente" HorizontalAlignment="Left" Margin="113,65,0,0" VerticalAlignment="Top" Width="287" FontSize="20" SelectionChanged="Clic_cliente"/>
         <ComboBox x:Name="Cb_tipoPago" HorizontalAlignment="Left" Margin="170,116,0,0" VerticalAlignment="Top" Width="230" FontSize="20"/>
-        <TextBox x:Name="Tb_cantidad" HorizontalAlignment="Left" Margin="170,167,0,0" VerticalAlignment="Top" Width="230" FontSize="20"/>
-        <DatePicker x:Name="Dp_fecha" HorizontalAlignment="Left" Margin="170,217,0,0" VerticalAlignment="Top" FontSize="20" Width="230"/>
+        <TextBox x:Name="Tb_cantidad" HorizontalAlignment="Left" Margin="170,167,0,0" VerticalAlignment="Top" Width="230" FontSize="20"
+                 PreviewTextInput="Tb_cantidad_PreviewTextInput" TextChanged="Tb_cantidad_TextChanged"/>
+        <DatePicker x:Name="Dp_fecha" HorizontalAlignment="Left" Margin="170,217,0,0" VerticalAlignment="Top" FontSize="20" Width="230" 
+             SelectedDateChanged="Dp_fecha_SelectedDateChanged" PreviewTextInput="Dp_fecha_PreviewTextInput"/>
         <TextBox x:Name="Tb_fechaL" HorizontalAlignment="Left" Margin="416,220,0,0" VerticalAlignment="Top" Width="359" FontSize="20" IsEnabled="False"/>
-        <TextBox x:Name="Tb_cantidadL" HorizontalAlignment="Left" Margin="416,167,0,0" VerticalAlignment="Top" Width="359" FontSize="20" Text="" IsEnabled="False"/>
+        <TextBox x:Name="Tb_cantidadL" Margin="416,167,25,0" VerticalAlignment="Top" Text="" IsEnabled="False" FontSize="16"/>
         <Button Content="Registar" HorizontalAlignment="Center" Margin="0,273,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="90" Height="37" Click="Btn_registrar"/>
     </Grid>
 </Window>

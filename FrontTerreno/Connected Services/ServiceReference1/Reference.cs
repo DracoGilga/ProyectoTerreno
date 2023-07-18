@@ -1109,6 +1109,88 @@ namespace ServiceReference1
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ContratoUnion", Namespace="http://schemas.datacontract.org/2004/07/ServicioTerreno.Model")]
+    public partial class ContratoUnion : object
+    {
+        
+        private ServiceReference1.Contrato ContratoField;
+        
+        private string DescripcionField;
+        
+        private ServiceReference1.Persona PersonaField;
+        
+        private System.Nullable<double> SaldoField;
+        
+        private ServiceReference1.Terreno[] TerrenoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ServiceReference1.Contrato Contrato
+        {
+            get
+            {
+                return this.ContratoField;
+            }
+            set
+            {
+                this.ContratoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Descripcion
+        {
+            get
+            {
+                return this.DescripcionField;
+            }
+            set
+            {
+                this.DescripcionField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ServiceReference1.Persona Persona
+        {
+            get
+            {
+                return this.PersonaField;
+            }
+            set
+            {
+                this.PersonaField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<double> Saldo
+        {
+            get
+            {
+                return this.SaldoField;
+            }
+            set
+            {
+                this.SaldoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ServiceReference1.Terreno[] Terreno
+        {
+            get
+            {
+                return this.TerrenoField;
+            }
+            set
+            {
+                this.TerrenoField = value;
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1
@@ -1215,6 +1297,9 @@ namespace ServiceReference1
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListarTerrenoContrato", ReplyAction="http://tempuri.org/IService1/ListarTerrenoContratoResponse")]
         System.Threading.Tasks.Task<ServiceReference1.Terreno[]> ListarTerrenoContratoAsync(int IdContrato);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaContratoUnion", ReplyAction="http://tempuri.org/IService1/ListaContratoUnionResponse")]
+        System.Threading.Tasks.Task<ServiceReference1.ContratoUnion[]> ListaContratoUnionAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
         System.Threading.Tasks.Task<ServiceReference1.Usuario> LoginAsync(string usuario, string contraseña);
@@ -1438,6 +1523,11 @@ namespace ServiceReference1
         public System.Threading.Tasks.Task<ServiceReference1.Terreno[]> ListarTerrenoContratoAsync(int IdContrato)
         {
             return base.Channel.ListarTerrenoContratoAsync(IdContrato);
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference1.ContratoUnion[]> ListaContratoUnionAsync()
+        {
+            return base.Channel.ListaContratoUnionAsync();
         }
         
         public System.Threading.Tasks.Task<ServiceReference1.Usuario> LoginAsync(string usuario, string contraseña)

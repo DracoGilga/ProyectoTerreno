@@ -7,20 +7,31 @@
         mc:Ignorable="d"
         Title="ListaContratos" Height="450" Width="1082">
     <Grid>
-        <DataGrid x:Name="tablaContrato"  AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Center" Height="390" VerticalAlignment="Center" Width="1044">
+        <DataGrid x:Name="tablaContrato" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Center" Height="390" VerticalAlignment="Center" Width="1044" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="*" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Apellido paterno" Binding="{Binding Apellido}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellido}" Width="*" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Predio" Binding="{Binding NombrePredio}" Width="*" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Manzana" Binding="{Binding NoManzana}" Width="*" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Lote" Binding="{Binding NoLote}" Width="*" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Fecha de contrato" Binding="{Binding NombrePredio}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Fecha de contrato" Binding="{Binding FechaContrato}" Width="*" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Fechas de pago" Binding="{Binding TipoFecha}" Width="*" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Costo" Binding="{Binding NombrePredio}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Costo" Binding="{Binding Costo}" Width="*" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Pagado" Binding="{Binding Pagado}" Width="*" IsReadOnly="True"/>
                 <DataGridTextColumn Header="Faltante" Binding="{Binding Faltante}" Width="*" IsReadOnly="True"/>
             </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IdTipoFecha}" Value="1">
+                            <Setter Property="Background" Value="#FFE5F0" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IdTipoFecha}" Value="2">
+                            <Setter Property="Background" Value="#DFCAE1" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
         </DataGrid>
-
     </Grid>
 </Window>

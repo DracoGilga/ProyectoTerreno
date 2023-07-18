@@ -11,5 +11,6 @@ namespace ServicioTerreno.Model
         public Persona Persona { get; set; }
         public List<Terreno> Terreno { get; set; }
         public double? Saldo { get; set; }
+        public string Descripcion { get; set; }
     }
 }

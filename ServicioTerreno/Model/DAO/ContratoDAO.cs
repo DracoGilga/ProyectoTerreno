@@ -148,6 +148,7 @@ namespace ServicioTerreno.Model.DAO
                     join pa in DBConexion.Pago on c.IdContrato equals pa.IdContrato into pagos
                     select new
                     {
+                        Descripcion = tf.Descripcion,
                         Contrato = c,
                         Persona = p,
                         Terreno = (
@@ -198,6 +199,7 @@ namespace ServicioTerreno.Model.DAO
                                     Telefono = contrato.Persona.Telefono
                                 },
                                 Terreno = contrato.Terreno,
+                                Descripcion = contrato.Descripcion,
                                 Saldo = contrato.Saldo
                             });
                         }

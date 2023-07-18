@@ -60,5 +60,22 @@ namespace FrontTerreno.Modelo
             else
                 return null;
         }
+        public async Task<List<ContratoUnion>> DesplegarListaContratos()
+        {
+            Service1Client servicio = new Service1Client();
+            if(servicio != null)
+            {
+                ContratoUnion[] consulta = await servicio.ListaContratoUnionAsync();
+                if (consulta != null)
+                {
+                    List<ContratoUnion> lista = new List<ContratoUnion>(consulta);
+                    return lista;
+                }
+                else
+                    return null;
+            }
+            else
+                return null;
+        }
     }
 }
