@@ -60,6 +60,23 @@ namespace FrontTerreno.Modelo
             else
                 return null;
         }
+        public async Task<List<PagosUnion>> ListaPagosUnidos()
+        {
+            Service1Client servicio = new Service1Client();
+            if (servicio != null)
+            {
+                PagosUnion[] resultado = await servicio.ListaPagoUnionAsync();
+                if (resultado != null)
+                {
+                    List<PagosUnion> lista = new List<PagosUnion>(resultado);
+                    return lista;
+                }
+                else
+                    return null;
+            }
+            else
+                return null;
+        }
         public async Task<Pago> BuscarPago (string folio)
         {
             Service1Client servicio = new Service1Client();
@@ -73,6 +90,17 @@ namespace FrontTerreno.Modelo
             }
             else
                 return null;
+        }
+        public async Task<Boolean> EliminarPago(int idPago)
+        {
+            Service1Client servicio = new Service1Client();
+            if (servicio != null)
+            {
+                Boolean resultado = await servicio.EliminarPagoAsync(idPago);
+                return resultado;
+            }
+            else
+                return false;
         }
     }
 }

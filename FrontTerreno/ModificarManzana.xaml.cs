@@ -82,5 +82,12 @@ namespace FrontTerreno
                 Tb_noManzana.Text = string.Empty;
         }
 
+        private void Tb_nombre_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!char.IsDigit(e.Text[0]))
+                e.Handled = true;
+        }
+
+
     }
 }

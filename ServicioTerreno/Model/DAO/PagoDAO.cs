@@ -96,6 +96,73 @@ namespace ServicioTerreno.Model.DAO
                 return null;
             }
         }
+        public static List<PagosUnion> ListaPagoUnion()
+        {
+            try
+            {
+                DataClassesTerrenosDataContext DBConexion = GetConexion();
+                List<PagosUnion> resultado = new List<PagosUnion>();
+
+                var pagos = (
+                    from p in DBConexion.Pago
+                    join c in DBConexion.Contrato on p.IdContrato equals c.IdContrato
+                    join tp in DBConexion.TipoPago on p.IdTipoPago equals tp.IdTipoPago
+                    join pe in DBConexion.Persona on c.IdCliente equals pe.IdPersona
+                    select new 
+                    {
+                        TipoPago = tp,
+                        Pago = p,
+                        Contrato = c,
+                        Persona = pe
+                    }
+                ).ToList();
+
+                if(pagos != null)
+                {
+                    foreach( var iteracion in pagos )
+                    {
+                        resultado.Add(new PagosUnion()
+                        {
+                            TipoPago = new TipoPago()
+                            {   
+                                IdTipoPago = iteracion.TipoPago.IdTipoPago,
+                                Descripcion = iteracion.TipoPago.Descripcion
+                            },
+                            Pago = new Pago()
+                            {
+                                IdPago = iteracion.Pago.IdPago,
+                                FechaPago = iteracion.Pago.FechaPago,
+                                CantidadPago = iteracion.Pago.CantidadPago,
+                                IdContrato = iteracion.Pago.IdContrato,
+                                IdTipoPago = iteracion.Pago.IdTipoPago,
+                                SerialPago = iteracion.Pago.SerialPago
+                            },
+                            Contrato = new Contrato()
+                            {
+                                IdContrato = iteracion.Contrato.IdContrato,
+                                IdCliente = iteracion.Contrato.IdCliente,
+                            },
+                            Persona = new Persona()
+                            {
+                                IdPersona = iteracion.Persona.IdPersona,
+                                Nombre = iteracion.Persona.Nombre,
+                                ApellidoPaterno = iteracion.Persona.ApellidoPaterno,
+                                ApellidoMaterno = iteracion.Persona.ApellidoMaterno,
+                            }
+                        });
+                    }
+                    return resultado;
+                }
+                else
+                    return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+
         public static List<Pago> BuscarPagoContrato(int IdContrato)
         {
             try

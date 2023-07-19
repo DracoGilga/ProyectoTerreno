@@ -103,6 +103,10 @@ namespace ServicioTerreno
         {
             return Model.DAO.ContratoDAO.ConsultarUnionContrato();
         }
+        public List<PagosUnion> ListaPagoUnion()
+        {
+            return Model.DAO.PagoDAO.ListaPagoUnion();
+        }
 
 
 

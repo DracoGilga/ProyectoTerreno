@@ -21,7 +21,7 @@
         <Label Content="Predio:" HorizontalAlignment="Left" Margin="34,45,0,0" VerticalAlignment="Top" FontSize="20"/>
         <ComboBox x:Name="Cb_predio" HorizontalAlignment="Left" Margin="155,48,0,0" VerticalAlignment="Top" Width="178" FontSize="20" Height="30"
                   ItemTemplate="{StaticResource PredioItemTemplate}"/>
-        <TextBox x:Name="Tb_nombre" HorizontalAlignment="Left" Margin="155,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" FontSize="20" Height="29"/>
-
+        <TextBox x:Name="Tb_nombre" HorizontalAlignment="Left" Margin="155,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" FontSize="20" Height="29"
+                 PreviewTextInput="Tb_nombre_PreviewTextInput"/>
     </Grid>
 </Window>

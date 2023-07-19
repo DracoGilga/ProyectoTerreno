@@ -64,5 +64,10 @@ namespace FrontTerreno
             List<Predio> predios = await terrenoViewModel.ListaPredios();
             Cb_predio.ItemsSource = predios;
         }
+        private void Tb_nombre_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (!char.IsDigit(e.Text[0]))
+                e.Handled = true;
+        }
     }
 }

@@ -1191,6 +1191,73 @@ namespace ServiceReference1
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PagosUnion", Namespace="http://schemas.datacontract.org/2004/07/ServicioTerreno.Model")]
+    public partial class PagosUnion : object
+    {
+        
+        private ServiceReference1.Contrato ContratoField;
+        
+        private ServiceReference1.Pago PagoField;
+        
+        private ServiceReference1.Persona PersonaField;
+        
+        private ServiceReference1.TipoPago TipoPagoField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ServiceReference1.Contrato Contrato
+        {
+            get
+            {
+                return this.ContratoField;
+            }
+            set
+            {
+                this.ContratoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ServiceReference1.Pago Pago
+        {
+            get
+            {
+                return this.PagoField;
+            }
+            set
+            {
+                this.PagoField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ServiceReference1.Persona Persona
+        {
+            get
+            {
+                return this.PersonaField;
+            }
+            set
+            {
+                this.PersonaField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ServiceReference1.TipoPago TipoPago
+        {
+            get
+            {
+                return this.TipoPagoField;
+            }
+            set
+            {
+                this.TipoPagoField = value;
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1
@@ -1303,6 +1370,9 @@ namespace ServiceReference1
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaContratoUnion", ReplyAction="http://tempuri.org/IService1/ListaContratoUnionResponse")]
         System.Threading.Tasks.Task<ServiceReference1.ContratoUnion[]> ListaContratoUnionAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ListaPagoUnion", ReplyAction="http://tempuri.org/IService1/ListaPagoUnionResponse")]
+        System.Threading.Tasks.Task<ServiceReference1.PagosUnion[]> ListaPagoUnionAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Login", ReplyAction="http://tempuri.org/IService1/LoginResponse")]
         System.Threading.Tasks.Task<ServiceReference1.Usuario> LoginAsync(string usuario, string contraseña);
@@ -1536,6 +1606,11 @@ namespace ServiceReference1
         public System.Threading.Tasks.Task<ServiceReference1.ContratoUnion[]> ListaContratoUnionAsync()
         {
             return base.Channel.ListaContratoUnionAsync();
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference1.PagosUnion[]> ListaPagoUnionAsync()
+        {
+            return base.Channel.ListaPagoUnionAsync();
         }
         
         public System.Threading.Tasks.Task<ServiceReference1.Usuario> LoginAsync(string usuario, string contraseña)

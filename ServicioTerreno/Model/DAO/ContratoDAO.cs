@@ -145,6 +145,7 @@ namespace ServicioTerreno.Model.DAO
                     join pr in DBConexion.Predio on m.IdPredio equals pr.IdPredio
                     join tf in DBConexion.TipoFecha on c.IdTipoFecha equals tf.IdTipoFecha
                     join pa in DBConexion.Pago on c.IdContrato equals pa.IdContrato into pagos
+                    from pa in pagos.DefaultIfEmpty()
                     select new
                     {
                         Descripcion = tf.Descripcion,
@@ -164,9 +165,10 @@ namespace ServicioTerreno.Model.DAO
                                 IdLote = lt.IdLote
                             }
                         ).Distinct().ToList(),
-                        Saldo = pagos.Sum(p => p.CantidadPago)
+                        Saldo = pa != null ? pagos.Sum(p => p.CantidadPago) : 0
                     }
                 ).ToList();
+
 
                 if (contratos != null)
                 {
