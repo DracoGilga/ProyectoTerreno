@@ -40,7 +40,7 @@ namespace FrontTerreno
                     {
                         IdPredio = ((Predio)Cb_predio.SelectedItem).IdPredio,
                     };
-                    manzana.NoManzana = Convert.ToInt32(Tb_nombre.Text);
+                    manzana.NoManzana = Tb_nombre.Text;
                     bool respuesta = await terrenoViewModel.GuardarManzana(manzana);
 
                     if (respuesta)
@@ -63,11 +63,6 @@ namespace FrontTerreno
 
             List<Predio> predios = await terrenoViewModel.ListaPredios();
             Cb_predio.ItemsSource = predios;
-        }
-        private void Tb_nombre_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            if (!char.IsDigit(e.Text[0]))
-                e.Handled = true;
         }
     }
 }

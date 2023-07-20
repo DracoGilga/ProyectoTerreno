@@ -31,7 +31,7 @@
   <Table Name="dbo.Manzana" Member="Manzana">
     <Type Name="Manzana">
       <Column Name="IdManzana" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="NoManzana" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NoManzana" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="IdPredio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Manzana_Lote" Member="Lote" ThisKey="IdManzana" OtherKey="IdManzana" Type="Lote" />
       <Association Name="Predio_Manzana" Member="Predio" ThisKey="IdPredio" OtherKey="IdPredio" Type="Predio" IsForeignKey="true" />
@@ -73,7 +73,7 @@
   </Table>
   <Table Name="dbo.TipoFecha" Member="TipoFecha">
     <Type Name="TipoFecha">
-      <Column Name="IdTipoFecha" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdTipoFecha" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Descripcion" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Association Name="TipoFecha_Contrato" Member="Contrato" ThisKey="IdTipoFecha" OtherKey="IdTipoFecha" Type="Contrato" />
     </Type>

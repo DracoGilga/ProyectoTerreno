@@ -91,7 +91,7 @@ namespace ServiceReference1
         
         private ServiceReference1.Lote[] LoteField;
         
-        private int NoManzanaField;
+        private string NoManzanaField;
         
         private ServiceReference1.Predio PredioField;
         
@@ -135,7 +135,7 @@ namespace ServiceReference1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int NoManzana
+        public string NoManzana
         {
             get
             {
@@ -972,7 +972,7 @@ namespace ServiceReference1
         
         private string NoLoteField;
         
-        private int NoManzanaField;
+        private string NoManzanaField;
         
         private string NombreField;
         
@@ -1020,7 +1020,7 @@ namespace ServiceReference1
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int NoManzana
+        public string NoManzana
         {
             get
             {

@@ -35,7 +35,7 @@ namespace FrontTerreno
                 Manzana manzana = new Manzana();
                 manzana.IdPredio = ((Predio)Cb_predio.SelectedItem).IdPredio;
                 manzana.IdManzana = ((Manzana)Cb_manzana.SelectedItem).IdManzana;
-                manzana.NoManzana = Convert.ToInt32(Tb_noManzana.Text);
+                manzana.NoManzana = ((Manzana)Cb_manzana.SelectedItem).NoManzana;
                 manzana.Predio = new Predio()
                 {
                     IdPredio = ((Predio)Cb_predio.SelectedItem).IdPredio
@@ -81,13 +81,5 @@ namespace FrontTerreno
             else
                 Tb_noManzana.Text = string.Empty;
         }
-
-        private void Tb_nombre_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            if (!char.IsDigit(e.Text[0]))
-                e.Handled = true;
-        }
-
-
     }
 }

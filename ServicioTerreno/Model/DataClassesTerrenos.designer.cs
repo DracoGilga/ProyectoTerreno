@@ -837,7 +837,7 @@ namespace ServicioTerreno.Model
 		
 		private int _IdManzana;
 		
-		private int _NoManzana;
+		private string _NoManzana;
 		
 		private int _IdPredio;
 		
@@ -851,7 +851,7 @@ namespace ServicioTerreno.Model
     partial void OnCreated();
     partial void OnIdManzanaChanging(int value);
     partial void OnIdManzanaChanged();
-    partial void OnNoManzanaChanging(int value);
+    partial void OnNoManzanaChanging(string value);
     partial void OnNoManzanaChanged();
     partial void OnIdPredioChanging(int value);
     partial void OnIdPredioChanged();
@@ -884,8 +884,8 @@ namespace ServicioTerreno.Model
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoManzana", DbType="Int NOT NULL")]
-		public int NoManzana
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoManzana", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string NoManzana
 		{
 			get
 			{
@@ -1728,7 +1728,7 @@ namespace ServicioTerreno.Model
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoFecha", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTipoFecha", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int IdTipoFecha
 		{
 			get
