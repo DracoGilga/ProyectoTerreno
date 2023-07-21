@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FrontTerreno"
         mc:Ignorable="d"
-        Title="AgregarPersona" Height="397" Width="708">
+        Title="Agregar Persona" Height="397" Width="708"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Grid>
         <Label Content="Nombre:" HorizontalAlignment="Left" Margin="41,25,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
         <Label Content="Apellido paterno:" HorizontalAlignment="Left" Margin="251,25,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>

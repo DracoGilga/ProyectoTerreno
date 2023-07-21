@@ -1395,13 +1395,6 @@ namespace ServiceReference1
         /// <param name="clientCredentials">Credenciales de cliente</param>
         static partial void ConfigureEndpoint(System.ServiceModel.Description.ServiceEndpoint serviceEndpoint, System.ServiceModel.Description.ClientCredentials clientCredentials);
         
-        public Service1Client() : 
-                base(Service1Client.GetDefaultBinding(), Service1Client.GetDefaultEndpointAddress())
-        {
-            this.Endpoint.Name = EndpointConfiguration.BasicHttpBinding_IService1.ToString();
-            ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
-        }
-        
         public Service1Client(EndpointConfiguration endpointConfiguration) : 
                 base(Service1Client.GetBindingForEndpoint(endpointConfiguration), Service1Client.GetEndpointAddress(endpointConfiguration))
         {
@@ -1634,6 +1627,16 @@ namespace ServiceReference1
                 result.AllowCookies = true;
                 return result;
             }
+            if ((endpointConfiguration == EndpointConfiguration.BasicHttpsBinding_IService1))
+            {
+                System.ServiceModel.BasicHttpBinding result = new System.ServiceModel.BasicHttpBinding();
+                result.MaxBufferSize = int.MaxValue;
+                result.ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max;
+                result.MaxReceivedMessageSize = int.MaxValue;
+                result.AllowCookies = true;
+                result.Security.Mode = System.ServiceModel.BasicHttpSecurityMode.Transport;
+                return result;
+            }
             throw new System.InvalidOperationException(string.Format("No se pudo encontrar un punto de conexión con el nombre \"{0}\".", endpointConfiguration));
         }
         
@@ -1641,25 +1644,21 @@ namespace ServiceReference1
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IService1))
             {
-                return new System.ServiceModel.EndpointAddress("http://localhost:57542/Service1.svc");
+                return new System.ServiceModel.EndpointAddress("http://192.168.100.7:81/Service1.svc");
+            }
+            if ((endpointConfiguration == EndpointConfiguration.BasicHttpsBinding_IService1))
+            {
+                return new System.ServiceModel.EndpointAddress("https://desktop-ud884fn/Service1.svc");
             }
             throw new System.InvalidOperationException(string.Format("No se pudo encontrar un punto de conexión con el nombre \"{0}\".", endpointConfiguration));
-        }
-        
-        private static System.ServiceModel.Channels.Binding GetDefaultBinding()
-        {
-            return Service1Client.GetBindingForEndpoint(EndpointConfiguration.BasicHttpBinding_IService1);
-        }
-        
-        private static System.ServiceModel.EndpointAddress GetDefaultEndpointAddress()
-        {
-            return Service1Client.GetEndpointAddress(EndpointConfiguration.BasicHttpBinding_IService1);
         }
         
         public enum EndpointConfiguration
         {
             
             BasicHttpBinding_IService1,
+            
+            BasicHttpsBinding_IService1,
         }
     }
 }

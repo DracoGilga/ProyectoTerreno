@@ -1,4 +1,4 @@
-﻿using ServiceReference1;
+﻿using ServiceReference1; // Asegúrate de importar el namespace del servicio WCF
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,37 +15,41 @@ namespace FrontTerreno.Modelo
         {
 
         }
+
+        private string endpointAddress = "http://192.168.100.7:81/Service1.svc";
+
+        private Service1Client CreateServiceClient()
+        {
+            return new Service1Client(new System.ServiceModel.BasicHttpBinding(), new System.ServiceModel.EndpointAddress(endpointAddress));
+        }
+
         public async Task<int?> GuardarContrato(Contrato contrato)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 int? resultado = await servicio.RegistrarContratoAsync(contrato);
-                if (resultado != null)
-                    return resultado;
-                else
-                    return null;
+                return resultado;
             }
             else
                 return null;
         }
-        public async Task<Boolean> ModificarContrato(Contrato contrato)
+
+        public async Task<bool> ModificarContrato(Contrato contrato)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 bool resultado = await servicio.ModificarContratoAsync(contrato);
-                if (resultado)
-                    return true;
-                else
-                    return false;
+                return resultado;
             }
             else
                 return false;
         }
+
         public async Task<List<ContratoPersona>> MostrarContratosPersona()
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 ContratoPersona[] consulta = await servicio.ListarContratoPersonaAsync();
@@ -60,10 +64,11 @@ namespace FrontTerreno.Modelo
             else
                 return null;
         }
+
         public async Task<List<ContratoUnion>> DesplegarListaContratos()
         {
-            Service1Client servicio = new Service1Client();
-            if(servicio != null)
+            Service1Client servicio = CreateServiceClient();
+            if (servicio != null)
             {
                 ContratoUnion[] consulta = await servicio.ListaContratoUnionAsync();
                 if (consulta != null)

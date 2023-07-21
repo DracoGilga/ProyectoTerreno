@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FrontTerreno"
         mc:Ignorable="d"
-        Title="Agregar Pago" Height="445" Width="800">
+        Title="Eliminar Pago" Height="445" Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Grid>
         <Label Content="Cliente:" HorizontalAlignment="Left" Margin="33,119,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Tipo de pago:" HorizontalAlignment="Left" Margin="33,170,0,0" VerticalAlignment="Top" FontSize="20"/>

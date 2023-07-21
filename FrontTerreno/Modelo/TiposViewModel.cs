@@ -17,9 +17,14 @@ namespace FrontTerreno.Modelo
         {
 
         }
+        private string endpointAddress = "http://192.168.100.7:81/Service1.svc";
+        private Service1Client CreateServiceClient()
+        {
+            return new Service1Client(new System.ServiceModel.BasicHttpBinding(), new System.ServiceModel.EndpointAddress(endpointAddress));
+        }
         public async Task<List<TipoFecha>> tipoFechas()
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 TipoFecha[] consulta = await servicio.ListarTipoFechaAsync();
@@ -36,7 +41,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<List<TipoPago>> tipoPagos()
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 TipoPago[] consulta = await servicio.ListarTipoPagoAsync();

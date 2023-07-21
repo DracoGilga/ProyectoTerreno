@@ -1,57 +1,62 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace FrontTerreno
 {
-    /// <summary>
-    /// Lógica de interacción para MenuContrato.xaml
-    /// </summary>
     public partial class MenuContrato : Window
     {
+        private Dictionary<Type, Window> ventanasAbiertas;
+
         public MenuContrato()
         {
             InitializeComponent();
+            ventanasAbiertas = new Dictionary<Type, Window>();
         }
 
-        private void Btn_crearContrato(object sender, RoutedEventArgs e)
+        private void Btn_crearContrato(object sender, RoutedEventArgs e) => AbrirVentana(typeof(CrearContrato));
+
+        private void Btn_modificarContrato(object sender, RoutedEventArgs e) => AbrirVentana(typeof(ModificarContrato));
+
+        private void Btn_buscarContrato(object sender, RoutedEventArgs e) => AbrirVentana(typeof(BuscarContrato));
+
+        private void Btn_listaContrato(object sender, RoutedEventArgs e) => AbrirVentana(typeof(ListaContratos));
+
+        private void Btn_eliminarContrato(object sender, RoutedEventArgs e) => AbrirVentana(typeof(EliminarContrato));
+
+        private void AbrirVentana(Type tipoVentana)
         {
-            CrearContrato crearContrato = new CrearContrato();
-            crearContrato.Show();
+            if (!ventanasAbiertas.ContainsKey(tipoVentana))
+            {
+                Window ventanaNueva = Activator.CreateInstance(tipoVentana) as Window;
+
+                if (ventanaNueva != null)
+                {
+                    ventanaNueva.Closed += VentanaCerrada;
+                    ventanaNueva.Show();
+                    ventanasAbiertas[tipoVentana] = ventanaNueva;
+                }
+            }
+            else
+            {
+                Window ventanaExistente = ventanasAbiertas[tipoVentana];
+                ventanaExistente.Activate();
+            }
         }
 
-        private void Btn_modificarContrato(object sender, RoutedEventArgs e)
+        private void VentanaCerrada(object sender, EventArgs e)
         {
-            ModificarContrato modificarContrato = new ModificarContrato();
-            modificarContrato.Show();
+            Type tipoVentana = sender.GetType();
+            ventanasAbiertas.Remove(tipoVentana);
         }
 
-        private void Btn_buscarContrato(object sender, RoutedEventArgs e)
+        private void MenuContrato_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            BuscarContrato buscarContrato = new BuscarContrato();
-            buscarContrato.Show();
-        }
-
-        private void Btn_listaContrato(object sender, RoutedEventArgs e)
-        {
-            ListaContratos listaContratos = new ListaContratos();
-            listaContratos.Show();
-        }
-
-        private void Btn_eliminarContrato(object sender, RoutedEventArgs e)
-        {
-            EliminarContrato eliminarContrato = new EliminarContrato();
-            eliminarContrato.Show();
+            foreach (var ventana in ventanasAbiertas.Values)
+            {
+                ventana.Closed -= VentanaCerrada;
+                ventana.Close();
+            }
         }
     }
 }

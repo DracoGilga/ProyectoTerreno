@@ -1,50 +1,60 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace FrontTerreno
 {
-    /// <summary>
-    /// Lógica de interacción para MenuPersona.xaml
-    /// </summary>
     public partial class MenuPersona : Window
     {
+        private Dictionary<Type, Window> ventanasAbiertas;
+
         public MenuPersona()
         {
             InitializeComponent();
-        }
-        private void Btn_AgregarPersona(object sender, RoutedEventArgs e)
-        {
-            AgregarPersona agregarPersona = new AgregarPersona();
-            agregarPersona.Show();
+            ventanasAbiertas = new Dictionary<Type, Window>();
         }
 
-        private void Btn_ModificarPersona(object sender, RoutedEventArgs e)
+        private void Btn_AgregarPersona(object sender, RoutedEventArgs e) => AbrirVentana(typeof(AgregarPersona));
+
+        private void Btn_ModificarPersona(object sender, RoutedEventArgs e) => AbrirVentana(typeof(ModificarPersona));
+
+        private void Btn_listaPersona(object sender, RoutedEventArgs e) => AbrirVentana(typeof(ListaPersona));
+
+        private void Btn_eliminarPersona(object sender, RoutedEventArgs e) => AbrirVentana(typeof(EliminarPersona));
+
+        private void AbrirVentana(Type tipoVentana)
         {
-            ModificarPersona modificarPersona = new ModificarPersona();
-            modificarPersona.Show();
+            if (!ventanasAbiertas.ContainsKey(tipoVentana))
+            {
+                Window ventanaNueva = Activator.CreateInstance(tipoVentana) as Window;
+
+                if (ventanaNueva != null)
+                {
+                    ventanaNueva.Closed += VentanaCerrada;
+                    ventanaNueva.Show();
+                    ventanasAbiertas[tipoVentana] = ventanaNueva;
+                }
+            }
+            else
+            {
+                Window ventanaExistente = ventanasAbiertas[tipoVentana];
+                ventanaExistente.Activate();
+            }
         }
 
-        private void Btn_listaPersona(object sender, RoutedEventArgs e)
+        private void VentanaCerrada(object sender, EventArgs e)
         {
-            ListaPersona listaPersona = new ListaPersona();
-            listaPersona.Show();
+            Type tipoVentana = sender.GetType();
+            ventanasAbiertas.Remove(tipoVentana);
         }
 
-        private void Btn_eliminarPersona(object sender, RoutedEventArgs e)
+        private void MenuPersona_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            EliminarPersona eliminarPersona = new EliminarPersona();
-            eliminarPersona.Show();
+            foreach (var ventana in ventanasAbiertas.Values)
+            {
+                ventana.Closed -= VentanaCerrada;
+                ventana.Close();
+            }
         }
     }
 }

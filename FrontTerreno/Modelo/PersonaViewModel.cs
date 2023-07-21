@@ -15,10 +15,14 @@ namespace FrontTerreno.Modelo
         {
 
         }
-
+        private string endpointAddress = "http://192.168.100.7:81/Service1.svc";
+        private Service1Client CreateServiceClient()
+        {
+            return new Service1Client(new System.ServiceModel.BasicHttpBinding(), new System.ServiceModel.EndpointAddress(endpointAddress));
+        }
         public async Task<Boolean> GuardarPersona(Persona persona)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 bool resultado = await servicio.RegistrarPersonaAsync(persona);
@@ -32,7 +36,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<Boolean> ModificarPersona(Persona persona)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 bool resultado = await servicio.ModificarPersonaAsync(persona);
@@ -46,7 +50,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<Boolean> EliminarPersona(int idPersona)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 bool resultado = await servicio.EliminarPersonaAsync(idPersona);
@@ -60,7 +64,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<List<Persona>> ListaPersonas()
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 Persona[] resultadoArray = await servicio.ListarPersonaAsync();

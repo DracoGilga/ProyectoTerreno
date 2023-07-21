@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FrontTerreno"
         mc:Ignorable="d"
-        Title="AgregarPredio" Height="260" Width="367">
+        Title="Eliminar Predio" Height="260" Width="367"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Window.Resources>
         <DataTemplate x:Key="PredioItemTemplate">
             <StackPanel Orientation="Horizontal" Margin="0,2">

@@ -18,10 +18,15 @@ namespace FrontTerreno.Modelo
         {
 
         }
+        private string endpointAddress = "http://192.168.100.7:81/Service1.svc";
+        private Service1Client CreateServiceClient()
+        {
+            return new Service1Client(new System.ServiceModel.BasicHttpBinding(), new System.ServiceModel.EndpointAddress(endpointAddress));
+        }
         //agregar
         public async Task<Boolean> GuardarPredio(Predio predio)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 bool resultado = await servicio.RegistrarPredioAsync(predio);
@@ -35,7 +40,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<Boolean> GuardarManzana(Manzana manzana)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 bool resultado = await servicio.RegistrarManzanaAsync(manzana);
@@ -49,7 +54,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<Boolean> GuardarLote(Lote lote)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 bool resultado = await servicio.RegistrarLoteAsync(lote);
@@ -65,7 +70,7 @@ namespace FrontTerreno.Modelo
         //modificar
         public async Task<Boolean> ModificarPredio(Predio predio)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 bool resultado = await servicio.ModificarPredioAsync(predio);
@@ -79,7 +84,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<Boolean> ModificarManzana(Manzana manzana)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 bool resultado = await servicio.ModificarManzanaAsync(manzana);
@@ -93,7 +98,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<Boolean> ModificarLote(Lote lote)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 bool resultado = await servicio.ModificarLoteAsync(lote);
@@ -107,7 +112,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<Boolean> ModificarContratoLote(int idContrato, int idLote)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 bool resultado = await servicio.ModificarContratoLoteAsync(idContrato, idLote);
@@ -123,7 +128,7 @@ namespace FrontTerreno.Modelo
         //eliminar
         public async Task<Boolean> EliminarPredio(int idPredio)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 bool resultado = await servicio.EliminarPredioAsync(idPredio);
@@ -137,7 +142,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<Boolean> EliminarManzana(int idManzana)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 bool resultado = await servicio.EliminarManzanaAsync(idManzana);
@@ -151,7 +156,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<Boolean> EliminarLote(int idLote)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 bool resultado = await servicio.EliminarLoteAsync(idLote);
@@ -165,7 +170,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<Boolean> EliminarContratoLote(int idLote)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 bool resultado = await servicio.EliminarLoteContratoAsync(idLote);
@@ -183,7 +188,7 @@ namespace FrontTerreno.Modelo
         //consultar
         public async Task<List<Predio>> ListaPredios()
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 Predio[] consulta = await servicio.ListarPredioAsync();
@@ -200,7 +205,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<List<Manzana>> ListaManzanas(int idPredio)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 Manzana[] consulta = await servicio.ListarManzanaAsync(idPredio);
@@ -217,7 +222,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<List<Lote>> ListaLotes(int idManzana)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 Lote[] consulta = await servicio.ListarLoteManzanaAsync(idManzana);
@@ -234,7 +239,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<List<Terreno>> ListaTerrenos()
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 Terreno[] consulta = await servicio.ListaTerrenosAsync();
@@ -251,7 +256,7 @@ namespace FrontTerreno.Modelo
         }
         public async Task<List<Terreno>> ListaTerrenosContrato(int idContrato)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 Terreno[] consulta = await servicio.ListarTerrenoContratoAsync(idContrato);

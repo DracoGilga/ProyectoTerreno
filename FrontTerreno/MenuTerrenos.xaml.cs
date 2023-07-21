@@ -1,87 +1,78 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace FrontTerreno
 {
-    /// <summary>
-    /// Lógica de interacción para MenuTerrenos.xaml
-    /// </summary>
     public partial class MenuTerrenos : Window
     {
+        private Dictionary<Type, Window> ventanasAbiertas;
+
         public MenuTerrenos()
         {
             InitializeComponent();
+            ventanasAbiertas = new Dictionary<Type, Window>();
         }
 
-        private void Btn_agregarPredio(object sender, RoutedEventArgs e)
-        {
-            AgregarPredio agregarPredio = new AgregarPredio();
-            agregarPredio.Show();
-        }
-
-        private void Btn_modificarPredio(object sender, RoutedEventArgs e)
-        {
-            ModificarPredio modificarPredio = new ModificarPredio();
-            modificarPredio.Show();
-        }
-
-        private void Btn_eliminarPredio(object sender, RoutedEventArgs e)
-        {
-            EliminarPredio eliminarPredio = new EliminarPredio();
-            eliminarPredio.Show();
-        }
-
-        private void Btn_agregarManzana(object sender, RoutedEventArgs e)
-        {
-            AgregarManzana agregarManzana = new AgregarManzana();
-            agregarManzana.Show();
-        }
-
-        private void Btn_modificarManzana(object sender, RoutedEventArgs e)
-        {
-            ModificarManzana modificarManzana = new ModificarManzana();
-            modificarManzana.Show();
-        }
-
-        private void Btn_eliminarManzana(object sender, RoutedEventArgs e)
-        {
-            EliminarManzana eliminarManzana = new EliminarManzana();
-            eliminarManzana.Show();
-        }
-
-        private void Btn_agregarLote(object sender, RoutedEventArgs e)
-        {
-            AgregarLote agregarLote = new AgregarLote();
-            agregarLote.Show();
-        }
-
-        private void Btn_modificarLote(object sender, RoutedEventArgs e)
-        {
-            ModificarLote modificarLote = new ModificarLote();
-            modificarLote.Show();
-        }
-
-        private void Btn_eliminarLote(object sender, RoutedEventArgs e)
-        {
-            EliminarLote eliminarLote = new EliminarLote();
-            eliminarLote.Show();
-        }
+        private void Btn_agregarPredio(object sender, RoutedEventArgs e) => AbrirVentana(typeof(AgregarPredio));
+        private void Btn_modificarPredio(object sender, RoutedEventArgs e) => AbrirVentana(typeof(ModificarPredio));
+        private void Btn_eliminarPredio(object sender, RoutedEventArgs e) => AbrirVentana(typeof(EliminarPredio));
+        private void Btn_agregarManzana(object sender, RoutedEventArgs e) => AbrirVentana(typeof(AgregarManzana));
+        private void Btn_modificarManzana(object sender, RoutedEventArgs e) => AbrirVentana(typeof(ModificarManzana));
+        private void Btn_eliminarManzana(object sender, RoutedEventArgs e) => AbrirVentana(typeof(EliminarManzana));
+        private void Btn_agregarLote(object sender, RoutedEventArgs e) => AbrirVentana(typeof(AgregarLote));
+        private void Btn_modificarLote(object sender, RoutedEventArgs e) => AbrirVentana(typeof(ModificarLote));
+        private void Btn_eliminarLote(object sender, RoutedEventArgs e) => AbrirVentana(typeof(EliminarLote));
 
         private void Btn_listaTerrenos(object sender, RoutedEventArgs e)
         {
-            ListaTerrenos listaTerrenos = new ListaTerrenos();
-            listaTerrenos.Show();
+            if (!ventanasAbiertas.ContainsKey(typeof(ListaTerrenos)))
+            {
+                ListaTerrenos listaTerrenos = new ListaTerrenos();
+                listaTerrenos.Closed += VentanaCerrada;
+                listaTerrenos.Show();
+                ventanasAbiertas[typeof(ListaTerrenos)] = listaTerrenos;
+            }
+            else
+            {
+                Window ventanaExistente = ventanasAbiertas[typeof(ListaTerrenos)];
+                ventanaExistente.Activate();
+            }
+        }
+
+        private void AbrirVentana(Type tipoVentana)
+        {
+            if (!ventanasAbiertas.ContainsKey(tipoVentana))
+            {
+                Window ventanaNueva = Activator.CreateInstance(tipoVentana) as Window;
+
+                if (ventanaNueva != null)
+                {
+                    ventanaNueva.Closed += VentanaCerrada;
+                    ventanaNueva.Show();
+                    ventanasAbiertas[tipoVentana] = ventanaNueva;
+                }
+            }
+            else
+            {
+                Window ventanaExistente = ventanasAbiertas[tipoVentana];
+                ventanaExistente.Activate();
+            }
+        }
+
+        private void VentanaCerrada(object sender, EventArgs e)
+        {
+            Type tipoVentana = sender.GetType();
+            ventanasAbiertas.Remove(tipoVentana);
+        }
+
+        private void MenuTerrenos_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            foreach (var ventana in ventanasAbiertas.Values)
+            {
+                ventana.Closed -= VentanaCerrada;
+                ventana.Close();
+            }
         }
     }
 }

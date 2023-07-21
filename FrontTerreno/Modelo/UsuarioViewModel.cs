@@ -15,9 +15,14 @@ namespace FrontTerreno.Modelo
         {
 
         }
+        private string endpointAddress = "http://192.168.100.7:81/Service1.svc";
+        private Service1Client CreateServiceClient()
+        {
+            return new Service1Client(new System.ServiceModel.BasicHttpBinding(), new System.ServiceModel.EndpointAddress(endpointAddress));
+        }
         public async Task<Usuario> InicioSesion(string usuario, string contrasena)
         {
-            Service1Client servicio = new Service1Client();
+            Service1Client servicio = CreateServiceClient();
             if (servicio != null)
             {
                 Usuario user = await servicio.LoginAsync(usuario, contrasena);

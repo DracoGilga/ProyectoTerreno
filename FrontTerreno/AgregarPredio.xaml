@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FrontTerreno"
         mc:Ignorable="d"
-        Title="AgregarPredio" Height="249" Width="367">
+        Title="Agregar Predio" Height="249" Width="367"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Grid>
         <Label Content="Nombre:" HorizontalAlignment="Left" Margin="31,60,0,0" VerticalAlignment="Top" FontSize="20"/>
         <Label Content="Ubicación:" HorizontalAlignment="Left" Margin="31,102,0,0" VerticalAlignment="Top" FontSize="20"/>

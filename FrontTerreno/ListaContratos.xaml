@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FrontTerreno"
         mc:Ignorable="d"
-        Title="ListaContratos" Height="450" Width="1082">
+        Title="Lista Contratos" Height="450" Width="1082"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Grid>
         <DataGrid x:Name="tablaContrato" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Center" Height="390" VerticalAlignment="Center" Width="1044" IsReadOnly="True">
             <DataGrid.Columns>

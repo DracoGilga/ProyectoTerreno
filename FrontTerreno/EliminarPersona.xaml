@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FrontTerreno"
         mc:Ignorable="d"
-        Title="Eliminar Persona" Height="479" Width="708">
+        Title="Eliminar Persona" Height="479" Width="708"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
     <Window.Resources>
         <DataTemplate x:Key="PersonaItemTemplate">
             <StackPanel Orientation="Horizontal" Margin="0,2">
