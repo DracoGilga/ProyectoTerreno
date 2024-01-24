@@ -33,9 +33,23 @@ namespace FrontTerreno
             BuscarTiposFecha();
         }
 
-        private void Btn_eliminar(object sender, RoutedEventArgs e)
+        private async void Btn_eliminar(object sender, RoutedEventArgs e)
         {
-
+            if(Cb_clienteContrato.SelectedItem != null)
+            {
+                List<Terreno> terrenos = (List<Terreno>)Dg_terreno.ItemsSource;
+                if (terrenos.Count > 0)
+                    MessageBox.Show("No se puede eliminar el contrato, tiene terrenos asignados");
+                else
+                {
+                    foreach (var item in terrenos)
+                        await terrenoViewModel.EliminarContratoLote((int)item.IdLote);
+                    MessageBox.Show("Contrato eliminado");
+                    this.Close();
+                }
+            }
+            else
+                MessageBox.Show("Seleccione un contrato");
         }
 
         private void Clic_contrato(object sender, SelectionChangedEventArgs e)

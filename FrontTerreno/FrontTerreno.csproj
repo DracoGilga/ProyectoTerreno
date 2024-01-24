@@ -2,13 +2,19 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows7.0</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>LOGO.ico</ApplicationIcon>
+    <AssemblyName>Software Terreno</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Login.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="LOGO.ico" />
   </ItemGroup>
 
   <ItemGroup>

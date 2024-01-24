@@ -5,7 +5,9 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicioTerreno", "ServicioTerreno\ServicioTerreno.csproj", "{7EA4271D-D45A-4D84-BAD6-E6630D0EF652}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontTerreno", "FrontTerreno\FrontTerreno.csproj", "{DD44F0A7-01BF-45ED-BF79-7758514B2D45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontTerreno", "FrontTerreno\FrontTerreno.csproj", "{DD44F0A7-01BF-45ED-BF79-7758514B2D45}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{C06E6132-64D8-4696-910C-3B65999DAC5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,8 @@ Global
 		{DD44F0A7-01BF-45ED-BF79-7758514B2D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD44F0A7-01BF-45ED-BF79-7758514B2D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD44F0A7-01BF-45ED-BF79-7758514B2D45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C06E6132-64D8-4696-910C-3B65999DAC5D}.Debug|Any CPU.ActiveCfg = Debug
+		{C06E6132-64D8-4696-910C-3B65999DAC5D}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

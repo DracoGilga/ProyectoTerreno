@@ -1,8 +1,11 @@
 ﻿using FrontTerreno.Modelo;
 using FrontTerreno.Recursos;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
 using ServiceReference1;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,6 +38,7 @@ namespace FrontTerreno
 
         private async void Btn_registrar(object sender, RoutedEventArgs e)
         {
+            /*
             if (!string.IsNullOrWhiteSpace(Tb_cantidad.Text) && !string.IsNullOrWhiteSpace(Dp_fecha.Text) &&
                 Cb_cliente.SelectedIndex != -1 && Cb_tipoPago.SelectedIndex != -1)
             {
@@ -64,7 +68,10 @@ namespace FrontTerreno
             }
             else
                 MessageBox.Show("Favor de llenar todos los campos necesarios");
-            
+            */
+            PdfPago();
+
+
         }
         private string GenerarFolio()
         {
@@ -74,9 +81,9 @@ namespace FrontTerreno
             string fecha = DateTime.Now.ToString("MMddyy");
             int numeroAleatorio = new Random().Next(1, 1000);
             string[] palabrasPredio = nombrePredio.Split(' ');
-            string siglaNombrePredio = string.Join("", palabrasPredio.Take(2).Select(p => p[0]));
+            string siglaNombrePredio = palabrasPredio.Length >= 2 ? string.Concat(palabrasPredio.Take(2).Select(p => p.Length > 0 ? p[0] : ' ')) : string.Empty;
             string[] palabrasNombre = nombreCompleto.Split(' ');
-            string siglaNombre = string.Join("", palabrasNombre.Select(p => p[0]));
+            string siglaNombre = palabrasNombre.Length >= 1 ? string.Concat(palabrasNombre.Select(p => p.Length > 0 ? p[0] : ' ')) : string.Empty;
             string fechaNumeroAleatorio = fecha + numeroAleatorio.ToString();
             string hexFechaNumeroAleatorio = Convert.ToInt32(fechaNumeroAleatorio).ToString("X");
 
@@ -167,5 +174,122 @@ namespace FrontTerreno
                 Tb_fechaL.Text = fechaFormateada;
             }
         }
+
+        private void PdfPago()
+        {
+            // Obtenemos la ruta del escritorio del usuario
+            string rutaEscritorio = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            // Creamos la carpeta "PDF" dentro del escritorio, si no existe
+            string carpetaPDF = System.IO.Path.Combine(rutaEscritorio, "PDF");
+            if (!Directory.Exists(carpetaPDF))
+            {
+                Directory.CreateDirectory(carpetaPDF);
+            }
+
+            // Ruta donde queremos guardar el archivo PDF
+            string rutaArchivoPDF = System.IO.Path.Combine(carpetaPDF, "recibo_pago.pdf");
+
+            // Creamos el archivo PDF
+            using (FileStream fs = new FileStream(rutaArchivoPDF, FileMode.Create))
+            {
+                // Creamos el documento en tamaño carta
+                Document doc = new Document(PageSize.LETTER);
+                PdfWriter.GetInstance(doc, fs);
+
+                // Abrimos el documento para escribir en él
+                doc.Open();
+
+                // Creamos una fuente para el contenido
+                BaseFont fuente = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+                Font contenidoFuente = new Font(fuente, 12);
+                Font tituloFuente = new Font(fuente, 16, Font.BOLD);
+
+                // Creamos el cuadro principal que rodea todo y le establecemos el borde negro
+                PdfPTable cuadroPrincipal = new PdfPTable(1);
+                cuadroPrincipal.WidthPercentage = 100f;
+                cuadroPrincipal.DefaultCell.Border = iTextSharp.text.Rectangle.BOX;
+                cuadroPrincipal.DefaultCell.BorderColor = BaseColor.BLACK;
+
+                // Agregamos el contenido al cuadro principal
+                PdfPCell celdaLenceroRecibo = new PdfPCell(new Phrase("Lencero 3\n\nRecibo de Pago", tituloFuente));
+                celdaLenceroRecibo.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                celdaLenceroRecibo.HorizontalAlignment = Element.ALIGN_CENTER;
+                celdaLenceroRecibo.PaddingBottom = 2f; // Espacio de 2 mm entre Lencero 3 y Recibo de Pago
+                cuadroPrincipal.AddCell(celdaLenceroRecibo);
+
+                PdfPCell celdaFolio = new PdfPCell(new Phrase("Folio: 12123", new Font(fuente, 12, Font.BOLD, BaseColor.RED)));
+                celdaFolio.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                cuadroPrincipal.AddCell(celdaFolio);
+
+                PdfPCell celdaBueno = new PdfPCell(new Phrase("Bueno por $5000", contenidoFuente));
+                celdaBueno.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                celdaBueno.HorizontalAlignment = Element.ALIGN_RIGHT;
+                cuadroPrincipal.AddCell(celdaBueno);
+
+                PdfPCell celdaFecha = new PdfPCell(new Phrase("Fecha: jueves, 03 de agosto de 2023", contenidoFuente));
+                celdaFecha.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                cuadroPrincipal.AddCell(celdaFecha);
+
+                PdfPCell celdaRecibiDe = new PdfPCell(new Phrase("Recibí de: Cesar Gonzalez Lopez", contenidoFuente));
+                celdaRecibiDe.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                cuadroPrincipal.AddCell(celdaRecibiDe);
+
+                PdfPCell celdaCantidad = new PdfPCell(new Phrase("La cantidad de cinco mil pesos con 0 centavos mexicanos.", contenidoFuente));
+                celdaCantidad.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                cuadroPrincipal.AddCell(celdaCantidad);
+
+                PdfPCell celdaConcepto = new PdfPCell(new Phrase("Por concepto de: PAGO DE MENSUALIDAD", new Font(fuente, 12, Font.BOLD)));
+                celdaConcepto.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                cuadroPrincipal.AddCell(celdaConcepto);
+
+                PdfPCell celdaLote = new PdfPCell(new Phrase("Lote no. 40 mza. B, superficie 200m2", contenidoFuente));
+                celdaLote.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                cuadroPrincipal.AddCell(celdaLote);
+
+                // Agregamos el cuadro principal al documento
+                doc.Add(cuadroPrincipal);
+
+                // Agregamos un espacio en blanco
+                doc.Add(new iTextSharp.text.Paragraph("\n"));
+
+                // Creamos una tabla para las líneas de firma
+                PdfPTable tablaFirmas = new PdfPTable(2);
+                tablaFirmas.WidthPercentage = 100f;
+
+                // Línea izquierda
+                PdfPCell lineaIzquierda = new PdfPCell(new iTextSharp.text.Paragraph("___________________________"));
+                lineaIzquierda.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                tablaFirmas.AddCell(lineaIzquierda);
+
+                // Línea derecha
+                PdfPCell lineaDerecha = new PdfPCell(new iTextSharp.text.Paragraph("___________________________"));
+                lineaDerecha.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                tablaFirmas.AddCell(lineaDerecha);
+
+                // Agregamos la tabla de firmas al documento
+                doc.Add(tablaFirmas);
+
+                // Agregamos un espacio en blanco
+                doc.Add(new iTextSharp.text.Paragraph("\n"));
+
+                // Creamos un cuadro para la nota
+                PdfPTable cuadroNota = new PdfPTable(1);
+                cuadroNota.WidthPercentage = 100f;
+                cuadroNota.DefaultCell.Border = iTextSharp.text.Rectangle.BOX;
+                cuadroNota.DefaultCell.BorderColor = BaseColor.BLACK;
+
+                PdfPCell celdaNota = new PdfPCell(new Phrase("NOTA: SE COBRARÁ EL 10% DE RECARGOS DESPUÉS DE LOS TRES DÍAS DE\nESTIPULADO DESPUÉS DE SU PAGO. Y EN CASO DE QUE RESCINDA EL\nCONTRATO SE LE DEVOLVERÁ EL 25 % DE ACUERDO COMO LO FUE PAGANDO.", contenidoFuente));
+                celdaNota.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                cuadroNota.AddCell(celdaNota);
+
+                // Agregamos el cuadro de la nota al documento
+                doc.Add(cuadroNota);
+
+                // Cerramos el documento
+                doc.Close();
+            }
+        }
+
     }
 }
